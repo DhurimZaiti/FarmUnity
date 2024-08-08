@@ -1,0 +1,24 @@
+.sidebar {
+    height: 100vh;
+    background-color: #fffaf0 !important;
+    padding: 20px;
+}
+.sidebar a {
+    text-decoration: none;
+}
+.nav-link {
+    display: block;
+    padding: 10px;
+}
+.nav-link:hover {
+    background-color: #e9ecef;
+}
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
