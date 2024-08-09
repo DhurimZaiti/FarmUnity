@@ -33,6 +33,11 @@ body {
     }
 }
 
+.text-decoration-none {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
 /* Bootstrap 5.3 SideBar custom CSS */
 body {
     min-height: 100vh;

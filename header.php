@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
 <!-- SIDEBAR -->
-<div class="flex-shrink-0 p-3 bg-light" style="width: 280px;">
+<div class="flex-shrink-0 p-3 bg-light d-none d-md-block" style="width: 280px;">
     <a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
         <img src="images/FU-T.png" class="navbar-image" alt="Logo"><span class="text-dark">Farm</span><span class="text-primary">Unity</span>  
     </a>
@@ -55,7 +54,7 @@
       <!-- ----------------------------------- -->
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#livestock-collapse" aria-expanded="false">
-          <i class="far fa-cow mr-1"></i>Livestock
+          <i class="fal fa-cow mr-1"></i>Livestock
         </button>
         <div class="collapse" id="livestock-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -69,7 +68,7 @@
       <!-- ----------------------------------- -->
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#plantings-collapse" aria-expanded="false">
-          <i class="bi mr-1 bi-flower1 mr-1"></i> Plantings
+          <i class="bi mr-1 bi-flower2 mr-1"></i> Plantings
         </button>
         <div class="collapse" id="plantings-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -83,7 +82,7 @@
       <!-- ----------------------------------- -->
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#rescources-collapse" aria-expanded="false">
-          <i class="far fa-tractor mr-1"></i> Resources
+          <i class="fal fa-tractor mr-1"></i> Resources
         </button>
         <div class="collapse" id="rescources-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -125,7 +124,7 @@
       <!-- ----------------------------------- -->
       <li class="mb-1">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            <i class="far mr-1 fa-cloud-sun-rain"></i> Climate
+            <i class="fal mr-1 fa-cloud-sun-rain"></i> Climate
         </button>
         <div class="collapse" id="orders-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -140,15 +139,15 @@
      
       <li class="border-top my-3"></li>
       <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-         <i class="bi mr-1 bi-person-circle"></i> Your Profile</a>
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#profile-collapse" aria-expanded="false">
+         <i class="bi mr-1 bi-person"></i> Your Profile</a>
         </button>
-        <div class="collapse" id="account-collapse">
+        <div class="collapse" id="profile-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Change Avatar</a></li>
             <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Details</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Change Password</a></li>
           </ul>
         </div>
       </li>
@@ -167,131 +166,113 @@
         </div>
       </li>
       <!-- ----------------------------------- -->
-      <li class="mb-1">
-          <a href="#"><i class="bi mr-1 bi-box-arrow-right"></i> Sign Out</a>
+      <li class="btn mb-1 text-decoration-none">
+          <a class=" text-decoration-none" href="#"><i class="bi mr-1 bi-box-arrow-right"></i> Sign Out</a>
       </li>
       <!-- ----------------------------------- -->
     </ul>
   </div>
 
 
-    <!-- Content -->
-<div class="container">
-    <div class="content mt-5">
-        <h1>Weather for TETOVO, TETOVO</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h2 class="card-title">34°C</h2>
-                        <p class="card-text">Scattered Clouds - H 35°C L 18°C</p>
-                        <p class="card-text">Sunset: 7:46PM</p>
-                        <p class="card-text">Wind: 1 mps</p>
-                        <p class="card-text">Humidity: 23%</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Hourly Forecast</h5>
-                        <p class="card-text">7PM - 34°C</p>
-                        <p class="card-text">8PM - 33°C</p>
-                        <p class="card-text">9PM - 31°C</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="content mt-5">
-        <h1>Weather for TETOVO, TETOVO</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h2 class="card-title">34°C</h2>
-                        <p class="card-text">Scattered Clouds - H 35°C L 18°C</p>
-                        <p class="card-text">Sunset: 7:46PM</p>
-                        <p class="card-text">Wind: 1 mps</p>
-                        <p class="card-text">Humidity: 23%</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Hourly Forecast</h5>
-                        <p class="card-text">7PM - 34°C</p>
-                        <p class="card-text">8PM - 33°C</p>
-                        <p class="card-text">9PM - 31°C</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="content mt-5">
-        <h1>Weather for TETOVO, TETOVO</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h2 class="card-title">34°C</h2>
-                        <p class="card-text">Scattered Clouds - H 35°C L 18°C</p>
-                        <p class="card-text">Sunset: 7:46PM</p>
-                        <p class="card-text">Wind: 1 mps</p>
-                        <p class="card-text">Humidity: 23%</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Hourly Forecast</h5>
-                        <p class="card-text">7PM - 34°C</p>
-                        <p class="card-text">8PM - 33°C</p>
-                        <p class="card-text">9PM - 31°C</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="content mt-5">
-        <h1>Weather for TETOVO, TETOVO</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h2 class="card-title">34°C</h2>
-                        <p class="card-text">Scattered Clouds - H 35°C L 18°C</p>
-                        <p class="card-text">Sunset: 7:46PM</p>
-                        <p class="card-text">Wind: 1 mps</p>
-                        <p class="card-text">Humidity: 23%</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Hourly Forecast</h5>
-                        <p class="card-text">7PM - 34°C</p>
-                        <p class="card-text">8PM - 33°C</p>
-                        <p class="card-text">9PM - 31°C</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Navbar & SideBar END -->
+<!-- SideBar END -->
 
+<!-- Navbar for small screens -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-md-none bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+  </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+          <a class="nav-link" href="#">Search</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Schedule</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Livestock</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Plantings</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Farm Map</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Climate</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Your Profile</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Settings</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Sign Out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<!-- Bootstrap 5 JS CDN -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<!-- Custom JS -->
- <script src="js/main.js"></script>
-</body>
-</html>
+    <!-- <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <span class="text-dark">Farm</span><span class="text-primary">Unity</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Schedule</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Livestock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Plantings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Farm Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Climate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Your Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </div> -->
 
+</nav>
+<!-- Navbar for small screens END -->
         <!-- For Later (Search Related)
         <form class="d-flex ms-auto me-auto ml-5">
             <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
