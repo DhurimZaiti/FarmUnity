@@ -18,264 +18,288 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/poppins-font.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
 </head>
 <body>
-<!-- SIDEBAR -->
-<div class="flex-shrink-0 p-3 bg-light d-none d-md-block" style="width: 280px;">
-    <a href="#" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-        <img src="images/FU-T.png" class="navbar-image" alt="Logo"><span class="text-dark">Farm</span><span class="text-primary">Unity</span>  
-    </a>
-    <ul class="list-unstyled ps-0">
-    <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#search-collapse" aria-expanded="false">
-         <i class="bi bi-search mr-1"></i> Search
-        </button>
-        <div class="collapse" id="search-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#schedule-collapse" aria-expanded="false">
-          <i class="bi bi-check2-square mr-1"></i> Schedule
-        </button>
-        <div class="collapse" id="schedule-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#livestock-collapse" aria-expanded="false">
-          <i class="fal fa-cow mr-1"></i>Livestock
-        </button>
-        <div class="collapse" id="livestock-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#plantings-collapse" aria-expanded="false">
-          <i class="bi mr-1 bi-flower2 mr-1"></i> Plantings
-        </button>
-        <div class="collapse" id="plantings-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#rescources-collapse" aria-expanded="false">
-          <i class="fal fa-tractor mr-1"></i> Resources
-        </button>
-        <div class="collapse" id="rescources-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#contact-collapse" aria-expanded="false">
-           <i class="bi mr-1 bi-people"></i> Contacts
-        </button>
-        <div class="collapse" id="contact-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#farm-map-collapse" aria-expanded="false">
-         <i class="bi mr-1 bi-map"></i> Farm Map
-        </button>
-        <div class="collapse" id="farm-map-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            <i class="fal mr-1 fa-cloud-sun-rain"></i> Climate
-        </button>
-        <div class="collapse" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-     
-      <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#profile-collapse" aria-expanded="false">
-         <i class="bi mr-1 bi-person"></i> Your Profile</a>
-        </button>
-        <div class="collapse" id="profile-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Change Avatar</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Details</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Change Password</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-            <i class="bi mr-1 bi-gear"></i> Settings</a>
-        </button>
-        <div class="collapse" id="account-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Users</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Billing</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pricing</a></li>
-          </ul>
-        </div>
-      </li>
-      <!-- ----------------------------------- -->
-      <li class="btn mb-1 text-decoration-none">
-          <a class=" text-decoration-none" href="#"><i class="bi mr-1 bi-box-arrow-right"></i> Sign Out</a>
-      </li>
-      <!-- ----------------------------------- -->
-    </ul>
-  </div>
-
-
-<!-- SideBar END -->
-
-<!-- Navbar for small screens -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light d-md-none bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-  </div>
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-  <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-          <a class="nav-link" href="#">Search</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Schedule</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Livestock</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Plantings</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Resources</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Farm Map</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Climate</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Your Profile</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Settings</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Sign Out</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-    <!-- <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <span class="text-dark">Farm</span><span class="text-primary">Unity</span>
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav
+       id="sidebarMenu"
+       class="collapse d-lg-block sidebar collapse bg-white"
+       >
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           aria-current="true"
+           >
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i
+            ><span>Main dashboard</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Schedule</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Livestock</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Plantings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Resources</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contacts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Farm Map</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Climate</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Your Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Out</a>
-                </li>
-            </ul>
-        </div>
-    </div> -->
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple active"
+           >
+          <i class="fas fa-chart-area fa-fw me-3"></i
+            ><span>Webiste traffic</span>
+        </a>
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-chart-line fa-fw me-3"></i
+          ><span>Analytics</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           >
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+        </a>
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-globe fa-fw me-3"></i
+          ><span>International</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-building fa-fw me-3"></i
+          ><span>Partners</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-calendar fa-fw me-3"></i
+          ><span>Calendar</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
+          >
+        <a
+           href="#"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
+          >
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
 
-</nav>
-<!-- Navbar for small screens END -->
+  <!-- Navbar -->
+  <nav
+       id="main-navbar"
+       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       >
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button
+              class="navbar-toggler"
+              type="button"
+              data-mdb-toggle="collapse"
+              data-mdb-target="#sidebarMenu"
+              aria-controls="sidebarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img
+             src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+             height="25"
+             alt=""
+             loading="lazy"
+             />
+      </a>
+      <!-- Search form -->
+      <form class="d-none d-md-flex input-group w-auto my-auto">
+        <input
+               autocomplete="off"
+               type="search"
+               class="form-control rounded"
+               placeholder='Search (ctrl + "/" to focus)'
+               style="min-width: 225px"
+               />
+        <span class="input-group-text border-0"
+              ><i class="fas fa-search"></i
+          ></span>
+      </form>
+
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+        <li class="nav-item dropdown">
+          <a
+             class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
+             href="#"
+             id="navbarDropdownMenuLink"
+             role="button"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+             >
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill badge-notification bg-danger"
+                  >1</span
+              >
+          </a>
+          <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+              >
+            <li><a class="dropdown-item" href="#">Some news</a></li>
+            <li><a class="dropdown-item" href="#">Another news</a></li>
+            <li>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Icon -->
+        <li class="nav-item">
+          <a class="nav-link me-3 me-lg-0" href="#">
+            <i class="fas fa-fill-drip"></i>
+          </a>
+        </li>
+        <!-- Icon -->
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link" href="#">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+
+        <!-- Icon dropdown -->
+        <li class="nav-item dropdown">
+          <a
+             class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
+             href="#"
+             id="navbarDropdown"
+             role="button"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+             >
+            <i class="united kingdom flag m-0"></i>
+          </a>
+          <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdown"
+              >
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="united kingdom flag"></i>English
+                <i class="fa fa-check text-success ms-2"></i
+                  ></a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="poland flag"></i>Polski</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="china flag"></i>中文</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="japan flag"></i>日本語</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="germany flag"></i>Deutsch</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="france flag"></i>Français</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="spain flag"></i>Español</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="russia flag"></i>Русский</a
+                >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                 ><i class="portugal flag"></i>Português</a
+                >
+            </li>
+          </ul>
+        </li>
+
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a
+             class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+             href="#"
+             id="navbarDropdownMenuLink"
+             role="button"
+             data-mdb-toggle="dropdown"
+             aria-expanded="false"
+             >
+            <img
+                 src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+                 class="rounded-circle"
+                 height="22"
+                 alt=""
+                 loading="lazy"
+                 />
+          </a>
+          <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+              >
+            <li><a class="dropdown-item" href="#">My profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px">
+  <div class="container pt-4">
+
+  </div>
+</main>
+<!--Main layout-->
+
+
+
+
         <!-- For Later (Search Related)
         <form class="d-flex ms-auto me-auto ml-5">
             <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
             <button class="btn btn-outline-success ml-2" type="submit"><i class=" bi bi-search"></i></button>
-        </form> 
-        -->
+        </form> -->

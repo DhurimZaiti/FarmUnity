@@ -1,105 +1,39 @@
 body {
-    display: flex;
+  background-color: #fbfbfb;
 }
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #f8f9fa;
-    padding: 10px;
-}
-.sidebar a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-    padding: 8px;
-}
-.sidebar a:hover {
-    background-color: #e9ecef;
-}
-.content {
-    flex-grow: 1;
-    padding: 20px;
-}
-.navbar-image{
-    height: 32px !important;
-    width: 32px !important;
-}
-@media (max-width: 992px) {
-    .sidebar {
-        display: none;
-    }
-    #menuToggle {
-        display: block;
-    }
-}
-
-.text-decoration-none {
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* Bootstrap 5.3 SideBar custom CSS */
-body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
-  
-  html {
-    height: -webkit-fill-available;
-  }
-  
+@media (min-width: 991.98px) {
   main {
-    height: 100vh;
-    height: -webkit-fill-available;
-    max-height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
+    padding-left: 240px;
   }
-  
-  .dropdown-toggle { outline: 0; }
-  
-  .btn-toggle {
-    padding: .25rem .5rem;
-    font-weight: 600;
-    color: var(--bs-emphasis-color);
-    background-color: transparent;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
   }
-  .btn-toggle:hover,
-  .btn-toggle:focus {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
-    background-color: var(--bs-tertiary-bg);
-  }
-  
-  .btn-toggle::before {
-    width: 1.25em;
-    line-height: 0;
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-    transition: transform .35s ease;
-    transform-origin: .5em 50%;
-  }
-  
-  [data-bs-theme="dark"] .btn-toggle::before {
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  }
-  
-  .btn-toggle[aria-expanded="true"] {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
-  }
-  .btn-toggle[aria-expanded="true"]::before {
-    transform: rotate(90deg);
-  }
-  
-  .btn-toggle-nav a {
-    padding: .1875rem .5rem;
-    margin-top: .125rem;
-    margin-left: 1.25rem;
-  }
-  .btn-toggle-nav a:hover,
-  .btn-toggle-nav a:focus {
-    background-color: var(--bs-tertiary-bg);
-  }
-  
-  .scrollarea {
-    overflow-y: auto;
-  }
-  
+}
+.sidebar .active {
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
