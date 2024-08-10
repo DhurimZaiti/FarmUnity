@@ -18,6 +18,8 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/poppins-font.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sidebar-bs.css">
+    <link rel="stylesheet" href="css/sidebar-mdb.css">
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
 </head>
@@ -31,32 +33,27 @@
        >
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           aria-current="true"
-           >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i
-            ><span>Main dashboard</span>
+        <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+        </a> -->
+        <ul class="ps-0 list-unstyled">
+        <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          Home
+        </button>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
+          </ul>
+        </div>
+      </li>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
         </a>
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple active"
-           >
-          <i class="fas fa-chart-area fa-fw me-3"></i
-            ><span>Webiste traffic</span>
-        </a>
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-chart-line fa-fw me-3"></i
-          ><span>Analytics</span></a
-          >
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
         <a
            href="#"
            class="list-group-item list-group-item-action py-2 ripple"
@@ -96,6 +93,33 @@
            class="list-group-item list-group-item-action py-2 ripple"
            ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
           >
+           <!-- Collapse 1 -->
+        <a
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+          data-mdb-collapse-init
+          href="#collapseExample1"
+          aria-expanded="true"
+          aria-controls="collapseExample1"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Expanded menu</span>
+        </a>
+        <!-- Collapsed content -->
+        <ul id="collapseExample1" class="collapse show list-group list-group-flush">
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">Link</a>
+          </li>
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">Link</a>
+          </li>
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">Link</a>
+          </li>
+          <li class="list-group-item py-1">
+            <a href="" class="text-reset">Link</a>
+          </li>
+        </ul>
+        <!-- Collapse 1 -->
       </div>
     </div>
   </nav>
@@ -196,7 +220,7 @@
              data-mdb-toggle="dropdown"
              aria-expanded="false"
              >
-            <i class="united kingdom flag m-0"></i>
+             EN
           </a>
           <ul
               class="dropdown-menu dropdown-menu-end"
