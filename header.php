@@ -27,99 +27,89 @@
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav
-       id="sidebarMenu"
-       class="collapse d-lg-block sidebar collapse bg-white"
-       >
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
     <div class="position-sticky">
-      <div class="list-group list-group-flush mx-3 mt-4">
-        <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
-        </a> -->
-        <ul class="ps-0 list-unstyled">
-        <li class="mb-1">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Home
-        </button>
-        <div class="collapse show" id="home-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           >
-          <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
-        </a>
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-globe fa-fw me-3"></i
-          ><span>International</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-building fa-fw me-3"></i
-          ><span>Partners</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-calendar fa-fw me-3"></i
-          ><span>Calendar</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-users fa-fw me-3"></i><span>Users</span></a
-          >
-        <a
-           href="#"
-           class="list-group-item list-group-item-action py-2 ripple"
-           ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
-          >
-           <!-- Collapse 1 -->
-        <a
-          class="list-group-item list-group-item-action py-2 ripple"
-          aria-current="true"
-          data-mdb-collapse-init
-          href="#collapseExample1"
-          aria-expanded="true"
-          aria-controls="collapseExample1"
-        >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Expanded menu</span>
-        </a>
-        <!-- Collapsed content -->
-        <ul id="collapseExample1" class="collapse show list-group list-group-flush">
-          <li class="list-group-item py-1">
-            <a href="" class="text-reset">Link</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a href="" class="text-reset">Link</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a href="" class="text-reset">Link</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a href="" class="text-reset">Link</a>
-          </li>
-        </ul>
+      <div class="list-group list-group-flush mx-3 mt-4 ">
         <!-- Collapse 1 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#schedule" aria-expanded="true" aria-controls="schedule">
+            <i class="far fa-calendar-alt fa-fw me-3"></i><span>Schedule</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="schedule" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+          </ul>
+        <!-- Collapse 1 END -->
+        <!-- Collapse 2 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#plantings" aria-expanded="true" aria-controls="plantings">
+            <i class="far fa-seedling fa-fw me-3"></i><span>Plantings</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="plantings" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+          </ul>
+        <!-- Collapse 2 END -->
+        <!-- Collapse 3 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#livestock" aria-expanded="true" aria-controls="livestock">
+            <i class="far fa-cow fa-fw me-3"></i><span>Livestock</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="livestock" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+          </ul>
+        <!-- Collapse 3 END -->
+        <!-- Collapse 4 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#rescources" aria-expanded="true" aria-controls="rescources">
+            <i class="far fa-cow fa-fw me-3"></i><span>Rescources</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="rescources" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Link</a>
+            </li>
+          </ul>
+        <!-- Collapse 4 END -->
       </div>
     </div>
   </nav>
@@ -133,22 +123,14 @@
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-      <button
-              class="navbar-toggler"
-              type="button"
-              data-mdb-toggle="collapse"
-              data-mdb-target="#sidebarMenu"
-              aria-controls="sidebarMenu"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              >
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img
-             src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+             src="images/FU1T.png"
              height="25"
              alt=""
              loading="lazy"
@@ -172,23 +154,11 @@
       <ul class="navbar-nav ms-auto d-flex flex-row">
         <!-- Notification dropdown -->
         <li class="nav-item dropdown">
-          <a
-             class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow"
-             href="#"
-             id="navbarDropdownMenuLink"
-             role="button"
-             data-mdb-toggle="dropdown"
-             aria-expanded="false"
-             >
+          <a class="nav-link me-3 me-lg-0 dropdown-toggle dropdown" aria-current="true" data-mdb-collapse-init href="#bell" aria-expanded="true" aria-controls="bell">
             <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger"
-                  >1</span
-              >
+            <span class="badge rounded-pill badge-notification bg-danger">1</span>
           </a>
-          <ul
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuLink"
-              >
+          <ul class="collapse dropdown-menu list-group" aria-labelledby="bell" id="bell">
             <li><a class="dropdown-item" href="#">Some news</a></li>
             <li><a class="dropdown-item" href="#">Another news</a></li>
             <li>

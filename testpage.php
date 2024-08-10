@@ -3,7 +3,7 @@ include_once('header.php');
 ?>
 <!-- Content -->
 <div class="container">
-    <div class="content mt-5">
+    <div class="content  ">
         <h1>Weather for TETOVO, TETOVO</h1>
         <div class="row">
             <div class="col-md-6">
@@ -29,7 +29,7 @@ include_once('header.php');
             </div>
         </div>
     </div>
-    <div class="content mt-5">
+    <div class="content  ">
         <h1>Weather for TETOVO, TETOVO</h1>
         <div class="row">
             <div class="col-md-6">
@@ -55,7 +55,7 @@ include_once('header.php');
             </div>
         </div>
     </div>
-    <div class="content mt-5">
+    <div class="content  ">
         <h1>Weather for TETOVO, TETOVO</h1>
         <div class="row">
             <div class="col-md-6">
@@ -81,7 +81,7 @@ include_once('header.php');
             </div>
         </div>
     </div>
-    <div class="content mt-5">
+    <div class="content  ">
         <h1>Weather for TETOVO, TETOVO</h1>
         <div class="row">
             <div class="col-md-6">
