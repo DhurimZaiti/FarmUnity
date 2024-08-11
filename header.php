@@ -206,10 +206,10 @@
               <i class="far fa-language"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lang" id="lang">
-              <li><a class="dropdown-item" href="#"><i class="united kingdom flag"></i> English<i class="fa fa-check text-success ms-2"></i></a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#"><i class="albania flag"></i> Shqip</a></li>
-              <li><a class="dropdown-item" href="#"><i class="macedonia flag"></i> Македонски</a></li>
+            <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" width="16" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" width="16" alt="Albania"> Shqip</a></li>
+            <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" width="16" alt="North Macedonia"> Македонски</a></li>
           </ul>
       </li>
 
@@ -217,10 +217,10 @@
 
         <!-- Avatar -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="avatar" role="button" data-mdb-toggle="dropdown" aria-expanded="true" >
+            <img src="images/fallback-avatar.png" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" >
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatar" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -380,18 +380,10 @@
             <i class="far fa-language fa-fw me-3"></i><span>Language</span>
           </a>
           <!-- Languages -->
-          <ul id="lang" class="collapse list-group list-group-flush">
-            <li class="list-group-item py-1">
-              <a href="" class="text-reset">Weather History</a>
-            </li>
-            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
-            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" alt="Albania"> Shqip</a></li>
-            <li><a class="list-group-item py-1" href="#"><img
-  src="https://flagcdn.com/h20/mk.png"
-  srcset="https://flagcdn.com/h40/mk.png 2x,
-  https://flagcdn.com/h60/mk.png 3x"
-  height="20"
-  alt="North Macedonia">Македонски</a></li>
+          <ul id="lang" class="collapse list-group list-group-flush ls-none">
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" width="16" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" width="16" alt="Albania"> Shqip</a></li>
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" width="16" alt="North Macedonia"> Македонски</a></li>
           </ul>
           <!-- Language Dropdown END -->
         </ul>
