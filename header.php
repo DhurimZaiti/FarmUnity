@@ -55,8 +55,7 @@
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grazing</a>
             </li>
-            <li class="list-group-item py-1">
-            </li>
+ 
           </ul>
         <!-- Collapse 3 END -->
         <!-- Collapse 4 -->
@@ -80,8 +79,7 @@
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Yeild Comparison</a>
             </li>
-            <li class="list-group-item py-1">
-            </li>
+ 
           </ul>
         <!-- Collapse 4 END -->
         <!-- Collapse 5 -->
@@ -99,8 +97,7 @@
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Inventory</a>
             </li>
-            <li class="list-group-item py-1">
-            </li>
+ 
           </ul>
         <!-- Collapse 5 END -->
         <!-- Collapse 6 -->
@@ -124,8 +121,7 @@
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Budgeting</a>
             </li>
-            <li class="list-group-item py-1">
-            </li>
+ 
           </ul>
         <!-- Collapse 6 END -->
         <!-- Collapse 7 -->
@@ -156,8 +152,7 @@
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Weather Map</a>
             </li>
-            <li class="list-group-item py-1">
-            </li>
+ 
           </ul>
         <!-- Collapse 9 END -->
       </div>
@@ -173,38 +168,32 @@
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <a href="#hamburger" class="dropdown py-2 px-2 ripple aria-current="true" type="button" data-mdb-collapse-init href="#climate" aria-expanded="true" aria-controls="climate"">
+      <button class="navbar-toggler">
         <i class="fas fa-bars"></i>
       </button>
+    </a>
 
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img src="images/FU1T.png" height="25" alt="" loading="lazy"/>
       </a>
       <!-- Search form -->
-      <form class="d-none d-md-flex input-group w-auto my-auto">
+      <form class="d-flex input-group w-auto my-auto px-1">
         <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
 
       <!-- Right links -->
-      <ul class="navbar-nav ms-auto d-flex flex-row">
-        <!-- Notification dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link me-3 me-lg-0 dropdown" aria-current="true" data-mdb-collapse-init href="#bell" aria-expanded="true" aria-controls="bell">
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul class="collapse dropdown-menu dropdown-menu-end list-group" aria-labelledby="bell" id="bell">
-            <li><a class="dropdown-item" href="#">Some news</a></li>
-            <li><a class="dropdown-item" href="#">Another news</a></li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
-          </ul>
+      <ul class="navbar-nav ms-auto flex-row d-none d-md-flex">
+        <!-- Notifications -->
+        <li class="nav-item me-3 me-lg-0">
+        <a class="nav-link me-3 me-lg-0" href="#" aria-expanded="true">
+          <i class="fas fa-bell"></i>
+          <span class="badge rounded-pill badge-notification bg-danger"> <!-- In here goes the number of Notifications (for backend) --> 1</span>
+        </a>
         </li>
-
-        <!-- Icon -->
+        <!-- Settings -->
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" href="#">
             <i class="fas fa-cog"></i>
@@ -212,48 +201,26 @@
         </li>
 
       <!-- Language dropdown -->
-<li class="nav-item dropdown">
-    <a class="nav-link me-3 me-lg-0 dropdown" aria-current="true" data-mdb-collapse-init href="#lang" aria-expanded="true" aria-controls="lang">
-        <i class="far fa-language"></i>
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lang" id="lang">
-        <li><a class="dropdown-item" href="#"><i class="united kingdom flag"></i> English<i class="fa fa-check text-success ms-2"></i></a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#"><i class="poland flag"></i> Polski</a></li>
-        <li><a class="dropdown-item" href="#"><i class="china flag"></i> 中文</a></li>
-        <li><a class="dropdown-item" href="#"><i class="japan flag"></i> 日本語</a></li>
-        <li><a class="dropdown-item" href="#"><i class="germany flag"></i> Deutsch</a></li>
-        <li><a class="dropdown-item" href="#"><i class="france flag"></i> Français</a></li>
-        <li><a class="dropdown-item" href="#"><i class="spain flag"></i> Español</a></li>
-        <li><a class="dropdown-item" href="#"><i class="russia flag"></i> Русский</a></li>
-        <li><a class="dropdown-item" href="#"><i class="portugal flag"></i> Português</a></li>
-    </ul>
-</li>
+      <li class="nav-item dropdown">
+          <a class="nav-link me-3 me-lg-0" aria-current="true" data-mdb-collapse-init href="#lang" aria-expanded="true" aria-controls="lang">
+              <i class="far fa-language"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lang" id="lang">
+              <li><a class="dropdown-item" href="#"><i class="united kingdom flag"></i> English<i class="fa fa-check text-success ms-2"></i></a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#"><i class="albania flag"></i> Shqip</a></li>
+              <li><a class="dropdown-item" href="#"><i class="macedonia flag"></i> Македонски</a></li>
+          </ul>
+      </li>
 
 
 
         <!-- Avatar -->
         <li class="nav-item dropdown">
-          <a
-             class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
-             href="#"
-             id="navbarDropdownMenuLink"
-             role="button"
-             data-mdb-toggle="dropdown"
-             aria-expanded="false"
-             >
-            <img
-                 src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                 class="rounded-circle"
-                 height="22"
-                 alt=""
-                 loading="lazy"
-                 />
+          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false" >
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
-          <ul
-              class="dropdown-menu dropdown-menu-end"
-              aria-labelledby="navbarDropdownMenuLink"
-              >
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -270,7 +237,166 @@
 <!--Main layout-->
 <main style="margin-top: 58px">
   <div class="container pt-4">
-
+    <!-- Mobile Hamburger Menu Content -->
+    <div class="d-flex d-md-none mx-3 mt-2">
+        <ul class="collapse list-group list-group-item-action mx-3" id="hamburger">
+           <!-- Collapse 1 -->
+           <a class="list-group-item py-2 ripple"href="#">
+            <i class="far fa-calendar-alt fa-fw me-3"></i><span>Schedule</span>
+          </a>
+        <!-- Collapse 1 END -->
+        <!-- Collapse 2 -->
+          <a class="list-group-item py-2 ripple" href="#" >
+            <i class="far fa-check-circle fa-fw me-3"></i><span>Tasks</span>
+          </a>
+        <!-- Collapse 2 END -->
+        <!-- Collapse 3 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#livestock" aria-expanded="true" aria-controls="livestock">
+            <i class="far fa-cow fa-fw me-3"></i><span>Livestock</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="livestock" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Animals</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Livestock Groups</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Grazing</a>
+            </li>
+ 
+          </ul>
+        <!-- Collapse 3 END -->
+        <!-- Collapse 4 -->
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#plantings" aria-expanded="true" aria-controls="plantings">
+            <i class="far fa-seedling fa-fw me-3"></i><span>Plantings</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="plantings" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">My Crops</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Grow Locations</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Crop Plan</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Location Map</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset">Yeild Comparison</a>
+            </li>
+ 
+          </ul>
+        <!-- Collapse 4 END -->
+        <!-- Collapse 5 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#rescources" aria-expanded="true" aria-controls="rescources">
+            <i class="far fa-tractor fa-fw me-3"></i><span>Rescources</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="rescources" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Equipment</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Warehouses</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Inventory</a>
+            </li>
+ 
+          </ul>
+        <!-- Collapse 5 END -->
+        <!-- Collapse 6 -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#accounting" aria-expanded="true" aria-controls="accounting">
+            <i class="far fa-calculator fa-fw me-3"></i><span>Accounting</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="accounting" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Transactions</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">P&L Statements</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Cash Flow</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Balance Sheet</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Budgeting</a>
+            </li>
+ 
+          </ul>
+        <!-- Collapse 6 END -->
+        <!-- Collapse 7 -->
+          <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+            <i class="far fa-address-book fa-fw me-3"></i><span>Contacts</span>
+          </a>
+        <!-- Collapse 7 END -->
+        <!-- Collapse 8 -->
+        <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+            <i class="far fa-map fa-fw me-3"></i><span>Farm Map</span>
+          </a>
+        <!-- Collapse 8 END -->
+        <!-- Collapse 9 -->
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#climate" aria-expanded="true" aria-controls="climate">
+            <i class="far fa-cloud-sun-rain fa-fw me-3"></i><span>Climate</span>
+          </a>
+          <!-- Collapsed content -->
+          <ul id="climate" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Weather History</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Gauges</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Climate Logs</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Weather Map</a>
+            </li>
+ 
+          </ul>
+        <!-- Collapse 9 END -->
+        <!-- Notifications -->
+        <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+            <i class="far fa-bell fa-fw me-3"></i><span>Notifications</span>
+        </a>
+        <!-- Notifications END -->
+        <!-- Settings -->
+        <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+            <i class="far fa-cog fa-fw me-3"></i><span>Settings</span>
+        </a>
+        <!-- Settings END -->
+         <!-- Language Dropdown -->
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#lang" aria-expanded="true" aria-controls="lang">
+            <i class="far fa-language fa-fw me-3"></i><span>Language</span>
+          </a>
+          <!-- Languages -->
+          <ul id="lang" class="collapse list-group list-group-flush">
+            <li class="list-group-item py-1">
+              <a href="" class="text-reset">Weather History</a>
+            </li>
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" alt="Albania"> Shqip</a></li>
+            <li><a class="list-group-item py-1" href="#"><img
+  src="https://flagcdn.com/h20/mk.png"
+  srcset="https://flagcdn.com/h40/mk.png 2x,
+  https://flagcdn.com/h60/mk.png 3x"
+  height="20"
+  alt="North Macedonia">Македонски</a></li>
+          </ul>
+          <!-- Language Dropdown END -->
+        </ul>
+      </div>
+    <!-- Mobile Hamburger Menu Content END -->
   </div>
 </main>
 <!--Main layout-->

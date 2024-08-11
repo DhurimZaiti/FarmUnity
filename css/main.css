@@ -2,3 +2,6 @@
 .dropdown-menu-theend{
  --bs-position: end !important;
 }
+.contents{
+    margin-left: 240px !important;
+}
