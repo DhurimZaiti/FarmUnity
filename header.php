@@ -381,17 +381,9 @@
           </a>
           <!-- Languages -->
           <ul id="lang" class="collapse list-group list-group-flush">
-            <li class="list-group-item py-1">
-              <a href="" class="text-reset">Weather History</a>
-            </li>
             <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
             <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" alt="Albania"> Shqip</a></li>
-            <li><a class="list-group-item py-1" href="#"><img
-  src="https://flagcdn.com/h20/mk.png"
-  srcset="https://flagcdn.com/h40/mk.png 2x,
-  https://flagcdn.com/h60/mk.png 3x"
-  height="20"
-  alt="North Macedonia">Македонски</a></li>
+            <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" alt="North Macedonia"> Македонски</a></li>
           </ul>
           <!-- Language Dropdown END -->
         </ul>
