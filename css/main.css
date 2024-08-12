@@ -2,9 +2,29 @@
 .dropdown-menu-theend{
  --bs-position: end !important;
 }
-.contents{
-    margin-left: 240px !important;
-}
 .ls-none {
     list-style: none !important;
 }
+/* Default Styles: No Margin */
+.contents {
+    margin-left: 0;
+  }
+  
+  /* Styles for 'md' and Larger Viewports */
+  @media (min-width: 768px) {
+    .body-content {
+      margin-left: 240px;
+    }
+  }
+/* Default Styles:*/
+.display-sidebar {
+    display: none !important;
+  }
+  
+  /* Styles for 'md' and Larger Viewports */
+  @media (min-width: 768px) {
+    .display-sidebar {
+      display: block !important;
+    }
+  }
+  

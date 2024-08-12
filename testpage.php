@@ -4,7 +4,7 @@ include_once('header.php');
 <!-- Content -->
  <!-- For later:
   Fix the margin working when on mobile displays even though it shouldn't  -->
-<div class="contents" style="margin-left:240px;">
+<div class="contents">
     <div class="container">
         <div class="content">
             <h1>Weather for TETOVO, TETOVO</h1>
