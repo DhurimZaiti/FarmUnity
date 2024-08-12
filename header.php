@@ -27,7 +27,7 @@
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+  <nav id="sidebarMenu" class="collapse sidebar bg-white display-sidebar">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
         <!-- Collapse 1 -->
@@ -218,7 +218,7 @@
         <!-- Avatar -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="avatar" role="button" data-mdb-toggle="dropdown" aria-expanded="true" >
-            <img src="images/fallback-avatar.png" class="rounded-circle" height="22" alt="" loading="lazy" />
+            <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatar" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
@@ -386,6 +386,24 @@
             <li><a class="list-group-item py-1" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" width="16" alt="North Macedonia"> Македонски</a></li>
           </ul>
           <!-- Language Dropdown END -->
+          <!-- Profile  -->
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="true" aria-controls="profile">
+          <img src="images/fallback-avatar.jpg" class="rounded-circle me-3 fa-fw" height="22" alt="" loading="lazy"/><span>Profile</span>
+          </a>
+          <!-- Profile Dropdown -->
+          <ul id="profile" class="collapse list-group list-group-flush ls-none">
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset" aria-current="true">
+                <i class="far fa-user-alt fa-fw me-3"></i><span>Profile</span>
+              </a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="#" class="text-reset" aria-current="true">
+                <i class="far fa-sign-out fa-fw"></i><span>Sign Out</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Profile END -->
         </ul>
       </div>
     <!-- Mobile Hamburger Menu Content END -->
