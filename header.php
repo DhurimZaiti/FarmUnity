@@ -27,7 +27,7 @@
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse sidebar bg-white display-sidebar">
+  <nav id="sidebarMenu" class="collapse sidebar bg-white d-lg-block">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
         <!-- Collapse 1 -->
