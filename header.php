@@ -27,11 +27,11 @@
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse sidebar bg-white d-lg-block">
+  <nav id="sidebarMenu" class="collapse sidebar bg-whited d-none d-md-flex">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
         <!-- Collapse 1 -->
-          <a class="list-group-item py-2 ripple"href="#">
+          <a class="list-group-item py-2 ripple" href="#">
             <i class="far fa-calendar-alt fa-fw me-3"></i><span>Schedule</span>
           </a>
         <!-- Collapse 1 END -->
@@ -163,12 +163,12 @@
   <!-- Navbar -->
   <nav
        id="main-navbar"
-       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       class="navbar navbar-expand-md navbar-light bg-white fixed-top"
        >
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-    <a href="#hamburger" class="dropdown py-2 px-2 ripple aria-current="true" type="button" data-mdb-collapse-init href="#climate" aria-expanded="true" aria-controls="climate"">
+    <a class="dropdown py-2 px-2 ripple" aria-current="true" type="button" data-mdb-collapse-init href="#hamburger" aria-expanded="true" aria-controls="hamburger">
       <button class="navbar-toggler">
         <i class="fas fa-bars"></i>
       </button>
@@ -179,8 +179,8 @@
         <img src="images/FU1T.png" height="25" alt="" loading="lazy"/>
       </a>
       <!-- Search form -->
-      <form class="d-flex input-group w-auto my-auto px-1">
-        <input autocomplete="off" type="search" class="form-control rounded" placeholder='Search (ctrl + "/" to focus)' style="min-width: 225px" />
+      <form class=" input-group w-auto my-auto px-1">
+        <input autocomplete="off" type="search" class="form-control rounded d-flex form-width" placeholder='Search' />
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
 
@@ -217,12 +217,11 @@
 
         <!-- Avatar -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#" id="avatar" role="button" data-mdb-toggle="dropdown" aria-expanded="true" >
+          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="profile" aria-controls="profile">
             <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatar" >
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile" id="profile" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
@@ -238,10 +237,10 @@
 <main style="margin-top: 58px">
   <div class="container pt-4">
     <!-- Mobile Hamburger Menu Content -->
-    <div class="d-flex d-md-none mx-3 mt-2">
-        <ul class="collapse list-group list-group-item-action mx-3" id="hamburger">
+    <div class="d-flex d-lg-none mx-3 mt-2">
+      <ul class="collapse list-group list-group-item-action mx-3" id="hamburger">
            <!-- Collapse 1 -->
-           <a class="list-group-item py-2 ripple"href="#">
+           <a class="list-group-item py-2 ripple" href="#">
             <i class="far fa-calendar-alt fa-fw me-3"></i><span>Schedule</span>
           </a>
         <!-- Collapse 1 END -->
