@@ -8,6 +8,17 @@
 </head>
 <body>
 <div class="container mt-5 ">
+<?php
+    session_start();
+    if (isset($_SESSION['alert'])) {
+        $alert = $_SESSION['alert'];
+        echo '<div class="alert alert-' . $alert['type'] . ' alert-dismissible fade show" role="alert">' .
+             $alert['message'] .
+             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' .
+             '</div>';
+        unset($_SESSION['alert']);
+    }
+    ?>
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5">
                 <div class="card bg-light">

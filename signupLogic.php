@@ -41,34 +41,37 @@ if (isset($_POST['submit'])) {
                     $stmt->bindParam(':password', $hashedPassword);
 
                     if ($stmt->execute()) {
-                        $_SESSION['signup_success'] = true;
-                        echo "<script>
-                                alert('Registration successful! You can now log in.');
-                                window.location.href = 'login.php';
-                              </script>";
+                        $_SESSION['alert'] = ['type' => 'success', 'message' => 'Registration successful! You can now log in.'];
+                        header('Location: login.php');
                         exit();
                     } else {
-                        echo "<script>alert('Error: Unable to register. Please try again.'); window.location.href = 'register.php';</script>";
+                        $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Error: Unable to register. Please try again.'];
+                        header('Location: register.php');
                         exit();
                     }
                 } catch (PDOException $e) {
-                    echo "<script>alert('Database error: " . $e->getMessage() . "'); window.location.href = 'register.php';</script>";
+                    $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Database error: ' . $e->getMessage()];
+                    header('Location: register.php');
                     exit();
                 }
             } else {
-                echo "<script>alert('Error uploading avatar. Please try again.'); window.location.href = 'register.php';</script>";
+                $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Error uploading avatar. Please try again.'];
+                header('Location: register.php');
                 exit();
             }
         } else {
-            echo "<script>alert('Invalid file type for avatar. Only JPG, JPEG, PNG, and GIF are allowed.'); window.location.href = 'register.php';</script>";
+            $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Invalid file type for avatar. Only JPG, JPEG, PNG, and GIF are allowed.'];
+            header('Location: register.php');
             exit();
         }
     } else {
-        echo "<script>alert('Error: Avatar file is required.'); window.location.href = 'register.php';</script>";
+        $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Error: Avatar file is required.'];
+        header('Location: register.php');
         exit();
     }
 } else {
-    echo "<script>alert('Invalid request.'); window.location.href = 'register.php';</script>";
+    $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Invalid request.'];
+    header('Location: register.php');
     exit();
 }
 ?>
