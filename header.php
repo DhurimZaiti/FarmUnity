@@ -1,3 +1,47 @@
+<?php
+// Start session
+session_start();
+// !! kjo e sheh a oshte user logged in
+$userData = '';
+
+// Check if the session contains the username
+if (isset($_SESSION['farm_unity_user'])) {
+    $userData = $_SESSION['farm_unity_user'];
+
+    // Include your database configuration
+    include_once('config.php');
+
+    try {
+        // Prepare a SQL statement to check if the user exists
+        $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $userData, PDO::PARAM_STR);
+        $stmt->execute();
+
+        // Fetch the user's data if they exist
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            // User exists, you can now access the user's data through the $user array
+            // For example, $user['email'], $user['avatar'], etc.
+            $userData = $user;
+        } else {
+            // User does not exist, redirect to the signup page
+            // header("Location: signup.php");
+            exit();
+        }
+    } catch (PDOException $e) {
+        // Handle any potential database errors
+        echo "Database error: " . $e->getMessage();
+        exit();
+    }
+} else {
+    // If the session does not have a username, redirect to the signup page
+    header("Location: signup.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,7 +266,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -389,23 +433,6 @@
             <li class="list-group-item py-1">
               <a class="text-reset" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" width="16" alt="North Macedonia"> Македонски</a>
             </li>
-          </ul>
-          <!-- Language Dropdown END -->
-          <!-- Profile -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="true" aria-controls="profile">
-            <img src="images/fallback-avatar.png" class="rounded-circle me-3" height="22" alt="" loading="lazy" /><span>Profile</span>
-          </a>
-          <!-- Profile Content -->
-          <ul id="profile" class="collapse list-group list-group-flush">
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">My profile</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">Settings</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">Logout</a>
-          </li>
           </ul>
           <!-- Language Dropdown END -->
           <!-- Profile  -->
