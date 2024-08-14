@@ -391,23 +391,6 @@
             </li>
           </ul>
           <!-- Language Dropdown END -->
-          <!-- Profile -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="true" aria-controls="profile">
-            <img src="images/fallback-avatar.png" class="rounded-circle me-3" height="22" alt="" loading="lazy" /><span>Profile</span>
-          </a>
-          <!-- Profile Content -->
-          <ul id="profile" class="collapse list-group list-group-flush">
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">My profile</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">Settings</a>
-          </li>
-          <li class="list-group-item py-1">
-            <a class="text-reset" href="#">Logout</a>
-          </li>
-          </ul>
-          <!-- Language Dropdown END -->
           <!-- Profile  -->
           <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="true" aria-controls="profile">
           <img src="images/fallback-avatar.jpg" class="rounded-circle me-3 fa-fw" height="22" alt="" loading="lazy"/><span>Profile</span>
