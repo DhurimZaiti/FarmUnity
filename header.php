@@ -220,7 +220,7 @@
           <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="profile" aria-controls="profile">
             <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile" id="profile" >
+          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>

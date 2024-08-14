@@ -1,5 +1,5 @@
 <?php
-
+include_once('./config.php');
 function getUsername($conn) {
     if (isset($_SESSION['farm_unity_userID'])) {
         $userId = $_SESSION['farm_unity_userID'];
