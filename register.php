@@ -32,20 +32,19 @@
   </style>
 </head>
 <body class="bg-secondary">
-<div class="bg-image d-flex justify-content-center">
+<div class="bg-image d-flex justify-content-center overflow-auto">
 <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5">
-                <div class="card bg-light">
+            <div class="col-md-8 offset-md-2 mt-5">
+                <div class="card bg-light mb-5">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Sign In</h1>
                         <form action="signupLogic.php" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
                             </div>
                             <div class="mb-3">
-                                <label for="formFile" class="form-label">Avatar</label>
+                                <label for="formFile" class="form-label form-label-sm">Avatar</label>
                                 <input class="form-control" type="file" id="formFile" accept=".jpg, .jpeg, .png" required>
                                 <small id="fileHelp" class="form-text text-muted">File must be less than 9 MB.</small>
                             </div>
@@ -61,20 +60,16 @@
                             </script>
 
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
                             </div>
                             <div class="mb-3">
-                                <label for="confirm_password" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" name="confirm_password" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success" name="submit">Sign In</button>
