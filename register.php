@@ -18,10 +18,7 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/poppins-font.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sidebar-bs.css">
-    <link rel="stylesheet" href="css/sidebar-mdb.css">
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
+
   <style>
             .bg-image {
             background-image: url('images/login-farm.jpg');
@@ -72,7 +69,7 @@
                                 <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" name="confirm_password" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success" name="submit">Sign In</button>
+                                <button type="submit" class="btn btn-primary" name="submit">Sign In</button>
                             </div>
                         </form>
                         <div class="text-center mt-3">
