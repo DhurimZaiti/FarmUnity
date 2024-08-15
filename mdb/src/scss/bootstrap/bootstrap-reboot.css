@@ -109,7 +109,9 @@
   --bs-border-radius-lg: 0.5rem;
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-xxl: 2rem;
-  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+  --bs-border-radius-2xl: var(
+    --bs-border-radius-xxl
+  );
   --bs-border-radius-pill: 50rem;
   --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -272,10 +274,10 @@ p {
 
 abbr[title] {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+          text-decoration: underline dotted;
   cursor: help;
   -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -286,7 +288,7 @@ address {
 
 ol,
 ul {
-  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 ol,
@@ -309,7 +311,7 @@ dt {
 
 dd {
   margin-bottom: 0.5rem;
-  margin-right: 0;
+  margin-left: 0;
 }
 
 blockquote {
@@ -420,7 +422,7 @@ caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: var(--bs-secondary-color);
-  text-align: right;
+  text-align: left;
 }
 
 th {
@@ -512,7 +514,7 @@ fieldset {
 }
 
 legend {
-  float: right;
+  float: left;
   width: 100%;
   padding: 0;
   margin-bottom: 0.5rem;
@@ -525,7 +527,7 @@ legend {
   }
 }
 legend + * {
-  clear: right;
+  clear: left;
 }
 
 ::-webkit-datetime-edit-fields-wrapper,
@@ -547,23 +549,20 @@ legend + * {
   outline-offset: -2px;
 }
 
+/* rtl:raw:
 [type="tel"],
 [type="url"],
 [type="email"],
 [type="number"] {
   direction: ltr;
 }
+*/
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
 ::-webkit-color-swatch-wrapper {
   padding: 0;
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
 }
 
 ::file-selector-button {
@@ -590,5 +589,4 @@ progress {
 
 [hidden] {
   display: none !important;
-}
-/*# sourceMappingURL=bootstrap-reboot.rtl.css.map */
+}/*# sourceMappingURL=bootstrap-reboot.css.map */
