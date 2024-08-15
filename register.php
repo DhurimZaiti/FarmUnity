@@ -13,7 +13,7 @@
                 <div class="card bg-light">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Sign In</h1>
-                        <form action="add.php" method="POST">
+                        <form action="signupLogic.php" method="POST">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" required>

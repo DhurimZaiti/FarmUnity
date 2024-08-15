@@ -31,7 +31,7 @@
                             </div>
                         </form>
                         <div class="text-center mt-3">
-                            <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+                            <p>Don't have an account? <a href="register.php">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
