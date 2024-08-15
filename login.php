@@ -32,21 +32,20 @@
   </style>
 </head>
 <body>
-<div class="bg-image d-flex justify-content-center">
+<div class="bg-image d-flex justify-content-center overflow-auto">
 <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5">
-                <div class="card bg-light">
+                <div class="card bg-light mb-5">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Login</h1>
                         <form action="loginLogic.php" method="POST">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
+                            <div class="input-group mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-eye ms-auto"></i><!-- <i class="fas fa-eye-slash ms-auto"></i> --></button>
                             </div>
                             <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">

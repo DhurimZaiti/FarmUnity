@@ -43,8 +43,8 @@ if (isset($_POST['submit'])) {
                     if ($stmt->execute()) {
                         $_SESSION['signup_success'] = true;
                         echo "<script>
-                                alert('Registration successful! You can now log in.');
-                                window.location.href = 'login.php';
+                                alert('Please add your farm in the next page.');
+                                window.location.href = 'register-farm.php';
                               </script>";
                         exit();
                     } else {
