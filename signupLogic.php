@@ -41,8 +41,11 @@ if (isset($_POST['submit'])) {
                     $stmt->bindParam(':password', $hashedPassword);
 
                     if ($stmt->execute()) {
-                        $_SESSION['alert'] = ['type' => 'success', 'message' => 'Registration successful! You can now log in.'];
-                        header('Location: login.php');
+                        $_SESSION['signup_success'] = true;
+                        echo "<script>
+                                alert('Please add your farm in the next page.');
+                                window.location.href = 'register-farm.php';
+                              </script>";
                         exit();
                     } else {
                         $_SESSION['alert'] = ['type' => 'danger', 'message' => 'Error: Unable to register. Please try again.'];
