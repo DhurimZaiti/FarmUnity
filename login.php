@@ -59,10 +59,7 @@
                                 <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-eye ms-auto"></i><!-- <i class="fas fa-eye-slash ms-auto"></i> --></button>
                             </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Remember Me</label>
-                            </div>
+                           
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success" name="login">Login</button>
                             </div>
