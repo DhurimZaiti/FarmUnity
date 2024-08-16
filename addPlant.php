@@ -5,11 +5,13 @@ include_once 'config.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Plant</title>
 </head>
+
 <body>
     <h1>Add New Plant</h1>
     <?php
@@ -21,7 +23,7 @@ include_once 'config.php';
     ?>
 
     <form action="plantLogic.php" method="post">
-      
+
 
         <label for="name">Plant Name:</label>
         <input type="text" id="name" name="name" required><br><br>
@@ -75,4 +77,5 @@ include_once 'config.php';
         <input type="submit" name="submit" value="Add Plant">
     </form>
 </body>
+
 </html>
