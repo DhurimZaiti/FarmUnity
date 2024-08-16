@@ -62,7 +62,6 @@ if (isset($_SESSION['farm_unity_user'])) {
     <!-- CSS Links -->
     <link rel="stylesheet" href="css/poppins-font.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/sidebar-bs.css">
     <link rel="stylesheet" href="css/sidebar-mdb.css">
     <!-- MDB -->
 </head>
@@ -70,8 +69,8 @@ if (isset($_SESSION['farm_unity_user'])) {
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse sidebar bg-whited d-none d-md-flex">
-    <div class="position-sticky d-flex">
+  <nav id="sidebarMenu" class="collapse sidebar bg-white d-none d-md-flex">
+    <div class="sidebar-sticky ">
       <div class="list-group list-group-flush mx-3 mt-4">
         <!-- Collapse 1 -->
           <a class="list-group-item py-2 ripple" href="#">
@@ -233,7 +232,6 @@ if (isset($_SESSION['farm_unity_user'])) {
         <li class="nav-item me-3 me-lg-0">
         <a class="nav-link me-3 me-lg-0" href="#" aria-expanded="true">
           <i class="fas fa-bell"></i>
-          <span class="badge rounded-pill badge-notification bg-danger"> <!-- In here goes the number of Notifications (for backend) --> 1</span>
         </a>
         </li>
         <!-- Settings -->

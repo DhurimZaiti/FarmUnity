@@ -16,7 +16,7 @@ body {
   padding: 58px 0 0; /* Height of navbar */
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
   width: 240px !important;
-  z-index: 600;
+  z-index: 0;
 }
 
 @media (max-width: 767.98px) {
@@ -36,4 +36,7 @@ body {
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+.text-reset {
+  text-decoration: none !important;
 }
