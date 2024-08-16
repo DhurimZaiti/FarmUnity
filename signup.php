@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup and Login Form</title>
+    <title>Signup Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -31,7 +31,7 @@ error_reporting(E_ALL);
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required
-                                    value="<?php echo isset($_SESSION['signup_data']['username' ]) ? htmlspecialchars($_SESSION['signup_data']['username']) : ''; ?>">
+                                    value="<?php echo isset($_SESSION['signup_data']['username']) ? htmlspecialchars($_SESSION['signup_data']['username']) : ''; ?>">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>

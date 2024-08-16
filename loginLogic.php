@@ -25,18 +25,18 @@ if (isset($_POST['submit'])) {
         } else {
             echo "here 4";
             $_SESSION['login_error_message'] = "Invalid email or password.";
-            // header("Location: login.php");
+            header("Location: login.php");
             exit();
         }
     } else {
         echo "here 5";
         $_SESSION['login_error_message'] = "Error executing the query: " . implode(", ", $stmt->errorInfo());
-        // header("Location: login.php");
+        header("Location: login.php");
         exit();
     }
 } else {
-    echo "here 6";
+    // echo "here 6";
     $_SESSION['login_error_message'] = "Invalid request.";
-    // header("Location: login.php");
+    header("Location: login.php");
     exit();
 }
