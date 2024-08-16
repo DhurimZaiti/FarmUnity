@@ -74,7 +74,7 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <select class="form-select " id="country" name="country" required>
+                                <select class="form-select " id="currency" name="currency" required>
                                     <option selected>Select your Currency</option>
                                     <option value="all">Albanian Lek (ALL)</option>
                                     <option value="bam">Bosnian Convertible Mark (BAM)</option>
