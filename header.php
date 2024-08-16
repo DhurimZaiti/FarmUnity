@@ -1,3 +1,47 @@
+<?php
+// Start session
+session_start();
+// !! kjo e sheh a oshte user logged in
+$userData = '';
+
+// Check if the session contains the username
+if (isset($_SESSION['farm_unity_user'])) {
+    $userData = $_SESSION['farm_unity_user'];
+
+    // Include your database configuration
+    include_once('config.php');
+
+    try {
+        // Prepare a SQL statement to check if the user exists
+        $sql = "SELECT * FROM users WHERE username = :username LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $userData, PDO::PARAM_STR);
+        $stmt->execute();
+
+        // Fetch the user's data if they exist
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) {
+            // User exists, you can now access the user's data through the $user array
+            // For example, $user['email'], $user['avatar'], etc.
+            $userData = $user;
+        } else {
+            // User does not exist, redirect to the signup page
+            // header("Location: signup.php");
+            exit();
+        }
+    } catch (PDOException $e) {
+        // Handle any potential database errors
+        echo "Database error: " . $e->getMessage();
+        exit();
+    }
+} else {
+    // If the session does not have a username, redirect to the signup page
+    header("Location: signup.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,9 +264,9 @@
           <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="profile" aria-controls="profile">
             <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile" id="profile" >
+          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
             <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
