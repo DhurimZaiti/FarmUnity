@@ -2,6 +2,7 @@
     include_once('header.php');
 ?>
 <div class="contents">
+    <a href="registerFarm.php">create farm</a>
     <div class="container">
         <div class="content">
             <div class="row">
@@ -42,6 +43,23 @@
                         <a href="#" class="card-link">Accounting</a>
                     </div>
                 </div>
+                </div>
+                <div class="ccol-12">
+                    <div card="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">User data</h5>
+                            <p><?php echo $userData['username'] ?></p>
+                            <p><?php echo $userData['email'] ?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ccol-12">
+                    <div card="card mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Farms data</h5>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

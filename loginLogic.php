@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['farm_unity_user'] = $user['username'];
-            header("Location: testpage.php");
+            header("Location: home.php");
             exit();
         } else {
             echo "here 4";

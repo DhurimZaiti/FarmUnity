@@ -39,7 +39,7 @@
                 <div class="card bg-light mb-5">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Your Farm and Preferences</h1>
-                        <form action="farmLogic.php" method="POST">
+                        <form action="RegisterFarmLogic.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="What do you call your farm?" required>
                             </div>

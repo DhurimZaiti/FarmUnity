@@ -35,17 +35,17 @@
 
 <body>
     <div class="container mt-5 ">
-        <?php
-        session_start();
-        if (isset($_SESSION['login_error_message'])) {
-            echo "<p class='text-danger'><strong>" . $_SESSION['login_error_message'] . "</strong></p>";
-        }
-        ?>
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5">
                 <div class="card bg-light mb-5">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Login</h1>
+                        <?php
+        session_start();
+        if (isset($_SESSION['login_error_message'])) {
+            echo "<p class='text-danger'><strong>" . $_SESSION['login_error_message'] . "</strong></p>";
+        }
+        ?>
                         <form action="loginLogic.php" method="POST">
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
