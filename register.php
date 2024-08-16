@@ -48,14 +48,8 @@
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Sign In</h1>
                         <form action="signupLogic.php" method="POST">
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFile" class="form-label form-label-sm">Avatar</label>
-                                <input class="form-control" type="file" id="formFile" accept=".jpg, .jpeg, .png" required>
-                                <small id="fileHelp" class="form-text text-muted">File must be less than 9 MB.</small>
-                            </div>
+                            
+                           
 
                             <script>
                             document.getElementById('formFile').addEventListener('change', function(event) {
@@ -79,9 +73,15 @@
                             <div class="mb-3">
                                 <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" name="confirm_password" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label form-label-sm">Avatar</label>
+                                <input class="form-control" type="file" id="formFile" accept=".jpg, .jpeg, .png" required>
+                                <small id="fileHelp" class="form-text text-muted">File must be less than 9 MB.</small>
+                            </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary" name="submit">Sign In</button>
                             </div>
+                            
                         </form>
                         <div class="text-center mt-3">
                             <p>Already have an account? <a href="login.php">Log In</a></p>
