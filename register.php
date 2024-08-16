@@ -31,6 +31,17 @@
 <body class="bg-secondary">
 <div class="bg-image d-flex justify-content-center overflow-auto">
 <div class="container mt-5">
+<?php
+    session_start();
+    if (isset($_SESSION['alert'])) {
+        $alert = $_SESSION['alert'];
+        echo '<div class="alert alert-' . $alert['type'] . ' alert-dismissible fade show" role="alert">' .
+             $alert['message'] .
+             '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' .
+             '</div>';
+        unset($_SESSION['alert']);
+    }
+    ?>
         <div class="row">
             <div class="col-md-8 offset-md-2 mt-5">
                 <div class="card bg-light mb-5">
