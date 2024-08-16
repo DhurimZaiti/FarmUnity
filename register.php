@@ -32,6 +32,8 @@
 <div class="bg-image d-flex justify-content-center overflow-auto">
 <div class="container mt-5">
 <?php
+
+
     session_start();
     if (isset($_SESSION['alert'])) {
         $alert = $_SESSION['alert'];

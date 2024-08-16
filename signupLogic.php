@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
     }
 
     $_SESSION['signup_error_message'] = $error;
-    header("Location: register.php");
+    header("Location: signup.php");
     exit();
 } else {
     echo "<script>alert('Invalid request.'); window.location.href = 'signup.php';</script>";
