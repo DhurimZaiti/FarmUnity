@@ -20,7 +20,6 @@ if (isset($_POST['submit'])) {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['farm_unity_user'] = $user['username'];
 
-            // Redirect to the dashboard or home page
             header("Location: testpage.php");
             exit();
         } else {
