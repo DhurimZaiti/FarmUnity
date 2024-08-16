@@ -37,19 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':height', $height);
         $stmt->bindParam(':spread', $spread);
         $stmt->bindParam(':sun_requirements', $sun_requirements);
-        
+
         if ($stmt->execute()) {
-            echo "<div class='alert alert-success'>Seasonal plant added successfully!</div>";
+            // Redirect to seasonal_plants.php
+            header("Location: seasonalPlants.php");
+            exit();
         } else {
             echo "<div class='alert alert-danger'>Error: " . $stmt->errorInfo()[2] . "</div>";
         }
     } else {
         echo "<div class='alert alert-danger'>Error: Username does not exist in users table.</div>";
     }
+
+    $conn = null; // Release the connection
 }
-
-$conn = null; // Release the connection
-
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +95,7 @@ $conn = null; // Release the connection
 <!-- Add seasonal plant form -->
 <div class="form-container">
     <h2 class="mb-4 text-center">Add Seasonal Plant</h2>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username:</label>
             <input type="text" id="username" name="username" class="form-control" required>

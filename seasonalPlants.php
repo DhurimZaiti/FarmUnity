@@ -1,12 +1,6 @@
 <?php
 include 'config.php';
 
-// Fetch all seasonal plants from the database
-$query = "SELECT * FROM seasonal_plants";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$plants = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 // Handle deletion of a plant
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
@@ -14,11 +8,19 @@ if (isset($_GET['delete'])) {
     $stmt = $conn->prepare($delete_query);
     $stmt->bindParam(':id', $id);
     if ($stmt->execute()) {
-        echo "<div class='alert alert-success'>Plant deleted successfully!</div>";
+        // Redirect to the same page to refresh data
+        header('Location: ' . $_SERVER['PHP_SELF']);
+        exit;
     } else {
         echo "<div class='alert alert-danger'>Error: " . $stmt->errorInfo()[2] . "</div>";
     }
 }
+
+// Fetch all seasonal plants from the database
+$query = "SELECT * FROM seasonal_plants";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$plants = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $conn = null; // Release the connection
 ?>
