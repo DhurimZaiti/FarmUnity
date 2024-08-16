@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                         $_SESSION['signup_success'] = true;
                         echo "<script>
                                 alert('Please add your farm in the next page.');
-                                window.location.href = 'register-farm.php';
+                                window.location.href = 'registerFarm.php';
                               </script>";
                         exit();
                     } else {
