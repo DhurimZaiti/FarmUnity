@@ -5,26 +5,25 @@ error_reporting(E_ALL);
 include_once('config.php');
 session_start();
 
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
     // Prepare SQL statement
-    $sql = "SELECT * FROM users WHERE email = :email";
+    $sql = "SELECT * FROM users WHERE username = :username";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':username', $username);
 
     if ($stmt->execute()) {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['farm_unity_user'] = $user['username'];
-
             header("Location: testpage.php");
             exit();
         } else {
             echo "here 4";
-            $_SESSION['login_error_message'] = "Invalid email or password.";
+            $_SESSION['login_error_message'] = "Invalid username or password.";
             header("Location: login.php");
             exit();
         }
