@@ -65,14 +65,13 @@ if (isset($_SESSION['farm_unity_user'])) {
     <link rel="stylesheet" href="css/sidebar-bs.css">
     <link rel="stylesheet" href="css/sidebar-mdb.css">
     <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet"/>
 </head>
 <body>
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
   <nav id="sidebarMenu" class="collapse sidebar bg-whited d-none d-md-flex">
-    <div class="position-sticky">
+    <div class="position-sticky d-flex">
       <div class="list-group list-group-flush mx-3 mt-4">
         <!-- Collapse 1 -->
           <a class="list-group-item py-2 ripple" href="#">
@@ -85,7 +84,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         <!-- Collapse 2 END -->
         <!-- Collapse 3 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#livestock" aria-expanded="true" aria-controls="livestock">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#livestock" aria-expanded="true" aria-controls="livestock">
             <i class="far fa-cow fa-fw me-3"></i><span>Livestock</span>
           </a>
           <!-- Collapsed content -->
@@ -103,7 +102,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 3 END -->
         <!-- Collapse 4 -->
-        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#plantings" aria-expanded="true" aria-controls="plantings">
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#plantings" aria-expanded="true" aria-controls="plantings">
             <i class="far fa-seedling fa-fw me-3"></i><span>Plantings</span>
           </a>
           <!-- Collapsed content -->
@@ -127,7 +126,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 4 END -->
         <!-- Collapse 5 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#rescources" aria-expanded="true" aria-controls="rescources">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#rescources" aria-expanded="true" aria-controls="rescources">
             <i class="far fa-tractor fa-fw me-3"></i><span>Rescources</span>
           </a>
           <!-- Collapsed content -->
@@ -145,7 +144,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 5 END -->
         <!-- Collapse 6 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#accounting" aria-expanded="true" aria-controls="accounting">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#accounting" aria-expanded="true" aria-controls="accounting">
             <i class="far fa-calculator fa-fw me-3"></i><span>Accounting</span>
           </a>
           <!-- Collapsed content -->
@@ -179,7 +178,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         <!-- Collapse 8 END -->
         <!-- Collapse 9 -->
-        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#climate" aria-expanded="true" aria-controls="climate">
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#climate" aria-expanded="true" aria-controls="climate">
             <i class="far fa-cloud-sun-rain fa-fw me-3"></i><span>Climate</span>
           </a>
           <!-- Collapsed content -->
@@ -212,7 +211,7 @@ if (isset($_SESSION['farm_unity_user'])) {
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-    <a class="dropdown py-2 px-2 ripple" aria-current="true" type="button" data-mdb-collapse-init href="#hamburger" aria-expanded="true" aria-controls="hamburger">
+    <a class="dropdown py-2 px-2 ripple" aria-current="true" type="button" data-bs-toggle="collapse"  href="#hamburger" aria-expanded="true" aria-controls="hamburger">
       <button class="navbar-toggler">
         <i class="fas fa-bars"></i>
       </button>
@@ -245,8 +244,8 @@ if (isset($_SESSION['farm_unity_user'])) {
         </li>
 
       <!-- Language dropdown -->
-      <li class="nav-item dropdown">
-          <a class="nav-link me-3 me-lg-0" aria-current="true" data-mdb-collapse-init href="#lang" aria-expanded="true" aria-controls="lang">
+      <li class="nav-item dropdown dropdown-menu-end">
+          <a class="nav-link me-3 me-lg-0" aria-current="true" data-bs-toggle="collapse"  href="#lang" aria-expanded="true" aria-controls="lang">
               <i class="far fa-language"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lang" id="lang">
@@ -261,7 +260,7 @@ if (isset($_SESSION['farm_unity_user'])) {
 
         <!-- Avatar -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="profile" aria-controls="profile">
+          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-bs-toggle="collapse" href="#profile" aria-expanded="profile" aria-controls="profile">
             <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
           <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
@@ -294,7 +293,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         <!-- Collapse 2 END -->
         <!-- Collapse 3 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#livestock" aria-expanded="true" aria-controls="livestock">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#livestock" aria-expanded="true" aria-controls="livestock">
             <i class="far fa-cow fa-fw me-3"></i><span>Livestock</span>
           </a>
           <!-- Collapsed content -->
@@ -312,7 +311,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 3 END -->
         <!-- Collapse 4 -->
-        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#plantings" aria-expanded="true" aria-controls="plantings">
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#plantings" aria-expanded="true" aria-controls="plantings">
             <i class="far fa-seedling fa-fw me-3"></i><span>Plantings</span>
           </a>
           <!-- Collapsed content -->
@@ -336,7 +335,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 4 END -->
         <!-- Collapse 5 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#rescources" aria-expanded="true" aria-controls="rescources">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#rescources" aria-expanded="true" aria-controls="rescources">
             <i class="far fa-tractor fa-fw me-3"></i><span>Rescources</span>
           </a>
           <!-- Collapsed content -->
@@ -354,7 +353,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 5 END -->
         <!-- Collapse 6 -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#accounting" aria-expanded="true" aria-controls="accounting">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#accounting" aria-expanded="true" aria-controls="accounting">
             <i class="far fa-calculator fa-fw me-3"></i><span>Accounting</span>
           </a>
           <!-- Collapsed content -->
@@ -388,7 +387,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         <!-- Collapse 8 END -->
         <!-- Collapse 9 -->
-        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#climate" aria-expanded="true" aria-controls="climate">
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#climate" aria-expanded="true" aria-controls="climate">
             <i class="far fa-cloud-sun-rain fa-fw me-3"></i><span>Climate</span>
           </a>
           <!-- Collapsed content -->
@@ -419,7 +418,7 @@ if (isset($_SESSION['farm_unity_user'])) {
         </a>
         <!-- Settings END -->
          <!-- Language Dropdown -->
-        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#lang" aria-expanded="true" aria-controls="lang">
+        <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#lang" aria-expanded="true" aria-controls="lang">
             <i class="far fa-language fa-fw me-3"></i><span>Language</span>
           </a>
           <!-- Languages -->
@@ -436,7 +435,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
           <!-- Language Dropdown END -->
           <!-- Profile  -->
-          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-mdb-collapse-init href="#profile" aria-expanded="true" aria-controls="profile">
+          <a class="list-group-item list-group-item-action dropdown-toggle py-2 ripple" aria-current="true" data-bs-toggle="collapse"  href="#profile" aria-expanded="true" aria-controls="profile">
           <img src="images/fallback-avatar.jpg" class="rounded-circle me-3 fa-fw" height="22" alt="" loading="lazy"/><span>Profile</span>
           </a>
           <!-- Profile Dropdown -->
