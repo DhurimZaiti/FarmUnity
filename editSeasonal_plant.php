@@ -52,7 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        echo "<div class='alert alert-success'>Plant updated successfully!</div>";
+        // Redirect to x.php after successful update
+        header('Location: seasonalPlants.php');
+        exit;
     } else {
         echo "<div class='alert alert-danger'>Error: " . $stmt->errorInfo()[2] . "</div>";
     }
