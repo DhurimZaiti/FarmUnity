@@ -2,7 +2,6 @@
     include_once('header.php');
 ?>
 <div class="contents">
-    <a href="registerFarm.php">create farm</a>
     <div class="container">
         <div class="content">
             <div class="row">
