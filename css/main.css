@@ -17,4 +17,12 @@
 .form-width{
   min-width: 150px !important;
 }
-
+.nothing-added {
+  background: #FFF;
+  border: 2px dashed #e3e3e3;
+  padding: 60px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #393f44;
+  margin: 6px auto;
+}
