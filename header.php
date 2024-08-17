@@ -217,7 +217,7 @@ if (isset($_SESSION['farm_unity_user'])) {
     </a>
 
       <!-- Brand -->
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="home.php">
         <img src="images/FU1T.png" height="25" alt="" loading="lazy"/>
       </a>
       <!-- Search form -->
@@ -241,32 +241,36 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         </li>
 
-      <!-- Language dropdown -->
-      <li class="nav-item dropdown dropdown-menu-end">
-          <a class="nav-link me-3 me-lg-0" aria-current="true" data-bs-toggle="collapse"  href="#lang" aria-expanded="true" aria-controls="lang">
-              <i class="far fa-language"></i>
+    <!-- Language Dropdown -->
+      <div class="dropdown">
+        <li class="nav-item">
+          <a href="#language" class="nav-link me-3 me-lg-0" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+            <i class="far fa-language"></i>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="lang" id="lang">
+          
+          <ul class="dropdown-menu dropdown-menu-end" id="language">
             <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/gb.png" srcset="https://flagcdn.com/h40/gb.png 2x, https://flagcdn.com/h60/gb.png 3x" height="12" width="16" alt="United Kingdom"> English<i class="fa fa-check text-success ms-2"></i></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/al.png" srcset="https://flagcdn.com/h40/al.png 2x, https://flagcdn.com/h60/al.png 3x" height="12" width="16" alt="Albania"> Shqip</a></li>
             <li><a class="dropdown-item" href="#"><img src="https://flagcdn.com/h20/mk.png" srcset="https://flagcdn.com/h40/mk.png 2x, https://flagcdn.com/h60/mk.png 3x" height="12" width="16" alt="North Macedonia"> Македонски</a></li>
           </ul>
-      </li>
-
-
-
-        <!-- Avatar -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" aria-current="true" data-bs-toggle="collapse" href="#profile" aria-expanded="profile" aria-controls="profile">
-            <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
-          </a>
-          <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
-            <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-          </ul>
         </li>
-      </ul>
+    </div>
+
+
+
+    <!-- Avatar -->
+    <div class="dropdown">
+      <li class="nav-item">
+        <a href="#profile" class="nav-link me-3 me-lg-0 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+          <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-end" id="profile">
+          <li><a class="dropdown-item" href="myProfile.php">My profile</a></li>
+          <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+        </ul>
+      </li>
     </div>
     <!-- Container wrapper -->
   </nav>
@@ -380,7 +384,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </a>
         <!-- Collapse 7 END -->
         <!-- Collapse 8 -->
-        <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+        <a class="list-group-item py-2 ripple" aria-current="true" href="farmMap.php">
             <i class="far fa-map fa-fw me-3"></i><span>Farm Map</span>
           </a>
         <!-- Collapse 8 END -->
@@ -458,6 +462,9 @@ if (isset($_SESSION['farm_unity_user'])) {
 <!--Main layout-->
 
 
+<?php 
+  include_once('footer.php');
+?>
 
 
         <!-- For Later (Search Related)
