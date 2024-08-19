@@ -50,9 +50,9 @@ if (isset($_GET['animalId'])) {
 
 <body>
     <div class="container mt-5">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-8 offset-md-2 mt-5">
-                <div class="card bg-light">
+                <div class="card border border-2 border-success bg-body shadow-lg rounded px-3">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Animal Information</h1>
                         <form action="addAnimalLogic.php" method="POST">
@@ -120,8 +120,8 @@ if (isset($_GET['animalId'])) {
                                 <textarea class="form-control" id="notes" name="notes" placeholder="optional"><?php echo isset($_SESSION['animal_data']['notes']) ? htmlspecialchars($_SESSION['animal_data']['notes']) : ''; ?></textarea>
                             </div>
                             <div>
-                                <button type="submit" name="submit" class="btn btn-primary me-4">Submit</button>
-                                <button type="button" class="btn btn-light border border-2"><a href="animalsPage.php">Cancel</a></button>
+                                <button type="submit" name="submit" class="btn btn-success me-4">Submit</button>
+                                <a class="btn btn-light border border-2" href="animalsPage.php">Cancel</a>
                             </div>
                         </form>
                     </div>
