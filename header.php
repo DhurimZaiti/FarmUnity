@@ -89,7 +89,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="livestock" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="#" class="text-reset">Animals</a>
+              <a href="animalsPage.php" class="text-reset">Animals</a>
             </li>
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Livestock Groups</a>

@@ -43,28 +43,10 @@
                     </div>
                 </div>
                 </div>
-                <div class="ccol-12">
-                    <div card="card mt-3">
-                        <div class="card-body">
-                            <h5 class="card-title">User data</h5>
-                            <p><?php echo $userData['username'] ?></p>
-                            <p><?php echo $userData['email'] ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="ccol-12">
-                    <div card="card mt-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Farms data</h5>
-                            
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-</div>
-               
+</div>         
 <?php 
     include_once('footer.php');
 ?>

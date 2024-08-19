@@ -75,15 +75,8 @@ if (isset($_POST['submit'])) {
         $error .= "Weight must be positive <br>";
         $_SESSION['animal_error_message'] = $error;
     }
-    
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
-
-    echo $error;
 
     if ($error == '') {
-        echo "here 2<br>";
         $sql = "INSERT INTO animals (username, animal, gender, age, animal_name, animal_id, illness, illness_type, vaccination_status, weight, illness_history, reproducing_status, notes) 
                 VALUES (:username, :animal, :gender, :age, :animal_name, :animal_id, :illness, :illness_type, :vaccination_status, :weight, :illness_history, :reproducing_status, :notes)";
         $stmt = $conn->prepare($sql);
@@ -101,17 +94,13 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':reproducing_status', $reproducing_status);
         $stmt->bindParam(':notes', $notes);
 
-        echo "here 2.5 <br>";
 
         if ($stmt->execute()) {
-            echo "here 3 <br>";
             unset($_SESSION['animal_error_message']);
             // Redirect to a success page or the desired location
-            header("Location: success.php");
+            header("Location: animalsPage.php");
             exit();
         } else {
-            echo "here 4 <br>";
-            echo "test<br>";
             $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
             $_SESSION['animal_error_message'] = $error;
             echo "Debug info: " . implode(", ", $stmt->errorInfo()) . "<br>";
@@ -120,8 +109,7 @@ if (isset($_POST['submit'])) {
 
     // Redirect if there is an error
     if (isset($_SESSION['animal_error_message'])) {
-        echo "here 5<br>";
-        header("Location: testAddAnima.php");
+        header("Location: animalsPage.php");
         exit();
     }
 }
