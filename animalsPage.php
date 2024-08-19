@@ -55,32 +55,6 @@ try {
 <body>
     <div class="contents">
         <div class="container">
-                        <?php if (!empty($animalData)) : ?>
-                            <?php foreach ($animalData as $animal) : ?>
-                                <tr>
-                                    <th scope="row"><?php echo htmlspecialchars($animal['animal']); ?></th>
-                                    <td><?php echo htmlspecialchars($animal['gender']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['age']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['weight']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['animal_name']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['illness_type']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['illness_history']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['vaccination_status']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['reproducing_status']); ?></td>
-                                    <td><?php echo htmlspecialchars($animal['notes']); ?></td>
-                                    <td><a href="addAnimalPage.php?animalId=<?php echo urlencode($animal['animal_id']) ?>">Update</a></td>
-                                    <td><a href="deleteData.php?table=animals&idQuery=animal_id&id=<?php echo urlencode($animal['animal_id']); ?>">Delete</a></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            <tr>
-                                <td colspan="12">No animals found for this user.</td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div> -->
-
             <div class="content ms-3">
                 <h2 class="mb-3">Your Livestock</h2>
 
