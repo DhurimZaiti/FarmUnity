@@ -55,29 +55,6 @@ try {
 <body>
     <div class="contents">
         <div class="container">
-            <!-- <div class="content ms-3">
-                <h2 class="mb-3">Your Livestock</h2>
-
-                <a class="btn btn-outline-success mb-4" href="addAnimalPage.php">Add animal</a>
-
-                <table class="table table-success table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Animal</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Weight</th>
-                            <th scope="col">Animal name</th>
-                            <th scope="col">Illness</th>
-                            <th scope="col">Illness history</th>
-                            <th scope="col">Vaccination</th>
-                            <th scope="col">Reproducing status</th>
-                            <th scope="col">Notes</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
                         <?php if (!empty($animalData)) : ?>
                             <?php foreach ($animalData as $animal) : ?>
                                 <tr>
@@ -107,10 +84,8 @@ try {
             <div class="content ms-3">
                 <h2 class="mb-3">Your Livestock</h2>
 
-                <!-- Add animal button -->
                 <a class="btn btn-outline-success mb-4" href="addAnimalPage.php">Add Animal</a>
 
-                <!-- Responsive table -->
                 <div class="table-responsive">
                     <table class="table table-success table-striped">
                         <thead>
