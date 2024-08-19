@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
                 unset($_SESSION['signup_data']);
                 $_SESSION['farm_unity_user'] = $username;
                 unset($_SESSION['signup_error_message']);
-                header('Location: home.php');
+                header('Location: registerFarm.php');
                 exit();
             } else {
                 $error .= "Error executing the query.";

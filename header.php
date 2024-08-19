@@ -262,7 +262,7 @@ if (isset($_SESSION['farm_unity_user'])) {
             <img src="images/fallback-avatar.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
           </a>
           <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="profile" id="profile" >
-            <li><a class="dropdown-item" href="#">My profile</a></li>
+            <li><a class="dropdown-item" href="myProfile.php">My profile</a></li>
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
         </li>
