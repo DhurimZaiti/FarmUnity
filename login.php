@@ -56,12 +56,21 @@
                             </div>
                            
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary" name="login">Login</button>
+                                <button type="submit" class="btn btn-primary" name="login">Log In</button>
                             </div>
                         </form>
 
                         <div class="text-center mt-3">
                             <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+                        </div>
+                        </div>
+                            <div class="text-center mb-3">
+                            <a href="#" class="link-underline link-underline-opacity-0 mx-2">
+                                <i class="fab fa-facebook" style="color: #6c757d;"></i> 
+                            </a>
+                            <a href="#" class="link-underline link-underline-opacity-0 mx-2">
+                                <i class="fab fa-google" style="color: #6c757d;"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

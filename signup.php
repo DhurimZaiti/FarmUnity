@@ -74,8 +74,16 @@ error_reporting(E_ALL);
                                 <button type="submit" class="btn btn-primary" name="submit">Sign Up</button>
                             </div>
                         </form>
-                        <div class="text-center mt-3">
+                        <div class="text-center mt-3 mb-3">
                             <p>Already have an account? <a href="login.php">Log In</a></p>
+                        </div>
+                            <div class="text-center mt-3">
+                            <a href="#" class="link-underline link-underline-opacity-0 mx-2">
+                                <i class="fab fa-facebook" style="color: #6c757d;"></i> 
+                            </a>
+                            <a href="#" class="link-underline link-underline-opacity-0 mx-2">
+                                <i class="fab fa-google" style="color: #6c757d;"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
