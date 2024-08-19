@@ -29,3 +29,9 @@
 .text-blue {
   color: #0d6efd;
 }
+.form-bg {
+  background-image: url('images/login-farm.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
