@@ -137,11 +137,29 @@ CREATE TABLE `users` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `is_admin` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--
+--
+CREATE TABLE IF NOT EXISTS `farm` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `farmManager` VARCHAR(255) NOT NULL,
+    `farmName` VARCHAR(255) NOT NULL,
+    `country` VARCHAR(255) NOT NULL,
+    `address` VARCHAR(255) NOT NULL,
+    `city` VARCHAR(255) NOT NULL,
+    `province` VARCHAR(255) NOT NULL,
+    `postalCode` VARCHAR(20) NOT NULL,
+    `timezone` VARCHAR(10) NOT NULL DEFAULT 'UTC +01:00',
+    `currency` VARCHAR(10) NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
 --
 
+--
+-- Table structure for table `farm`
+--
 --
 -- Indexes for table `animals`
 --
