@@ -1,5 +1,40 @@
 <?php
-session_start()
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once('config.php');
+// Check if 'animalId' is set in the URL parameters
+if (isset($_GET['animalId'])) {
+    // Get the animal ID from the URL
+    $animalId = $_GET['animalId'];
+
+    try {
+        // Prepare the SQL statement
+        $stmt = $conn->prepare("SELECT * FROM animals WHERE animal_id = :animal_id");
+
+        // Bind the animal_id parameter
+        $stmt->bindParam(':animal_id', $animalId, PDO::PARAM_STR);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Fetch the data
+        $animalData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if any data was retrieved
+        if ($animalData) {
+            // Output or process the data as needed
+            $_SESSION['animal_data'] = $animalData;
+        } else {
+            echo "No animal found with the provided ID.";
+        }
+    } catch (PDOException $e) {
+        // Handle any errors
+        echo "Error: " . $e->getMessage();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +50,12 @@ session_start()
 
 <body>
     <div class="container mt-5">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-md-8 offset-md-2 mt-5">
-                <div class="card bg-light">
+                <div class="card border border-2 border-success bg-body shadow-lg rounded px-3">
                     <div class="card-body">
                         <h1 class="card-title text-center mb-4">Animal Information</h1>
-                        <form action="addAnimal.php" method="POST">
+                        <form action="addAnimalLogic.php" method="POST">
                             <?php
                             if (isset($_SESSION['animal_error_message'])) {
                                 echo "<p class='text-danger'><strong>" . $_SESSION['animal_error_message'] . "</strong></p>";
@@ -84,8 +119,9 @@ session_start()
                                 <label for="notes" class="form-label">Notes</label>
                                 <textarea class="form-control" id="notes" name="notes" placeholder="optional"><?php echo isset($_SESSION['animal_data']['notes']) ? htmlspecialchars($_SESSION['animal_data']['notes']) : ''; ?></textarea>
                             </div>
-                            <div class="text-center">
-                                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                            <div>
+                                <button type="submit" name="submit" class="btn btn-success me-4">Submit</button>
+                                <a class="btn btn-light border border-2" href="animalsPage.php">Cancel</a>
                             </div>
                         </form>
                     </div>
@@ -93,7 +129,9 @@ session_start()
             </div>
         </div>
     </div>
-
+<?php
+    unset($_SESSION['animal_data'])
+?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

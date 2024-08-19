@@ -17,4 +17,21 @@
 .form-width{
   min-width: 150px !important;
 }
-
+.nothing-added {
+  background: #f8f9fa;
+  border: 2px dashed #e3e3e3;
+  padding: 60px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #393f44;
+  margin: 6px auto;
+}
+.text-blue {
+  color: #0d6efd;
+}
+.form-bg {
+  background-image: url('images/login-farm.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
