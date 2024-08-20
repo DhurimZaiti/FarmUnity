@@ -268,6 +268,7 @@ if (isset($_SESSION['farm_unity_user'])) {
 
         <ul class="dropdown-menu dropdown-menu-end" id="profile">
           <li><a class="dropdown-item" href="myProfile.php">My profile</a></li>
+          <li><a class="dropdown-item" href="settings.php">Settings</a></li>
           <li><a class="dropdown-item" href="logout.php">Logout</a></li>
         </ul>
       </li>

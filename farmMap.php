@@ -6,7 +6,7 @@
         <div class="content">
             <h1 class="h1 text-center my-3">Fam Map</h1>
             <!-- If the user hasn't added the farm, he can add it here with a button -->
-            <div class="text-center d-none" id="farmNotRegistered">
+            <div class="text-center" id="farmNotRegistered">
                 <h2 class="mb-4 h2">You havent added your farm(s), add one now.</h2>
                 <div id="icon" class="nothing-added text-center">
                     <i class="fad fa-map fa-4x mb-4"></i>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <!-- If the user has added the farm, he can see it with the google maps API. -->
-            <div class="">
+            <div class="d-none">
                 <blockquote class="h5 mb-2"><i class="far fa-info-circle text-blue ms-3 me-2"></i>Select an area type and then trace its outline by clicking on each corner of the area.</blockquote>
                 <div class="dropdown ms-3">
                     <button class="btn btn-primary dropdown dropdown-toggle mb-4" type="button" data-bs-toggle="dropdown" aria-expanded="true">
