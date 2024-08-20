@@ -1,5 +1,6 @@
 <?php
 include 'config.php';
+include_once('header.php');
 
 // Handle deletion of a plant
 if (isset($_GET['delete'])) {
@@ -25,41 +26,14 @@ $plants = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $conn = null; // Release the connection
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seasonal Plants</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-        }
-        
-        .btn-custom {
-            background-color: #007bff;
-            color: #fff;
-        }
-
-        .btn-custom:hover {
-            background-color: #0056b3;
-            color: #fff;
-        }
-    </style>
-</head>
 <body>
 
 <div class="container">
     <h2 class="mb-4">Seasonal Plants</h2>
     
     <div class="mb-4">
-        <a href="addSeasonal_plants.php" class="btn btn-custom">Add New Seasonal Plant</a>
+        <a href="addSeasonal_plants.php" class="btn btn-primary">Add New Seasonal Plant</a>
     </div>
     
     <table class="table table-striped">
@@ -104,7 +78,3 @@ $conn = null; // Release the connection
         </tbody>
     </table>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
