@@ -1,12 +1,18 @@
 <?php 
     include_once('header.php');
 ?>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+</head>
 <div class="contents">
     <div class="container-fluid">
         <div class="content">
             <h1 class="h1 text-center my-3">Fam Map</h1>
             <!-- If the user hasn't added the farm, he can add it here with a button -->
-            <div class="text-center" id="farmNotRegistered">
+            <div class="text-center d-none" id="farmNotRegistered">
                 <h2 class="mb-4 h2">You havent added your farm(s), add one now.</h2>
                 <div id="icon" class="nothing-added text-center">
                     <i class="fad fa-map fa-4x mb-4"></i>
@@ -18,7 +24,7 @@
                 </div>
             </div>
             <!-- If the user has added the farm, he can see it with the google maps API. -->
-            <div class="d-none">
+            <div class="">
                 <blockquote class="h5 mb-2"><i class="far fa-info-circle text-blue ms-3 me-2"></i>Select an area type and then trace its outline by clicking on each corner of the area.</blockquote>
                 <div class="dropdown ms-3">
                     <button class="btn btn-primary dropdown dropdown-toggle mb-4" type="button" data-bs-toggle="dropdown" aria-expanded="true">
@@ -31,9 +37,72 @@
                     </ul>
                 </div>
                 
+                <!-- MapBox Satellite view -->
+                <div id="map" style="height: 600px;"></div>
 
-                <iframe class="container-fluid mx-1" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d887.0035580645165!2d21.08935888915006!3d42.07127962581522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smk!4v1723908798174!5m2!1sen!2smk"  height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <script>
+                    var map = L.map('map').setView([42.07127962581522, 21.08935888915006], 13);
+
+                    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=YOUR_MAPBOX_ACCESS_TOKEN', {
+                        maxZoom: 19,
+                        tileSize: 512,
+                        zoomOffset: -1,
+                        attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+                    }).addTo(map);
+
+                    var drawnItems = new L.FeatureGroup();
+                    map.addLayer(drawnItems);
+
+                    var drawControl = new L.Control.Draw({
+                        edit: {
+                            featureGroup: drawnItems
+                        },
+                        draw: {
+                            polygon: true,
+                            polyline: false,
+                            rectangle: false,
+                            circle: false,
+                            marker: false
+                        }
+                    });
+                    map.addControl(drawControl);
+
+                    map.on(L.Draw.Event.CREATED, function (e) {
+                        var type = e.layerType,
+                            layer = e.layer;
+
+                        if (type === 'polygon') {
+                            // Store the polygon in the database via AJAX
+                            var geojson = layer.toGeoJSON();
+                            var coords = JSON.stringify(geojson.geometry.coordinates);
+
+                            // AJAX request to save the polygon in the database
+                            fetch('save_polygon.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ coords: coords })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if(data.success) {
+                                    console.log("Polygon saved successfully.");
+                                } else {
+                                    console.log("Failed to save polygon.");
+                                }
+                            });
+                        }
+
+                        drawnItems.addLayer(layer);
+                    });
+                </script>
+
+                <!-- MapBox Satellite view END -->
             </div>
         </div>
     </div>
 </div>
+<?php 
+    include_once('footer.php');
+?>
