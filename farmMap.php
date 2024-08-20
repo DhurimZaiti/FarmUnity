@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
 </head>
 <div class="contents">
     <div class="container-fluid">
@@ -40,63 +42,63 @@
                 <!-- MapBox Satellite view -->
                 <div id="map" style="height: 600px;"></div>
 
-                <script>
-                    var map = L.map('map').setView([42.07127962581522, 21.08935888915006], 13);
+                    <script>
+                        var map = L.map('map').setView([42.07127962581522, 21.08935888915006], 13);
 
-                    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/{z}/{x}/{y}?access_token=YOUR_MAPBOX_ACCESS_TOKEN', {
-                        maxZoom: 19,
-                        tileSize: 512,
-                        zoomOffset: -1,
-                        attribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
-                    }).addTo(map);
+                        // Create a new MapLibre GL layer
+                        var gl = L.maplibreGL({
+                            style: 'https://demotiles.maplibre.org/style.json', // Use MapLibre's default style or any other tile URL for satellite view
+                            accessToken: '' // No access token required for public tile servers
+                        }).addTo(map);
 
-                    var drawnItems = new L.FeatureGroup();
-                    map.addLayer(drawnItems);
+                        var drawnItems = new L.FeatureGroup();
+                        map.addLayer(drawnItems);
 
-                    var drawControl = new L.Control.Draw({
-                        edit: {
-                            featureGroup: drawnItems
-                        },
-                        draw: {
-                            polygon: true,
-                            polyline: false,
-                            rectangle: false,
-                            circle: false,
-                            marker: false
-                        }
-                    });
-                    map.addControl(drawControl);
+                        var drawControl = new L.Control.Draw({
+                            edit: {
+                                featureGroup: drawnItems
+                            },
+                            draw: {
+                                polygon: true,
+                                polyline: false,
+                                rectangle: false,
+                                circle: false,
+                                marker: false
+                            }
+                        });
+                        map.addControl(drawControl);
 
-                    map.on(L.Draw.Event.CREATED, function (e) {
-                        var type = e.layerType,
-                            layer = e.layer;
+                        map.on(L.Draw.Event.CREATED, function (e) {
+                            var type = e.layerType,
+                                layer = e.layer;
 
-                        if (type === 'polygon') {
-                            // Store the polygon in the database via AJAX
-                            var geojson = layer.toGeoJSON();
-                            var coords = JSON.stringify(geojson.geometry.coordinates);
+                            if (type === 'polygon') {
+                                // Store the polygon in the database via AJAX
+                                var geojson = layer.toGeoJSON();
+                                var coords = JSON.stringify(geojson.geometry.coordinates);
 
-                            // AJAX request to save the polygon in the database
-                            fetch('save_polygon.php', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({ coords: coords })
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if(data.success) {
-                                    console.log("Polygon saved successfully.");
-                                } else {
-                                    console.log("Failed to save polygon.");
-                                }
-                            });
-                        }
+                                // AJAX request to save the polygon in the database
+                                fetch('save_polygon.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ coords: coords })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if(data.success) {
+                                        console.log("Polygon saved successfully.");
+                                    } else {
+                                        console.log("Failed to save polygon.");
+                                    }
+                                });
+                            }
 
-                        drawnItems.addLayer(layer);
-                    });
-                </script>
+                            drawnItems.addLayer(layer);
+                        });
+                    </script>
+
 
                 <!-- MapBox Satellite view END -->
             </div>
