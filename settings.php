@@ -40,12 +40,12 @@
                                         <form action="RegisterFarmLogic.php" method="POST">
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
-                                                <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="--Users Farm Name" required>
+                                                <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="--User's Farm Name" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="timezone" class="form-label form-label-sm">Country</label>
                                                 <select class="form-select " id="country" name="country" required>
-                                                    <option selected>Select your Country</option>
+                                                    <option selected>User's Country</option>
                                                     <option value="albania">Albania</option>
                                                     <option value="bosnia">Bosnia & Herzegovina</option>
                                                     <option value="croatia">Croatia</option>
@@ -57,19 +57,19 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Address</label>
-                                                <input type="text" class="form-control " id="address" placeholder="Address" name="address" required>
+                                                <input type="text" class="form-control " id="address" placeholder="-- User's Address" name="address" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">City</label>  
-                                                <input type="text" class="form-control " id="city" name="city" placeholder="City" required>
+                                                <input type="text" class="form-control " id="city" name="city" placeholder="-- User's City" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Province/Municipality</label>
-                                                <input type="text" class="form-control " id="province" placeholder="Province/Municipality" name="province" required>
+                                                <input type="text" class="form-control " id="province" placeholder="-- User's Province/Municipality" name="province" required>
                                             </>
                                             <div class="mb-2">
                                                 <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-                                                <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postal-code" required>
+                                                <input type="text" class="form-control " id="postal-code" placeholder="-- User's Postal Code" name="postal-code" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="timezone" class="form-label form-label-sm">Timezone</label>
