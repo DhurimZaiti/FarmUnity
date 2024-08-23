@@ -43,6 +43,7 @@
                                                 <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="--Users Farm Name" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="timezone" class="form-label form-label-sm">Country</label>
                                                 <select class="form-select " id="country" name="country" required>
                                                     <option selected>Select your Country</option>
                                                     <option value="albania">Albania</option>
@@ -55,19 +56,19 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
+                                                <label for="exampleFormControlInput1" class="form-label">Address</label>
                                                 <input type="text" class="form-control " id="address" placeholder="Address" name="address" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>  
+                                                <label for="exampleFormControlInput1" class="form-label">City</label>  
                                                 <input type="text" class="form-control " id="city" name="city" placeholder="City" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
+                                                <label for="exampleFormControlInput1" class="form-label">Province/Municipality</label>
                                                 <input type="text" class="form-control " id="province" placeholder="Province/Municipality" name="province" required>
                                             </>
                                             <div class="mb-2">
-                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
+                                                <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
                                                 <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postal-code" required>
                                             </div>
                                             <div class="mb-3">
@@ -77,6 +78,7 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="timezone" class="form-label form-label-sm">Currency</label>
                                                 <select class="form-select " id="currency" name="currency" required>
                                                     <option selected>Select your Currency</option>
                                                     <option value="all">Albanian Lek (ALL)</option>

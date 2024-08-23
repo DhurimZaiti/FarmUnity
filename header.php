@@ -110,6 +110,9 @@ if (isset($_SESSION['farm_unity_user'])) {
               <a href="#" class="text-reset">My Crops</a>
             </li>
             <li class="list-group-item py-1">
+              <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
+            </li>
+            <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grow Locations</a>
             </li>
             <li class="list-group-item py-1">
@@ -321,6 +324,9 @@ if (isset($_SESSION['farm_unity_user'])) {
           <ul id="plantings" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">My Crops</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
             </li>
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grow Locations</a>
