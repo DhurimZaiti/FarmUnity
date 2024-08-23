@@ -39,7 +39,8 @@
                                         <h1 class="card-title text-center mb-4">Edit Your Farm and Preferences</h1>
                                         <form action="RegisterFarmLogic.php" method="POST">
                                             <div class="mb-3">
-                                                <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="What do you call your farm?" required>
+                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
+                                                <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="--Users Farm Name" required>
                                             </div>
                                             <div class="mb-3">
                                                 <select class="form-select " id="country" name="country" required>
@@ -54,15 +55,19 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
                                                 <input type="text" class="form-control " id="address" placeholder="Address" name="address" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>  
                                                 <input type="text" class="form-control " id="city" name="city" placeholder="City" required>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
                                                 <input type="text" class="form-control " id="province" placeholder="Province/Municipality" name="province" required>
-                                            </div>
+                                            </>
                                             <div class="mb-2">
+                                                <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
                                                 <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postal-code" required>
                                             </div>
                                             <div class="mb-3">
