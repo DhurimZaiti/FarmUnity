@@ -110,6 +110,9 @@ if (isset($_SESSION['farm_unity_user'])) {
               <a href="#" class="text-reset">My Crops</a>
             </li>
             <li class="list-group-item py-1">
+              <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
+            </li>
+            <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grow Locations</a>
             </li>
             <li class="list-group-item py-1">
@@ -236,7 +239,7 @@ if (isset($_SESSION['farm_unity_user'])) {
         </li>
         <!-- Settings -->
         <li class="nav-item me-3 me-lg-0">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="settings.php">
             <i class="fas fa-cog"></i>
           </a>
         </li>
@@ -321,6 +324,9 @@ if (isset($_SESSION['farm_unity_user'])) {
           <ul id="plantings" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">My Crops</a>
+            </li>
+            <li class="list-group-item py-1">
+              <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
             </li>
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grow Locations</a>
@@ -416,7 +422,7 @@ if (isset($_SESSION['farm_unity_user'])) {
         </a>
         <!-- Notifications END -->
         <!-- Settings -->
-        <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+        <a class="list-group-item py-2 ripple" aria-current="true" href="settings.php">
             <i class="far fa-cog fa-fw me-3"></i><span>Settings</span>
         </a>
         <!-- Settings END -->
