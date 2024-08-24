@@ -93,7 +93,7 @@ try {
                                         <td><?php echo htmlspecialchars($animal['reproducing_status']); ?></td>
                                         <td><?php echo htmlspecialchars($animal['notes']); ?></td>
                                         <td>
-                                            <a href="addAnimalPage.php?animalId=<?php echo urlencode($animal['animal_id']); ?>" class="btn btn-warning btn-sm">Update</a>
+                                            <a href="addAnimalPage.php?animalId=<?php echo urlencode($animal['animal_id']); ?>&reqQuery=update" class="btn btn-warning btn-sm">Update</a>
                                         </td>
                                         <td>
                                             <a href="deleteData.php?table=animals&idQuery=animal_id&id=<?php echo urlencode($animal['animal_id']); ?>" class="btn btn-danger btn-sm">Delete</a>

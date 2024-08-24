@@ -20,6 +20,9 @@ function generateAnimalID()
 if (isset($_POST['submit'])) {
     $_SESSION['animal_data'] = $_POST;
 
+    $animalId = $_GET['animalId'] || "";
+    $request = $_GET['req'] || "";
+
     $username = $_SESSION['farm_unity_user'];
     $animal = $_POST['animal'];
     $gender = $_POST['gender'];
@@ -57,11 +60,11 @@ if (isset($_POST['submit'])) {
         $error .= "Vaccination Status is required <br>";
         $_SESSION['animal_error_message'] = $error;
     }
-    if(empty($weight)){
+    if (empty($weight)) {
         $error .= "Weight is required <br>";
         $_SESSION['animal_error_message'] = $error;
     }
-    if(empty($reproducing_status)){
+    if (empty($reproducing_status)) {
         $error .= "Reproducing status is required <br>";
         $_SESSION['animal_error_message'] = $error;
     }
@@ -76,7 +79,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['animal_error_message'] = $error;
     }
 
-    if ($error == '') {
+    
+    if ($error == '' && $request != 'update') {
         $sql = "INSERT INTO animals (username, animal, gender, age, animal_name, animal_id, illness, illness_type, vaccination_status, weight, illness_history, reproducing_status, notes) 
                 VALUES (:username, :animal, :gender, :age, :animal_name, :animal_id, :illness, :illness_type, :vaccination_status, :weight, :illness_history, :reproducing_status, :notes)";
         $stmt = $conn->prepare($sql);
@@ -98,7 +102,36 @@ if (isset($_POST['submit'])) {
         if ($stmt->execute()) {
             unset($_SESSION['animal_error_message']);
             // Redirect to a success page or the desired location
-            header("Location: animalsPage.php");
+            // header("Location: animalsPage.php");
+            exit();
+        } else {
+            $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
+            $_SESSION['animal_error_message'] = $error;
+            echo "Debug info: " . implode(", ", $stmt->errorInfo()) . "<br>";
+        }
+    } else {
+        $sql = "INSERT INTO animals (username, animal, gender, age, animal_name, animal_id, illness, illness_type, vaccination_status, weight, illness_history, reproducing_status, notes) 
+        VALUES (:username, :animal, :gender, :age, :animal_name, :animal_id, :illness, :illness_type, :vaccination_status, :weight, :illness_history, :reproducing_status, :notes)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':animal', $animal);
+        $stmt->bindParam(':gender', $gender);
+        $stmt->bindParam(':age', $age);
+        $stmt->bindParam(':animal_name', $animal_name);
+        $stmt->bindParam(':animal_id', $animal_id);
+        $stmt->bindParam(':illness', $illness);
+        $stmt->bindParam(':illness_type', $illness_type);
+        $stmt->bindParam(':vaccination_status', $vaccination_status);
+        $stmt->bindParam(':weight', $weight);
+        $stmt->bindParam(':illness_history', $illness_history);
+        $stmt->bindParam(':reproducing_status', $reproducing_status);
+        $stmt->bindParam(':notes', $notes);
+
+
+        if ($stmt->execute()) {
+            unset($_SESSION['animal_error_message']);
+            // Redirect to a success page or the desired location
+            // header("Location: animalsPage.php");
             exit();
         } else {
             $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
@@ -109,7 +142,7 @@ if (isset($_POST['submit'])) {
 
     // Redirect if there is an error
     if (isset($_SESSION['animal_error_message'])) {
-        header("Location: animalsPage.php");
+        // header("Location: animalsPage.php");
         exit();
     }
 }
