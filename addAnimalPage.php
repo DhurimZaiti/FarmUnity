@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once('header.php');
+
 // Check if 'animalId' is set in the URL parameters
 if (isset($_GET['animalId'])) {
     // Get the animal ID from the URL
@@ -62,8 +63,8 @@ if (isset($_GET['animalId'])) {
                                 <label for="gender" class="form-label">Gender</label>
                                 <select class="form-select" id="gender" name="gender" required>
                                     <option value="">Select gender</option>
-                                    <option value="Male" <?php echo (isset($_SESSION['animal_data']['gender']) && $_SESSION['animal_data']['gender'] == 'Male') ? 'selected' : ''; ?>>Male</option>
-                                    <option value="Female" <?php echo (isset($_SESSION['animal_data']['gender']) && $_SESSION['animal_data']['gender'] == 'Female') ? 'selected' : ''; ?>>Female</option>
+                                    <option value="Male" <?php echo (isset($_SESSION['animal_data']['gender']) && $_SESSION['animal_data']['gender'] == 'male') ? 'selected' : ''; ?>>Male</option>
+                                    <option value="Female" <?php echo (isset($_SESSION['animal_data']['gender']) && $_SESSION['animal_data']['gender'] == 'female') ? 'selected' : ''; ?>>Female</option>
                                 </select>
                             </div>
                             <div class="mb-3">

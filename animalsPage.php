@@ -56,61 +56,90 @@ try {
     <div class="contents">
         <div class="container">
             <div class="content ms-3">
-                <h2 class="mb-3">Your Livestock</h2>
 
-                <a class="btn btn-outline-success mb-4" href="addAnimalPage.php">Add Animal</a>
-
-                <div class="table-responsive">
-                    <table class="table table-success table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Animal</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Weight</th>
-                                <th scope="col">Animal Name</th>
-                                <th scope="col">Illness</th>
-                                <th scope="col">Illness History</th>
-                                <th scope="col">Vaccination</th>
-                                <th scope="col">Reproducing Status</th>
-                                <th scope="col">Notes</th>
-                                <th scope="col">Update</th>
-                                <th scope="col">Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (!empty($animalData)) : ?>
-                                <?php foreach ($animalData as $animal) : ?>
-                                    <tr>
-                                        <th scope="row"><?php echo htmlspecialchars($animal['animal']); ?></th>
-                                        <td><?php echo htmlspecialchars($animal['gender']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['age']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['weight']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['animal_name']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['illness_type']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['illness_history']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['vaccination_status']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['reproducing_status']); ?></td>
-                                        <td><?php echo htmlspecialchars($animal['notes']); ?></td>
-                                        <td>
-                                            <a href="addAnimalPage.php?animalId=<?php echo urlencode($animal['animal_id']); ?>&reqQuery=update" class="btn btn-warning btn-sm">Update</a>
-                                        </td>
-                                        <td>
-                                            <a href="deleteData.php?table=animals&idQuery=animal_id&id=<?php echo urlencode($animal['animal_id']); ?>" class="btn btn-danger btn-sm">Delete</a>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                <tr>
-                                    <td colspan="12">No animals found for this user.</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+                <?php
+                if (!$animalData) {
+                    echo "<div class='text-center' id='farmNotRegistered'>";
+                } else {
+                    echo "<div class='d-none'>";
+                }
+                ?>
+                <h2 class="mb-4 h2">You havent added any animal(s), add one now.</h2>
+                <div id="icon" class="nothing-added text-center">
+                    <i class="fad fa-cow fa-4x mb-4"></i>
+                    <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
+                    <p class="text-muted">Click the green button above to add your animal.</p>
+                    <a href="addAnimalPage.php">
+                        <button class="btn btn-primary mb-4">Add your animal.</button>
+                    </a>
                 </div>
             </div>
 
+
+
+
+            <?php
+            if ($animalData) {
+                echo "<div>";
+            } else {
+                echo "<div class='d-none'>";
+            }
+            ?>
+            <h2 class="mb-3">Your Livestock</h2>
+            <a class="btn btn-outline-success mb-4" href="addAnimalPage.php">Add Animal</a>
+
+            <div class="table-responsive">
+                <table class="table table-success table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Animal</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Weight</th>
+                            <th scope="col">Animal Name</th>
+                            <th scope="col">Illness</th>
+                            <th scope="col">Illness History</th>
+                            <th scope="col">Vaccination</th>
+                            <th scope="col">Reproducing Status</th>
+                            <th scope="col">Notes</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (!empty($animalData)) : ?>
+                            <?php foreach ($animalData as $animal) : ?>
+                                <tr>
+                                    <th scope="row"><?php echo htmlspecialchars($animal['animal']); ?></th>
+                                    <td><?php echo htmlspecialchars($animal['gender']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['age']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['weight']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['animal_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['illness_type']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['illness_history']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['vaccination_status']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['reproducing_status']); ?></td>
+                                    <td><?php echo htmlspecialchars($animal['notes']); ?></td>
+                                    <td>
+                                        <a href="addAnimalPage.php?animalId=<?php echo urlencode($animal['animal_id']); ?>&reqQuery=update" class="btn btn-warning btn-sm">Update</a>
+                                    </td>
+                                    <td>
+                                        <a href="deleteData.php?table=animals&idQuery=animal_id&id=<?php echo urlencode($animal['animal_id']); ?>" class="btn btn-danger btn-sm">Delete</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <tr>
+                                <td colspan="12">No animals found for this user.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
+    </div>
+
+    </div>
     </div>
 </body>
 

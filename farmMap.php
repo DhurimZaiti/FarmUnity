@@ -49,7 +49,7 @@ if (!empty($farms)) {
             <!-- If the user hasn't added the farm, he can add it here with a button -->
 
             <?php
-            if (!$farms) {
+            if (!$farm['farm_coordinates']) {
                 echo "<div class='text-center' id='farmNotRegistered'>";
             } else {
                 echo "<div class='d-none'>";
@@ -60,14 +60,14 @@ if (!empty($farms)) {
                 <i class="fad fa-map fa-4x mb-4"></i>
                 <h4 class="h4 mb-3">Haven't added an area yet? Add one now!</h4>
                 <p class="text-muted">Click the green button above to add your farms, stables, and other places.</p>
-                <a href="registerFarm.php">
+                <a href="settings.php">
                     <button class="btn btn-primary mb-4">Add your farm</button>
                 </a>
             </div>
         </div>
         <!-- If the user has added the farm, he can see it with the google maps API. -->
         <?php
-        if ($farms) {
+        if ($farm['farm_coordinates']) {
             echo "<div>";
         } else {
             echo "<div class='d-none'>";

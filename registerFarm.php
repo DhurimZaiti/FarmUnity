@@ -23,12 +23,6 @@
     <link rel="stylesheet" href="css/sidebar-mdb.css">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
-    </style>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet" />
     <style>
@@ -37,6 +31,10 @@
             background-size: cover;
             background-position: center;
             height: 100vh;
+        }
+        #map {
+            height: 500px;
+            width: 100%;
         }
     </style>
 </head>
@@ -98,7 +96,7 @@
                                     </select>
                                 </div>
                                 <div class="row px-3 mb-3">
-                                    <input type="text" name="farmCoordinates" id="farmCoordinates" value="">
+                                    <input class="d-none" type="text" name="farmCoordinates" id="farmCoordinates" value="">
                                     <div id="map"></div>
                                 </div>
                                 <div class="text-center">

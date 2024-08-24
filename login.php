@@ -43,6 +43,7 @@
                         if (isset($_SESSION['login_error_message'])) {
                             echo "<p class='text-danger'><strong>" . $_SESSION['login_error_message'] . "</strong></p>";
                         }
+                        unset($_SESSION['login_error_message']);
                         ?>
                         <form action="loginLogic.php" method="POST">
                             <div class="mb-3">

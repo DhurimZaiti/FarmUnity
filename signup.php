@@ -46,7 +46,7 @@
               <?php
               if (isset($_SESSION['signup_error_message'])) {
                 echo "<p class='text-danger'><strong>" . $_SESSION['signup_error_message'] . "</strong></p>";
-                unset($_SESSION['signup_error_message']); // Clear the message after displaying
+                unset($_SESSION['signup_error_message']);
               }
               ?>
               <div class="mb-3">
@@ -80,10 +80,6 @@
         </div>
       </div>
     </div>
-
-    <?php
-      // unset($_SESSION['signup_error_message'])
-    ?>
 
     <script>
       window.fbAsyncInit = function() {

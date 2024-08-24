@@ -16,13 +16,13 @@ if (isset($_POST['submit'])) {
     $province = $_POST['province'];
     $postalCode = $_POST['postal-code'];
     $timezone = "UTC +01:00";
-    $farm_coordinates = $_POST['farmCoordinates'];
+    $farm_coordinates = $_POST['farmCoordinates'] || null;
     $currency = $_POST['currency'];
 
     // Validate form data
     if (empty($farmName) || empty($country) || empty($address) || empty($city) || empty($province) || empty($postalCode) || empty($currency)) {
         $_SESSION['register_error_message'] = "All fields are required.";
-        // header("Location: registerFarm.php");
+        header("Location: registerFarm.php");
         exit();
     }
 
