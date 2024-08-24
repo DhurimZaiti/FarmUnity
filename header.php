@@ -167,7 +167,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           </ul>
         <!-- Collapse 6 END -->
         <!-- Collapse 7 -->
-          <a class="list-group-item py-2 ripple" aria-current="true" href="#">
+          <a class="list-group-item py-2 ripple" aria-current="true" href="contact.php">
             <i class="far fa-address-book fa-fw me-3"></i><span>Contacts</span>
           </a>
         <!-- Collapse 7 END -->

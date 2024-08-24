@@ -1,3 +1,6 @@
+<?php 
+  session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,6 +80,10 @@
         </div>
       </div>
     </div>
+
+    <?php
+      // unset($_SESSION['signup_error_message'])
+    ?>
 
     <script>
       window.fbAsyncInit = function() {

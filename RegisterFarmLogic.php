@@ -16,17 +16,18 @@ if (isset($_POST['submit'])) {
     $province = $_POST['province'];
     $postalCode = $_POST['postal-code'];
     $timezone = "UTC +01:00";
+    $farm_coordinates = $_POST['farmCoordinates'];
     $currency = $_POST['currency'];
 
     // Validate form data
     if (empty($farmName) || empty($country) || empty($address) || empty($city) || empty($province) || empty($postalCode) || empty($currency)) {
         $_SESSION['register_error_message'] = "All fields are required.";
-        header("Location: registerFarm.php");
+        // header("Location: registerFarm.php");
         exit();
     }
 
     // Prepare SQL statement
-    $sql = "INSERT INTO farm (farmManager, farmName, country, address, city, province, postalCode, timezone, currency) VALUES (:farmManager, :farmName, :country, :address, :city, :province, :postalCode, :timezone, :currency)";
+    $sql = "INSERT INTO farm (farmManager, farmName, country, address, city, province, postalCode, timezone, farm_coordinates, currency) VALUES (:farmManager, :farmName, :country, :address, :city, :province, :postalCode, :timezone, :farm_coordinates, :currency)";
     $stmt = $conn->prepare($sql);
     
     // Bind parameters
@@ -39,12 +40,12 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':province', $province);
     $stmt->bindParam(':postalCode', $postalCode);
     $stmt->bindParam(':timezone', $timezone);
+    $stmt->bindParam(':farm_coordinates', $farm_coordinates);
     $stmt->bindParam(':currency', $currency);
 
     // Execute the statement
     try {
         $stmt->execute();
-        $_SESSION['success_message'] = "Farm registered successfully.";
         header("Location: home.php");
         exit();
     } catch (PDOException $e) {
@@ -57,4 +58,3 @@ if (isset($_POST['submit'])) {
     header("Location: registerFarm.php");
     exit();
 }
-?>
