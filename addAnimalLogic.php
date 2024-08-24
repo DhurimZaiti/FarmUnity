@@ -20,8 +20,9 @@ function generateAnimalID()
 if (isset($_POST['submit'])) {
     $_SESSION['animal_data'] = $_POST;
 
-    $animalId = $_GET['animalId'] || "";
-    $request = $_GET['req'] || "";
+    $animalId = isset($_GET['animalId']) ? $_GET['animalId'] : "";
+    $request = isset($_GET['req']) ? $_GET['req'] : "";
+
 
     $username = $_SESSION['farm_unity_user'];
     $animal = $_POST['animal'];
@@ -79,7 +80,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['animal_error_message'] = $error;
     }
 
-    
+
     if ($error == '' && $request != 'update') {
         $sql = "INSERT INTO animals (username, animal, gender, age, animal_name, animal_id, illness, illness_type, vaccination_status, weight, illness_history, reproducing_status, notes) 
                 VALUES (:username, :animal, :gender, :age, :animal_name, :animal_id, :illness, :illness_type, :vaccination_status, :weight, :illness_history, :reproducing_status, :notes)";
@@ -101,8 +102,7 @@ if (isset($_POST['submit'])) {
 
         if ($stmt->execute()) {
             unset($_SESSION['animal_error_message']);
-            // Redirect to a success page or the desired location
-            // header("Location: animalsPage.php");
+            header("Location: animalsPage.php");
             exit();
         } else {
             $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
@@ -110,15 +110,28 @@ if (isset($_POST['submit'])) {
             echo "Debug info: " . implode(", ", $stmt->errorInfo()) . "<br>";
         }
     } else {
-        $sql = "INSERT INTO animals (username, animal, gender, age, animal_name, animal_id, illness, illness_type, vaccination_status, weight, illness_history, reproducing_status, notes) 
-        VALUES (:username, :animal, :gender, :age, :animal_name, :animal_id, :illness, :illness_type, :vaccination_status, :weight, :illness_history, :reproducing_status, :notes)";
+        $sql = "UPDATE animals 
+        SET username = :username,
+            animal = :animal,
+            gender = :gender,
+            age = :age,
+            animal_name = :animal_name,
+            illness = :illness,
+            illness_type = :illness_type,
+            vaccination_status = :vaccination_status,
+            weight = :weight,
+            illness_history = :illness_history,
+            reproducing_status = :reproducing_status,
+            notes = :notes
+        WHERE animal_id = :animal_id";
+
         $stmt = $conn->prepare($sql);
+        // Bind parameters
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':animal', $animal);
         $stmt->bindParam(':gender', $gender);
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':animal_name', $animal_name);
-        $stmt->bindParam(':animal_id', $animal_id);
         $stmt->bindParam(':illness', $illness);
         $stmt->bindParam(':illness_type', $illness_type);
         $stmt->bindParam(':vaccination_status', $vaccination_status);
@@ -126,23 +139,21 @@ if (isset($_POST['submit'])) {
         $stmt->bindParam(':illness_history', $illness_history);
         $stmt->bindParam(':reproducing_status', $reproducing_status);
         $stmt->bindParam(':notes', $notes);
+        $stmt->bindParam(':animal_id', $animalId);
 
-
+        // Execute the update query
         if ($stmt->execute()) {
-            unset($_SESSION['animal_error_message']);
-            // Redirect to a success page or the desired location
-            // header("Location: animalsPage.php");
-            exit();
+            echo "Animal details updated successfully.";
+            header("Location: animalsPage.php");
         } else {
-            $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
-            $_SESSION['animal_error_message'] = $error;
-            echo "Debug info: " . implode(", ", $stmt->errorInfo()) . "<br>";
+            echo "Error updating animal details.";
+            header("Location: animalsPage.php");
         }
     }
 
     // Redirect if there is an error
     if (isset($_SESSION['animal_error_message'])) {
-        // header("Location: animalsPage.php");
+        header("Location: animalsPage.php");
         exit();
     }
 }
