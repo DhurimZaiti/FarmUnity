@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 09, 2024 at 05:05 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Aug 25, 2024 at 03:50 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,14 +35,14 @@ CREATE TABLE `animals` (
   `age` int(11) NOT NULL,
   `animal_name` varchar(255) NOT NULL,
   `animal_id` varchar(255) NOT NULL,
-  `illness` tinyint(1) DEFAULT 0,
+  `illness` tinyint(1) DEFAULT '0',
   `illness_type` varchar(255) DEFAULT NULL,
   `vaccination_status` varchar(255) DEFAULT NULL,
   `weight` decimal(10,2) DEFAULT NULL,
-  `illness_history` text DEFAULT NULL,
+  `illness_history` text,
   `reproducing_status` enum('pregnant','lactating','infertile','none') DEFAULT 'none',
-  `notes` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `notes` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -55,8 +55,36 @@ CREATE TABLE `contact` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `farm`
+--
+
+CREATE TABLE `farm` (
+  `id` int(11) NOT NULL,
+  `farmManager` varchar(255) NOT NULL,
+  `farmName` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `province` varchar(255) NOT NULL,
+  `postalCode` varchar(20) NOT NULL,
+  `timezone` varchar(10) NOT NULL DEFAULT 'UTC +01:00',
+  `farm_coordinates` varchar(255) NOT NULL,
+  `currency` varchar(10) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `farm`
+--
+
+INSERT INTO `farm` (`id`, `farmManager`, `farmName`, `country`, `address`, `city`, `province`, `postalCode`, `timezone`, `farm_coordinates`, `currency`, `created_at`) VALUES
+(1, 'admin', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '41.98737880670261, 21.060969864637322', 'all', '2024-08-21 12:54:50'),
 
 -- --------------------------------------------------------
 
@@ -72,8 +100,8 @@ CREATE TABLE `feed` (
   `imported_from` varchar(255) DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL,
   `expiry_date` date DEFAULT NULL,
-  `notes` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `notes` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -96,8 +124,8 @@ CREATE TABLE `plants` (
   `height` decimal(10,2) DEFAULT NULL,
   `spread` decimal(10,2) DEFAULT NULL,
   `sun_requirements` enum('full','partial','none') DEFAULT NULL,
-  `notes` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `notes` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -118,8 +146,8 @@ CREATE TABLE `seasonal_plants` (
   `height` decimal(10,2) DEFAULT NULL,
   `spread` decimal(10,2) DEFAULT NULL,
   `sun_requirements` enum('full','partial','none') DEFAULT NULL,
-  `notes` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `notes` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,33 +161,22 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `is_admin` tinyint(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
---
---
-CREATE TABLE IF NOT EXISTS `farm` (
-    `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `farmManager` VARCHAR(255) NOT NULL,
-    `farmName` VARCHAR(255) NOT NULL,
-    `country` VARCHAR(255) NOT NULL,
-    `address` VARCHAR(255) NOT NULL,
-    `city` VARCHAR(255) NOT NULL,
-    `province` VARCHAR(255) NOT NULL,
-    `postalCode` VARCHAR(20) NOT NULL,
-    `timezone` VARCHAR(10) NOT NULL DEFAULT 'UTC +01:00',
-    `currency` VARCHAR(10) NOT NULL,
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `is_admin` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `avatar`, `password`, `created_at`, `updated_at`, `is_admin`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$3TcGpZvuTmD/eek2.wKBOufZ/vzkIoSuOzYyJXg8Vf3Bua4V7aVdW', '2024-08-21 11:38:43', '2024-08-21 11:38:43', 0),
 
 --
 -- Indexes for dumped tables
 --
 
---
--- Table structure for table `farm`
---
 --
 -- Indexes for table `animals`
 --
@@ -172,6 +189,12 @@ ALTER TABLE `animals`
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `farm`
+--
+ALTER TABLE `farm`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -220,6 +243,12 @@ ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `farm`
+--
+ALTER TABLE `farm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `feed`
 --
 ALTER TABLE `feed`
@@ -241,7 +270,7 @@ ALTER TABLE `seasonal_plants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
