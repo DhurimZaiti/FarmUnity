@@ -150,6 +150,8 @@
                 // Update the input field with the coordinates
                 var farmCoordinatesInput = document.getElementById('farmCoordinates');
                 farmCoordinatesInput.value = lat + ', ' + lng;
+
+                console.log("Coordinates: " + farmCoordinatesInput.value)
             });
         </script>
 </body>

@@ -8,6 +8,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
     echo "here 1";
+    echo $_POST['farmCoordinates'];
     // Retrieve form data
     $farmManager = $_SESSION['farm_unity_user'];
     $farmName = $_POST['farmName'];
@@ -17,13 +18,16 @@ if (isset($_POST['submit'])) {
     $province = $_POST['province'];
     $postalCode = $_POST['postal-code'];
     $timezone = "UTC +01:00";
-    $farm_coordinates = $_POST['farmCoordinates'] || null;
+    $farm_coordinates =  isset($_POST['farmCoordinates']) ? $_POST['farmCoordinates']  : null;
     $currency = $_POST['currency'];
+    
+    echo "<br>";
+    echo $farm_coordinates;
 
     // Validate form data
     if (empty($farmName) || empty($country) || empty($address) || empty($city) || empty($province) || empty($postalCode) || empty($currency)) {
         $_SESSION['register_error_message'] = "All fields are required.";
-        // header("Location: registerFarm.php");
+        header("Location: registerFarm.php");
         exit();
     }
     echo "here 2";
@@ -45,25 +49,22 @@ if (isset($_POST['submit'])) {
     $stmt->bindParam(':farm_coordinates', $farm_coordinates);
     $stmt->bindParam(':currency', $currency);
 
-    echo $_SESSION['register_error_message'];
-
     // Execute the statement
     try {
         echo "here 3";
         $stmt->execute();
         header("Location: home.php");
-        echo $_SESSION['register_error_message'];
         exit();
     } catch (PDOException $e) {
         echo "here 4";
         $_SESSION['register_error_message'] = "Error: " . $e->getMessage();
-        // header("Location: registerFarm.php");
+        header("Location: registerFarm.php");
         echo $_SESSION['register_error_message'];
         exit();
     }
 } else {
     echo "here 5";
     $_SESSION['register_error_message'] = "Invalid request.";
-    // header("Location: registerFarm.php");
+    header("Location: registerFarm.php");
     exit();
 }
