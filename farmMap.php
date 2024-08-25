@@ -112,7 +112,7 @@ if (!empty($farms)) {
             // Initialize the Leaflet map with Esri World Imagery as the default layer
             var map = L.map('map', {
                 center: coordsArray,
-                zoom: 13, // Set zoom level to 13 for a closer view
+                zoom: 18, // Set zoom level to 13 for a closer view
                 layers: [esriWorldImagery] // Start with the satellite view
             });
 

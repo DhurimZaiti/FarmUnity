@@ -133,7 +133,7 @@ if ($animalData) {
 
                             // Generate the table row for each animal
                             echo '<tr>';
-                            echo '<td><a href="animal-details.php?animalId=' . htmlspecialchars($animalId) . '">' . htmlspecialchars($animal['animal']) . '</a></td>';
+                            echo '<td><a href="animal-details.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
                             echo '<td class="text-end">';
                                 echo '<div>';
                                     echo '<a href="addAnimalPage.php?animalId='. $animalId .'" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
