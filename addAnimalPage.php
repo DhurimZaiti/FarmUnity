@@ -54,6 +54,7 @@ if (isset($_GET['animalId'])) {
                             if (isset($_SESSION['animal_error_message'])) {
                                 echo "<p class='text-danger'><strong>" . $_SESSION['animal_error_message'] . "</strong></p>";
                             }
+                            unset($_SESSION['animal_error_message'])
                             ?>
                             <div class="mb-3">
                                 <label for="animal" class="form-label">Animal</label>
