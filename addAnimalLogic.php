@@ -146,14 +146,15 @@ if (isset($_POST['submit'])) {
             echo "Animal details updated successfully.";
             header("Location: animalsPage.php");
         } else {
-            echo "Error updating animal details.";
-            header("Location: animalsPage.php");
+            $error .= 'Error executing the query: ' . implode(", ", $stmt->errorInfo());
+            $_SESSION['animal_error_message'] = $error;
+            header("Location: addAnimalPage.php");
         }
     }
 
     // Redirect if there is an error
     if (isset($_SESSION['animal_error_message'])) {
-        header("Location: animalsPage.php");
+        header("Location: addAnimalPage.php");
         exit();
     }
 }
