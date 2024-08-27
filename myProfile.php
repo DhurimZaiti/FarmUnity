@@ -1,5 +1,6 @@
 <?php
 include_once('header.php');
+
 ?>
 <div class="contents">
     <div class="container pe-0 ms-4">
@@ -11,12 +12,12 @@ include_once('header.php');
                             <div class="card-body">
                                 <h5 class="card-title text-center">Change Your Preferences</h5>
                                 <div class="mb-3">
-                                    <label for="exampleInputUsername1" class="form-label">Username</label>
-                                    <input type="text" name="username" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp">
+                                    <label for="exampleInputUsername1" class="form-label" >Username</label>
+                                    <input type="text" name="username" value="<?php echo $userData['username'];  ?>" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="email" name="email"  value="<?php echo $userData['email'];?> " id="exampleInputEmail1" aria-describedby="emailHelp">
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
