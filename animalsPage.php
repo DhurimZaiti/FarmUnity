@@ -50,13 +50,8 @@ if ($animalData) {
 ?>
 
 <body>
-    <?php
-    if (!$animalData) {
-        echo "<div class='text-center  ms-5' id='farmNotRegistered'>";
-    } else {
-        echo "<div class='d-none'>";
-    }
-    ?>
+    <div class='d-none'>
+    <div class='text-center  ms-5' id='farmNotRegistered'>  
     <h2 class="mb-4 h2">You havent added any animal(s), add one now.</h2>
     <div id="icon" class="nothing-added text-center">
         <i class="fad fa-cow fa-4x mb-4"></i>
@@ -68,15 +63,26 @@ if ($animalData) {
     </div>
     </div>
 
-    <?php
-    if ($animalData) {
-        echo "<div class='contents'>";
-    } else {
-        echo "<div class='d-none'>";
-    }
-    ?>
+
+   <div class='contents'>
     <div class="container">
         <div class="content ms-3">
+
+
+        <div class='d-none'>
+            <div class='text-center  ms-5' id='farmNotRegistered'>  
+                <h2 class="mb-4 h2">You havent added any animal(s), add one now.</h2>
+                <div id="icon" class="nothing-added text-center">
+                    <i class="fad fa-cow fa-4x mb-4"></i>
+                    <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
+                    <p class="text-muted">Click the green button above to add your animal.</p>
+                    <a href="addAnimalPage.php">
+                        <button class="btn btn-primary mb-4">Add your animals</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
             <div class="row mb-4">
                 <div class="col">
                     <div class="card">
