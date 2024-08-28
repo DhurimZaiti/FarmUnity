@@ -53,18 +53,18 @@ if (isset($_POST['submit'])) {
     try {
         echo "here 3";
         $stmt->execute();
-        header("Location: home.php");
+        header("Location: home.php");    
         exit();
     } catch (PDOException $e) {
         echo "here 4";
         $_SESSION['register_error_message'] = "Error: " . $e->getMessage();
-        header("Location: registerFarm.php");
+        header("Location: registerFarm.php");    
         echo $_SESSION['register_error_message'];
         exit();
     }
 } else {
     echo "here 5";
     $_SESSION['register_error_message'] = "Invalid request.";
-    header("Location: registerFarm.php");
+    header("Location: registerFarm.php");    
     exit();
 }

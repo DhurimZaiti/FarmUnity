@@ -212,7 +212,7 @@ if (!empty($farms)) {
 
     // Add Esri World Imagery satellite tile layer
     var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 18,
+        maxZoom: 17,
         attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
     });
 
