@@ -116,7 +116,11 @@ if (isset($_GET['animalId'])) {
                             </div>
                             <div>
                                 <button type="submit" name="submit" class="btn btn-primary me-3">Submit</button>
-                                <a class="btn btn-light border border-2" href="animalsPage.php">Cancel</a>
+                                <?php
+                                    if(isset($_GET['page'])){
+                                        echo '<a class="btn btn-light border border-2" href="' .  $_GET['page'] . '">Cancel</a>';
+                                    }
+                                ?>
                             </div>
                             </form>
                         </div>
