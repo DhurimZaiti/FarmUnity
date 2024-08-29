@@ -3,56 +3,68 @@
 ?>
 
 <body>
-                <?php
-                    if (!$animalData) {
-                        echo "<div class='text-center' id='farmNotRegistered'>";
-                    } else {
-                        echo "<div class='d-none'>";
-                    }
-                ?>
-                <h2 class="mb-4 h2">You havent added any plantings, add one now.</h2>
-                <div id="icon" class="nothing-added text-center">
-                    <i class="fad fa-seedling fa-4x mb-4"></i>
-                    <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
-                    <p class="text-muted">Click the green button above to add your animal.</p>
-                    <a href="addAnimalPage.php">
-                        <button class="btn btn-primary mb-4">Add your plantings</button>
-                    </a>
-                </div>
-            </div>
     <div class="contents">
         <div class="container">
             <div class="content ms-3">
                 <div class="row mb-4">
+                    <!-- Artina, kjo hin brenda contents, container ene content, se kto jan paddingat tamam per secollen faqe. -->
+                    <div class="d-none">
+                        <h2 class="mb-4 h2">You havent added any plantings, add one now.</h2>
+                        <div id="icon" class="nothing-added text-center">
+                            <i class="fad fa-seedling fa-4x mb-4"></i>
+                            <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
+                            <p class="text-muted">Click the green button above to add your animal.</p>
+                            <a href="addAnimalPage.php">
+                                <button class="btn btn-primary mb-4">Add your plantings</button>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="col">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Animals</h5>
-                                <p class="card-text">100% of 10</p>
+                                <h5 class="card-title">Planitngs</h5>
+                                <p class="card-text">17</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Cow</h5>
-                                <p class="card-text">100% of 10</p>
+                                <h5 class="card-title">Cereals</h5>
+                                <p class="card-text">100% of 17</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Male</h5>
-                                <p class="card-text">50% of 10</p>
+                                <h5 class="card-title">Citrus</h5>
+                                <p class="card-text">50% of 17</p>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Female</h5>
-                                <p class="card-text">50% of 10</p>
+                                <h5 class="card-title">Vegetables</h5>
+                                <p class="card-text">50% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Fruits</h5>
+                                <p class="card-text">50% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Other</h5>
+                                <p class="card-text">50% of 17</p>
                             </div>
                         </div>
                     </div>
