@@ -103,10 +103,12 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 let fieldsDataJSON = <?php echo json_encode($fields) ?>;
                 let fieldIds = [];
+                let fieldNames = [];
                 let fieldCoordinates = [];
 
                 for (let i = 0; i < fieldsDataJSON.length; i++) {
                     fieldIds.push(fieldsDataJSON[i]['fieldId']);
+                    fieldNames.push(fieldsDataJSON[i]['field_name']);
                     fieldCoordinates.push(JSON.parse(fieldsDataJSON[i]['coordinates']));
                 }
 
@@ -301,7 +303,7 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         var polygon = L.polygon(field).addTo(map);
                         drawnItems.addLayer(polygon);
 
-                        addPolygonControl("Field " + (index + 1), polygon, fieldIds[index]);
+                        addPolygonControl(fieldNames[index], polygon, fieldIds[index]);
                     });
                 }
 
