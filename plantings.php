@@ -39,14 +39,6 @@
                     <div class="col">
                         <div class="card">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Citrus</h5>
-                                <p class="card-text">50% of 17</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body text-center">
                                 <h5 class="card-title">Vegetables</h5>
                                 <p class="card-text">50% of 17</p>
                             </div>
@@ -92,12 +84,12 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <td><a href="animal-details.html">Animal 1</a></td>
-                                <td class="text-end"><button class="btn btn-outline-secondary btn-sm">Edit Animal</button></td>
+                                <td><a href="singlePlanting.php">Planting 1</a></td>
+                                <td class="text-end"><button class="btn btn-outline-secondary btn-sm">Edit Planting</button></td>
                             </tr>
                             <tr>
-                                <td><a href="animal-details.html">Animal 2</a></td>
-                                <td class="text-end"><button class="btn btn-outline-secondary btn-sm">Edit Animal</button></td>
+                                <td><a href="singlePlanting.php">Planting 2</a></td>
+                                <td class="text-end"><button class="btn btn-outline-secondary btn-sm">Edit Planting</button></td>
                             </tr>
                         </tbody>
                     </table>
