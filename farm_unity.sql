@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 25, 2024 at 08:52 PM
+-- Generation Time: Sep 02, 2024 at 08:08 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -49,7 +49,7 @@ CREATE TABLE `animals` (
 --
 
 INSERT INTO `animals` (`id`, `username`, `animal`, `gender`, `age`, `animal_name`, `animal_id`, `illness`, `illness_type`, `vaccination_status`, `weight`, `illness_history`, `reproducing_status`, `notes`) VALUES
-(3, 'admin', 'cow', 'male', 15, 'mooo\\', '258183075135', 1, 'asda', 'Vaccinated', '12.00', 'sxsx', 'lactating', 'asda');
+(4, 'admin', 'cow', 'male', 15, 'lop', '899364770044', 1, 'sadc', 'Vaccinated', '12.00', 'sadcsdcasd', 'pregnant', 'sadccsd');
 
 -- --------------------------------------------------------
 
@@ -82,6 +82,7 @@ CREATE TABLE `farm` (
   `postalCode` varchar(20) NOT NULL,
   `timezone` varchar(10) NOT NULL DEFAULT 'UTC +01:00',
   `farm_coordinates` varchar(255) NOT NULL,
+  `fields` varchar(255) DEFAULT NULL,
   `currency` varchar(10) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -90,12 +91,9 @@ CREATE TABLE `farm` (
 -- Dumping data for table `farm`
 --
 
-INSERT INTO `farm` (`id`, `farmManager`, `farmName`, `country`, `address`, `city`, `province`, `postalCode`, `timezone`, `farm_coordinates`, `currency`, `created_at`) VALUES
-(1, 'admin', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '49.49667452747045, -343.11285994761687', 'all', '2024-08-21 12:54:50'),
-(2, 'admin1', 'farm', 'albania', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '41.98724403479031, 381.06115226769765', 'all', '2024-08-22 17:58:38'),
-(3, 'admin2', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '41.987247025294124, 21.06134266741909', 'all', '2024-08-22 21:23:18'),
-(4, 'admin12', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '42.0063843688798, 20.96082663107138', 'eur', '2024-08-24 17:00:22'),
-(5, 'admin', 'farm', 'macedonia', '101', 'Tetovo', 'sddsaca', '1226', 'UTC +01:00', '1', 'all', '2024-08-25 20:42:29');
+INSERT INTO `farm` (`id`, `farmManager`, `farmName`, `country`, `address`, `city`, `province`, `postalCode`, `timezone`, `farm_coordinates`, `fields`, `currency`, `created_at`) VALUES
+(15, 'jasirlimani', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '35.53937878575979, 24.053847296806023', '', 'all', '2024-08-25 21:11:41'),
+(16, 'admin', 'farm', 'macedonia', '101', 'Tetovo', 'tetovo', '1226', 'UTC +01:00', '48.69096039092552, 72.93793674982305', NULL, 'all', '2024-08-26 13:16:40');
 
 -- --------------------------------------------------------
 
@@ -113,6 +111,20 @@ CREATE TABLE `feed` (
   `expiry_date` date DEFAULT NULL,
   `notes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fields`
+--
+
+CREATE TABLE `fields` (
+  `id` int(11) NOT NULL,
+  `fieldId` bigint(20) NOT NULL,
+  `farm_manager` varchar(255) NOT NULL,
+  `field_name` varchar(255) NOT NULL,
+  `coordinates` json NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -185,7 +197,8 @@ INSERT INTO `users` (`id`, `username`, `email`, `avatar`, `password`, `created_a
 (1, 'admin', 'admin@gmail.com', NULL, '$2y$10$3TcGpZvuTmD/eek2.wKBOufZ/vzkIoSuOzYyJXg8Vf3Bua4V7aVdW', '2024-08-21 11:38:43', '2024-08-21 11:38:43', 0),
 (2, 'admin1', 'jasirlimani12@gmail.com', NULL, '$2y$10$uUHXNnkHFeDV0fILYeCDEeOd8DVj9RTxMsqxJX5N19w0tR7fDG6GK', '2024-08-22 17:57:32', '2024-08-22 17:57:32', 0),
 (3, 'admin2', 'jasirlimani@gmail.com', NULL, '$2y$10$rA6fMC2pQd..hCx89gc.gueOjVBn/DoHx7zrRo7yHFwjv9ACHili.', '2024-08-22 21:22:47', '2024-08-22 21:22:47', 0),
-(4, 'admin12', 'admin12@gmail.com', NULL, '$2y$10$o5c3aIiz5KDXe3MGH1IyTe/PX..IqTdziHlyE10856QrWF8UA.RZW', '2024-08-24 17:00:03', '2024-08-24 17:00:03', 0);
+(4, 'admin12', 'admin12@gmail.com', NULL, '$2y$10$o5c3aIiz5KDXe3MGH1IyTe/PX..IqTdziHlyE10856QrWF8UA.RZW', '2024-08-24 17:00:03', '2024-08-24 17:00:03', 0),
+(5, 'jasirlimani', 'jasirlimani3@gmail.com', NULL, '$2y$10$hj.6vtW5p/qjQOApGVrYm.SkJO5KS8w.byJKOLuTTaPlOwiiYzptC', '2024-08-25 20:58:27', '2024-08-25 20:58:27', 0);
 
 --
 -- Indexes for dumped tables
@@ -219,6 +232,12 @@ ALTER TABLE `feed`
   ADD KEY `username` (`username`);
 
 --
+-- Indexes for table `fields`
+--
+ALTER TABLE `fields`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `plants`
 --
 ALTER TABLE `plants`
@@ -248,7 +267,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -260,12 +279,18 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `farm`
 --
 ALTER TABLE `farm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `feed`
 --
 ALTER TABLE `feed`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `fields`
+--
+ALTER TABLE `fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -284,7 +309,7 @@ ALTER TABLE `seasonal_plants`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
