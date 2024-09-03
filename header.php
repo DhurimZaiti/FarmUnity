@@ -97,6 +97,7 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grazing</a>
             </li>
+            <li class="list-group-item py-1"></li>
  
           </ul>
         <!-- Collapse 3 END -->
@@ -124,6 +125,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Yeild Comparison</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 4 END -->
@@ -142,6 +145,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Inventory</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 5 END -->
@@ -166,6 +171,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Budgeting</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 6 END -->
@@ -192,6 +199,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Weather Map</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 9 END -->
