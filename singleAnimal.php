@@ -35,7 +35,7 @@ if (isset($_GET['animalId'])) {
                 </div>
                 <div class="col-12">
                     <h4 class="h4 mb-0">General Info</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <p class="h6 mb-1 text-primary">Name:<span class="ms-2 text-dark"><?php echo $animalData['animal_name'] ?></span></p>
                         <p class="h6 mb-1 text-primary">Species:<span class="ms-2 text-dark"><?php echo $animalData['animal'] ?></span></p>
@@ -51,7 +51,7 @@ if (isset($_GET['animalId'])) {
                     </div>
 
                     <h4 class="h4 mb-0 mt-5">Metrics</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <!-- <p class="h6 mb-1 text-primary">Height:<span class="ms-2 text-dark">190cm</span></p> -->
                         <p class="h6 mb-1 text-primary">Weight:<span class="ms-2 text-dark"><?php echo $animalData['weight'] ?></span></p>
@@ -60,7 +60,7 @@ if (isset($_GET['animalId'])) {
                     </div>
 
                     <h4 class="h4 mb-0 mt-5">Health</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <!-- <p class="h6 mb-1 text-primary">Health Report:<span class="ms-2 text-dark">The cow is always clean. It has no health complications and has the ability to graze farms easily. Bessie has always had Calcium and Iron defficiencies but they have never bothered her.</span></p> -->
                         <p class="h6 mb-1 text-primary">Vaccination Status:<span class="ms-2 text-dark"><?php echo $animalData['vaccination_status'] ?></span></p>
@@ -75,7 +75,7 @@ if (isset($_GET['animalId'])) {
                     </div>
 
                     <!-- <h4 class="h4 mb-0 mt-5">Living Conditions</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <p class="h6 mb-1 text-primary">Ideal Living Conditions:<span class="ms-2 text-dark">In a paddock, with a temperature between 19-24 C</span></p>
                         <p class="h6 mb-1 text-primary">Enviromental Needs:<span class="ms-2 text-dark">Humidity at 49% for ideal milk production.</span></p>
@@ -83,7 +83,7 @@ if (isset($_GET['animalId'])) {
                     </div> -->
 
                     <!-- <h4 class="h4 mb-0 mt-5">Other Information</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <p class="h6 mb-1 text-primary">Animal's Cleanliness:<span class="ms-2 text-dark">The Animal maintains it's own cleanliness and doesn't require any help.</span></p>
                         <p class="h6 mb-1 text-primary">Offspring:<span class="ms-2 text-dark">Amy, Betty</span></p>

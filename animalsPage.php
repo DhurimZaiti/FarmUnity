@@ -126,9 +126,9 @@ if ($animalData) {
                 </div>
 
                 <!-- Animals Section -->
-                <h4>Animals</h4>
+                <h2>Animals</h2>
                 <div class="list-group">
-                    <table class="table table-striped">
+                    <table class="table table-striped border rounded">
                         <tbody>
                             <?php
                             foreach ($animalData as $animal) {
@@ -138,13 +138,13 @@ if ($animalData) {
 
                                 // Generate the table row for each animal
                                 echo '<tr>';
-                                echo '<td><a href="singleAnimal.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
-                                echo '<td class="text-end">';
-                                echo '<div>';
-                                echo '<a href="addAnimalPage.php?animalId=' . $animalId . '" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
-                                echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id=' . $animalId . '" class="btn btn-danger btn-sm ms-3">Delete Animal</a>';
-                                echo '</div>';
-                                echo '</td>';
+                                    echo '<td><a href="singleAnimal.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
+                                    echo '<td class="text-end">';
+                                        
+                                            echo '<a href="addAnimalPage.php?animalId=' . $animalId . '" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
+                                            echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id=' . $animalId . '" class="btn btn-danger btn-sm ms-1">Delete Animal</a>';
+                                       
+                                    echo '</td>';
                                 echo '</tr>';
                             }
                             ?>
