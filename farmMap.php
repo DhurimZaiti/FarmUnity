@@ -37,20 +37,17 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <!-- Leaflet CSS and JS (specific version) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
     <!-- Leaflet Draw CSS and JS (compatible with Leaflet 1.7.1) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
-    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
 
     <!-- MapLibre GL JS and CSS -->
     <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
 
 
 </head>
-<div class="contents">
-    <div class="container-fluid">
+<div class="container-fluid mb-5">
+<div class="contents mb-5">
         <div class="content">
             <h1 class="h1 text-center my-3">Farm Map</h1>
             <!-- If the user hasn't added the farm, he can add it here with a button -->
@@ -80,20 +77,48 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
             echo "<div class='d-none'>";
         }
         ?>
-        <blockquote class="h5 mb-2"><i class="far fa-info-circle text-blue ms-3 me-2"></i>Select an area type and then trace its outline by clicking on each corner of the area.</blockquote>
-        <div class="mb-3 mt-3">
-            <button id="addField" class="btn btn-primary">Add Field</button>
-            <div class="d-flex mt-3">
-                <input type="text" id="polygonName" placeholder="Enter polygon name" style="display: none;">
-                <button id="savePolygon" class="btn btn-secondary" style="display: none;">Save Field</button>
+        <div class="row">
+            <div class="col-12 col-md-10 mt-3">
+                <blockquote class="h5 mb-2 ms-3"><i class="far fa-info-circle text-blue me-2"></i>To Create a Place, click on "Add Place" and click the polygon button on the left hand side of the map, trace the perimeter of your place, enter a name for the place and then click finish near the polygon icon. Click "Save Place" and you will be able to see your place.</blockquote>
+            </div>
+        </div>
+        <div class="mb-3 mt-3 ms-3">
+            <button id="addField" class="btn btn-primary">Add Place</button>
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex mt-3">
+                        <input type="text" id="polygonName" class="col-sm-4 col-form-label col-form-label-sm" placeholder="Enter a name" style="display: none;">
+                        <button id="savePolygon" class="btn ms-3 btn-info" style="display: none;">Save Place</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Container for dynamically added delete buttons -->
         </div>
         <div id="polygonControls" style="margin-top: 20px;"></div>
 
+        <!-- Modal alert box for confirming delete on a field-->
+        <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationLabel">Delete Polygon</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <strong><?php echo $fields['field_name']; ?></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
         <!-- MapBox Satellite view -->
-        <div id="map" style="height: 600px;"></div>
+        <div id="map" style="height: 600px;" class="mt-5"></div>
 
 
         <script>
@@ -248,32 +273,57 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                     // Include the fieldId in the delete button's href
                     controlDiv.innerHTML = `
-            <span>${name}</span>
+                    <div class="row">
+                        <div class="col-8 ms-3">
+                            <h4>${name}</h4>
             
-            <button class="btn btn-danger btn-sm delete-polygon mb-3">Delete</button>
+                            <button class="btn btn-warning btn-sm edit-polygon mb-3">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-polygon mb-3">Delete</button>
+                        </div>
+                    </div>
+                    
+            
         `;
 
-                    controlDiv.querySelector('.delete-polygon').addEventListener('click', function(event) {
-                        event.preventDefault();
-                        map.removeLayer(polygonLayer);
-                        drawnItems.removeLayer(polygonLayer)
-                        controlDiv.remove();
+        controlDiv.querySelector('.delete-polygon').addEventListener('click', function(event) {
+            event.preventDefault();
 
-                        fetch(`deleteField.php?fieldId=${fieldId}`, {
-                                method: 'GET',
-                            })
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data.success) {
-                                    console.log(`Field ${fieldId} deleted successfully.`);
-                                } else {
-                                    console.error(`Failed to delete field ${fieldId}: ${data.message}`);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                            });
+            // Dynamically set the polygon (field) name in the modal
+            document.querySelector('#deleteConfirmationModal strong').innerText = name;
+
+            // Show the modal
+            var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+            deleteModal.show();
+
+            // When user confirms deletion
+            document.getElementById('confirmDelete').addEventListener('click', function() {
+                // Close the modal
+                deleteModal.hide();
+
+                // Remove polygon from the map and DOM
+                map.removeLayer(polygonLayer);
+                drawnItems.removeLayer(polygonLayer);
+                controlDiv.remove();
+
+                // Proceed with the deletion request
+                fetch(`deleteField.php?fieldId=${fieldId}`, {
+                        method: 'GET',
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log(`Field ${fieldId} deleted successfully.`);
+                        } else {
+                            console.error(`Failed to delete field ${fieldId}: ${data.message}`);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
                     });
+            });
+        });
+
+
 
                     controlsContainer.appendChild(controlDiv);
                     polygons.push({
@@ -329,6 +379,10 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </div>
 </div>
 </div>
-<?php
-include_once('footer.php');
-?>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- Leaflet draw JS -->
+<script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+<!-- Maplibre JS -->
+<script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+

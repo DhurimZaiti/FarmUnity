@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Sep 02, 2024 at 08:08 AM
--- Server version: 5.7.24
--- PHP Version: 8.0.1
+-- Host: 127.0.0.1
+-- Generation Time: Sep 08, 2024 at 12:36 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,21 +35,21 @@ CREATE TABLE `animals` (
   `age` int(11) NOT NULL,
   `animal_name` varchar(255) NOT NULL,
   `animal_id` varchar(255) NOT NULL,
-  `illness` tinyint(1) DEFAULT '0',
+  `illness` tinyint(1) DEFAULT 0,
   `illness_type` varchar(255) DEFAULT NULL,
   `vaccination_status` varchar(255) DEFAULT NULL,
   `weight` decimal(10,2) DEFAULT NULL,
-  `illness_history` text,
+  `illness_history` text DEFAULT NULL,
   `reproducing_status` enum('pregnant','lactating','infertile','none') DEFAULT 'none',
-  `notes` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `notes` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `animals`
 --
 
 INSERT INTO `animals` (`id`, `username`, `animal`, `gender`, `age`, `animal_name`, `animal_id`, `illness`, `illness_type`, `vaccination_status`, `weight`, `illness_history`, `reproducing_status`, `notes`) VALUES
-(4, 'admin', 'cow', 'male', 15, 'lop', '899364770044', 1, 'sadc', 'Vaccinated', '12.00', 'sadcsdcasd', 'pregnant', 'sadccsd');
+(4, 'admin', 'cow', 'male', 15, 'lop', '899364770044', 1, 'sadc', 'Vaccinated', 12.00, 'sadcsdcasd', 'pregnant', 'sadccsd');
 
 -- --------------------------------------------------------
 
@@ -62,8 +62,28 @@ CREATE TABLE `contact` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `equipment`
+--
+
+CREATE TABLE `equipment` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `brand_model` varchar(255) NOT NULL,
+  `model_year` int(11) NOT NULL,
+  `plate_number` varchar(255) NOT NULL,
+  `serial_number` varchar(255) NOT NULL,
+  `distance` int(11) NOT NULL,
+  `registration_date` date NOT NULL,
+  `registration_expiration` date NOT NULL,
+  `description` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -84,8 +104,8 @@ CREATE TABLE `farm` (
   `farm_coordinates` varchar(255) NOT NULL,
   `fields` varchar(255) DEFAULT NULL,
   `currency` varchar(10) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `farm`
@@ -109,8 +129,8 @@ CREATE TABLE `feed` (
   `imported_from` varchar(255) DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL,
   `expiry_date` date DEFAULT NULL,
-  `notes` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `notes` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -123,8 +143,25 @@ CREATE TABLE `fields` (
   `fieldId` bigint(20) NOT NULL,
   `farm_manager` varchar(255) NOT NULL,
   `field_name` varchar(255) NOT NULL,
-  `coordinates` json NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `coordinates` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`coordinates`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `id` int(11) NOT NULL,
+  `type_name` varchar(255) NOT NULL,
+  `variety` varchar(255) NOT NULL,
+  `inventory_capacity` varchar(255) NOT NULL,
+  `inventory_unit` varchar(255) NOT NULL,
+  `belonging_wharehouse` varchar(255) NOT NULL,
+  `alert` int(11) NOT NULL,
+  `description` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -147,8 +184,8 @@ CREATE TABLE `plants` (
   `height` decimal(10,2) DEFAULT NULL,
   `spread` decimal(10,2) DEFAULT NULL,
   `sun_requirements` enum('full','partial','none') DEFAULT NULL,
-  `notes` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `notes` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -169,8 +206,8 @@ CREATE TABLE `seasonal_plants` (
   `height` decimal(10,2) DEFAULT NULL,
   `spread` decimal(10,2) DEFAULT NULL,
   `sun_requirements` enum('full','partial','none') DEFAULT NULL,
-  `notes` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `notes` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -184,10 +221,10 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `is_admin` tinyint(1) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `is_admin` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -199,6 +236,19 @@ INSERT INTO `users` (`id`, `username`, `email`, `avatar`, `password`, `created_a
 (3, 'admin2', 'jasirlimani@gmail.com', NULL, '$2y$10$rA6fMC2pQd..hCx89gc.gueOjVBn/DoHx7zrRo7yHFwjv9ACHili.', '2024-08-22 21:22:47', '2024-08-22 21:22:47', 0),
 (4, 'admin12', 'admin12@gmail.com', NULL, '$2y$10$o5c3aIiz5KDXe3MGH1IyTe/PX..IqTdziHlyE10856QrWF8UA.RZW', '2024-08-24 17:00:03', '2024-08-24 17:00:03', 0),
 (5, 'jasirlimani', 'jasirlimani3@gmail.com', NULL, '$2y$10$hj.6vtW5p/qjQOApGVrYm.SkJO5KS8w.byJKOLuTTaPlOwiiYzptC', '2024-08-25 20:58:27', '2024-08-25 20:58:27', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wharehouses`
+--
+
+CREATE TABLE `wharehouses` (
+  `id` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `max_capacity` decimal(10,0) NOT NULL,
+  `description` longtext DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -219,6 +269,13 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
+
+--
 -- Indexes for table `farm`
 --
 ALTER TABLE `farm`
@@ -235,6 +292,12 @@ ALTER TABLE `feed`
 -- Indexes for table `fields`
 --
 ALTER TABLE `fields`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -260,6 +323,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `wharehouses`
+--
+ALTER TABLE `wharehouses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -273,6 +342,12 @@ ALTER TABLE `animals`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -294,6 +369,12 @@ ALTER TABLE `fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `inventory`
+--
+ALTER TABLE `inventory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `plants`
 --
 ALTER TABLE `plants`
@@ -310,6 +391,12 @@ ALTER TABLE `seasonal_plants`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `wharehouses`
+--
+ALTER TABLE `wharehouses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

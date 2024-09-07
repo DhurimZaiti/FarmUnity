@@ -110,10 +110,173 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="weight" class="col-form-label col-md-3">Weight:</label>
+                            <label for="soil_type" class="col-form-label col-md-3">Soil Type:</label>
                             <div class="col-md-9 d-flex">
-                                <input type="number" name="weight" class="form-control" id="weight" value="433" step="any">
-                                <span class="input-group-text ms-2">kg</span>
+                            <div class="dropdown">
+                                <button class="btn btn-outline-primary dropdown-toggle btn-sm" name="soil_type" id="soil_type" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                    Choose a Soil Type
+                                </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="soil_type" id="soil_type">
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Arenosol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Sandy Soil</li>
+                                            <li class="dropdown-item">Drains water quickly, not great for plants.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Calcisol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Chalky Soil</li>
+                                            <li class="dropdown-item">Hard, dry soil, good for certain crops like olives.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Chernozem
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Rich Black Soil</li>
+                                            <li class="dropdown-item">Very fertile, great for farming.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Fluvisol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">River Soil</li>
+                                            <li class="dropdown-item">Found near rivers, good for growing crops.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Gleysol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Wetland Soil</li>
+                                            <li class="dropdown-item">Often waterlogged, hard for most plants to grow.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Leptosol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Rocky Soil</li>
+                                            <li class="dropdown-item">Thin soil on rocks, not very fertile.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Luvisol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Fertile Clay Soil</li>
+                                            <li class="dropdown-item">Good for farming, holds nutrients well.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Phaeozem
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Dark Rich Soil</li>
+                                            <li class="dropdown-item">Excellent for growing crops, especially grains.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Podzol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Forest Soil</li>
+                                            <li class="dropdown-item">Acidic and poor, usually needs help to grow plants.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Regosol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Young Soil</li>
+                                            <li class="dropdown-item">New soil, often sandy, not very fertile.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Solonchak
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Salty Soil</li>
+                                            <li class="dropdown-item">Hard for plants to grow due to high salt content.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Umbrisol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Dark Forest Soil</li>
+                                            <li class="dropdown-item">Rich in organic matter, but often acidic.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="btn-group dropend">
+                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Vertisol
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">Cracking Clay Soil</li>
+                                            <li class="dropdown-item">Fertile but cracks when dry, needs careful management.</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                                </ul>
+                            </div>
                             </div>
                         </div>
                         <div class="mb-3 row">

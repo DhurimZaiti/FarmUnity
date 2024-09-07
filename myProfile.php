@@ -17,7 +17,7 @@ include_once('header.php');
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" name="email"  value="<?php echo $userData['email'];?> " id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <input type="email" name="email"  value="<?php echo $userData['email'];?> " class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
