@@ -272,7 +272,7 @@
                     </div>
 
                     <div class="col-12 mb-3 d-flex justify-content-end">
-                        <a href="viewPlantings.php" class=""><button class="btn btn-outline-secondary">Cancel</button></a>
+                        <a href="singlePlanting.php" class=""><button class="btn btn-outline-secondary">Cancel</button></a>
                         <a href="updatePlanting.php" class="mx-3"><button class="btn btn-primary">Save Changes</button></a>
                     </div>
                 </div>
