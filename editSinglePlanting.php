@@ -12,7 +12,7 @@
         <div class="contents">
             <div class="row">
                 <div class="col-12 mb-3">
-                    <h1 class="h1 mb-3">Edit Bessie's Information</h1>
+                    <h1 class="h1 mb-3">Edit Planting Information</h1>
                 </div>
                 <div class="col-12">
                     <h4 class="h4 mb-0">General Info</h4>
@@ -25,50 +25,43 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="species" class="col-form-label col-md-3">Variety:</label>
+                            <label for="variety" class="col-form-label col-md-3">Variety:</label>
                             <div class="col-md-9">
-                                <input type="text" name="species" class="form-control" id="species" value="Dent Corn">
+                                <input type="text" name="variety" class="form-control" id="variety" value="Dent Corn">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="species" class="col-form-label col-md-3">Latin Name:</label>
+                            <label for="latin_name" class="col-form-label col-md-3">Latin Name:</label>
                             <div class="col-md-9">
-                                <input type="text" name="species" class="form-control" id="species" value="Zea Mays">
+                                <input type="text" name="latin_name" class="form-control" id="latin_name" value="Zea Mays">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="species" class="col-form-label col-md-3">Genus:</label>
+                            <label for="genus" class="col-form-label col-md-3">Genus:</label>
                             <div class="col-md-9">
-                                <input type="text" name="species" class="form-control" id="species" value="Zea">
+                                <input type="text" name="genus" class="form-control" id="genus" value="Zea">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="species" class="col-form-label col-md-3">Country Origin:</label>
+                            <label for="country_origin" class="col-form-label col-md-3">Country Origin:</label>
                             <div class="col-md-9">
-                                <input type="text" name="species" class="form-control" id="species" value="U.S.A.">
+                                <input type="text" name="country_origin" class="form-control" id="country_origin" value="U.S.A.">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="dob" class="col-form-label col-md-3">Planted On (Date):</label>
+                            <label for="planted_on" class="col-form-label col-md-3">Planted On (Date):</label>
                             <div class="col-md-9">
-                                <input type="date" name="dob" class="form-control" id="planted_on" value="2021-03-12">
+                                <input type="date" name="planted_on" class="form-control" id="planted_on" value="2024-04-12" min="2019-12-31">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="breed" class="col-form-label col-md-3">Planted In (Field):</label>
+                            <label for="field" class="col-form-label col-md-3">Planted In (Field):</label>
                             <div class="col-md-9">
-                                <!-- <input type="text" name="breed" class="form-control" id="breed" value="12/04/2024"> -->
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-outline-dark">Select Field</button>
-                                <button type="button" name="field" id="field" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" value="field_1" href="#">Field 1</a></li>
-                                    <li><a class="dropdown-item" value="field_2" href="#">Field 2</a></li>
-                                    <li><a class="dropdown-item" value="field_3" href="#">Field 3</a></li>
-                                </ul>
-                                </div>
+                                <select class="form-select" id="soil_type" name="soil_type" required>
+                                    <option value="field1">Field 1</option>
+                                    <option value="field2">Field 2</option>
+                                    <option value="field3">Field 3</option>
+                                </select>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -86,9 +79,9 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="id" class="col-form-label col-md-3">Internal ID:</label>
+                            <label for="internal_id" class="col-form-label col-md-3">Internal ID:</label>
                             <div class="col-md-9">
-                                <input type="text" name="internal_id" class="form-control" id="id" value="K01382">
+                                <input type="text" name="internal_id" class="form-control" id="internal_id" value="P001">
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -103,313 +96,184 @@
                     <hr class="bg-dark" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <div class="mb-3 row">
-                            <label for="height" class="col-form-label col-md-3">Soil Type:</label>
-                            <div class="col-md-9">
-                                <!-- Add the dropdown -->
-                                <input type="number" name="height" class="form-control" id="height" value="190" step="any">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
                             <label for="soil_type" class="col-form-label col-md-3">Soil Type:</label>
-                            <div class="col-md-9 d-flex">
-                            <div class="dropdown">
-                                <button class="btn btn-outline-primary dropdown-toggle btn-sm" name="soil_type" id="soil_type" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                    Choose a Soil Type
-                                </button>
-
-                                <ul class="dropdown-menu" aria-labelledby="soil_type" id="soil_type">
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Arenosol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Sandy Soil</li>
-                                            <li class="dropdown-item">Drains water quickly, not great for plants.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Calcisol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Chalky Soil</li>
-                                            <li class="dropdown-item">Hard, dry soil, good for certain crops like olives.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Chernozem
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Rich Black Soil</li>
-                                            <li class="dropdown-item">Very fertile, great for farming.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Fluvisol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">River Soil</li>
-                                            <li class="dropdown-item">Found near rivers, good for growing crops.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Gleysol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Wetland Soil</li>
-                                            <li class="dropdown-item">Often waterlogged, hard for most plants to grow.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Leptosol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Rocky Soil</li>
-                                            <li class="dropdown-item">Thin soil on rocks, not very fertile.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Luvisol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Fertile Clay Soil</li>
-                                            <li class="dropdown-item">Good for farming, holds nutrients well.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Phaeozem
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Dark Rich Soil</li>
-                                            <li class="dropdown-item">Excellent for growing crops, especially grains.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Podzol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Forest Soil</li>
-                                            <li class="dropdown-item">Acidic and poor, usually needs help to grow plants.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Regosol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Young Soil</li>
-                                            <li class="dropdown-item">New soil, often sandy, not very fertile.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Solonchak
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Salty Soil</li>
-                                            <li class="dropdown-item">Hard for plants to grow due to high salt content.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Umbrisol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Dark Forest Soil</li>
-                                            <li class="dropdown-item">Rich in organic matter, but often acidic.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="btn-group dropend">
-                                        <a type="button" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Vertisol
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">Cracking Clay Soil</li>
-                                            <li class="dropdown-item">Fertile but cracks when dry, needs careful management.</li>
-                                        </ul>
-                                    </div>
-                                </li>
-
-
-                                </ul>
-                            </div>
+                            <div class="col-md-9">
+                                <select class="form-select" id="soil_type" name="soil_type" required>
+                                    <option value="calcisol">Calcisol</option>
+                                    <option value="brown">Brown Soil</option>
+                                    <option value="black">Black Soil</option>
+                                    <option value="red">Red Soil</option>
+                                    <option value="alluvial">Alluvial Soil</option>
+                                    <option value="other">Other</option>
+                                </select>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="length" class="col-form-label col-md-3">Length:</label>
+                            <label for="planting_method" class="col-form-label col-md-3">Planting Method:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="planting_method" class="form-control" id="planting_method" value="Direct Seeded">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="sun_requirements" class="col-form-label col-md-3">Sun Requirements:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="sun_requirements" class="form-control" id="sun_requirements" value="Full Sun">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="pest_resistance" class="col-form-label col-md-3">Pest/Disease Resistance:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="pest_resistance" class="form-control" id="pest_resistance" value="Mites">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="fertilizer" class="col-form-label col-md-3">Fertilizer Requirements:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="fertilizer" class="form-control" id="fertilizer" value="Cow Fertilizer, Natural">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="soil_ph" class="col-form-label col-md-3">Ideal Soil pH level:</label>
                             <div class="col-md-9 d-flex">
-                                <input type="number" name="length" class="form-control" id="length" value="224" step="any">
+                                <input type="text" name="soil_ph" class="form-control" id="soil_ph" value="8.3">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="v_spacing" class="col-form-label col-md-3">Vertical Spacing:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="v_spacing" class="form-control" id="v_spacing" value="14">
                                 <span class="input-group-text ms-2">cm</span>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="specific-metrics" class="col-form-label col-md-3">Specific Metrics:</label>
-                            <div class="col-md-9">
-                                <textarea name="specific_metrics" class="form-control" id="specific-metrics" placeholder="Add specific metrics here" rows="3"></textarea>
+                            <label for="h_spacing" class="col-form-label col-md-3">Horizontal Spacing:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="h_spacing" class="form-control" id="h_spacing" value="6">
+                                <span class="input-group-text ms-2">cm</span>
                             </div>
                         </div>
                     </div>
 
-                    <h4 class="h4 mb-0 mt-5">Health</h4>
+                    <h4 class="h4 mb-0 mt-5">Watering and Yield</h4>
                     <hr class="bg-dark" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
                         <div class="mb-3 row">
-                            <label for="health-report" class="col-form-label col-md-3">Health Report:</label>
-                            <div class="col-md-9">
-                                <textarea name="health_report" class="form-control" id="health-report" rows="3">Vaccinated</textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="vaccination-status" class="col-form-label col-md-3">Vaccination Status:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="vaccinations_status" class="form-control" id="vaccination-status" value="Vaccinated">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="breeding-season" class="col-form-label col-md-3">Breeding Season:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="breeding_season" class="form-control" id="breeding-season" placeholder="Select breeding season period">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="reproduction-status" class="col-form-label col-md-3">Reproduction Status:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="reproduction_status" class="form-control" id="reproduction-status" value="Pregnant / Lactating / Infertile / None">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="vaccination-records" class="col-form-label col-md-3">Vaccination Records:</label>
-                            <div class="col-md-9">
-                                <textarea name="vaccination_records" class="form-control" id="vaccination-records" rows="3">Not Vaccinated in 2020. Vaccinated from 2021-2023.</textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="allergies" class="col-form-label col-md-3">Allergies:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="allergies" class="form-control" id="allergies" value="Peanuts, Cornstarch">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="nutrient-deficiencies" class="col-form-label col-md-3">Nutrient Deficiencies:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="nutrient_deficiencies" class="form-control" id="nutrient-deficiencies" value="Calcium, Iron">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="current-medications" class="col-form-label col-md-3">Current Medications:</label>
-                            <div class="col-md-9">
-                                <textarea name="current_medications" class="form-control" id="current-medications" rows="3">Multivitamin, Iron supplement</textarea>
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="medication-records" class="col-form-label col-md-3">Medication Records:</label>
-                            <div class="col-md-9">
-                                <textarea name="medication_records" class="form-control" id="medication-records" rows="3">Ill on the 12.9.2023-19.9.2023 with the common cold. Had Diarrhea on the 15.02.2023 for 4 days.</textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h4 class="h4 mb-0 mt-5">Living Conditions</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
-                    <div class="ms-3" id="layout-body">
-                        <div class="mb-3 row">
-                            <label for="ideal-lc" class="col-form-label col-md-3">Ideal Living Conditions:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="ideal_lc" class="form-control" id="ideal-lc" value="In 48% humidified air.">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="enviromental-needs" class="col-form-label col-md-3">Enviromental Needs:</label>
-                            <div class="col-md-9">
-                                <input type="text" name="enviromental_needs" class="form-control" id="enviromental-needs" value="Paddock A">
-                            </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="specific-care" class="col-form-label col-md-3">Specific Care Instructions:</label>
-                            <div class="col-md-9">
-                                <textarea name="specific_care" class="form-control" id="specific-care" rows="3">Bessie needs to be handled carefully, because she is very sensitive to pressure.</textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h4 class="h4 mb-0 mt-5">Other Information</h4>
-                    <hr class="bg-dark" style="margin-right: 420px;">
-                    <div class="ms-3" id="layout-body">
-                        <div class="mb-3 row">
-                            <label for="estimated-value" class="col-form-label col-md-3">Estimated Value:</label>
+                            <label for="water_quantity" class="col-form-label col-md-3">Watering Quantity:</label>
                             <div class="col-md-9 d-flex">
-                                <input type="number" name="estimated_value" class="form-control" id="estimated-value" value="540" step="any">
-                                <span class="input-group-text ms-2">€</span>
+                                <input type="text" name="water_quantity" class="form-control" id="water_quantity" value="1500">
+                                <span class="input-group-text ms-2">l/day</span>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="offspring" class="col-form-label col-md-3">Offspring:</label>
-                            <div class="col-md-9 d-flex">
-                                <input type="text" name="offspring" class="form-control" id="offspring" value="Amy, Betty" step="any">
+                            <label for="water_cycle" class="col-form-label col-md-3">Watering Cycle:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="water_cycle" class="form-control" id="water_cycle" value="2/day">
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="average-feed" class="col-form-label col-md-3">Average Feed / Day:</label>
+                            <label for="watering_times" class="col-form-label col-md-3">Watering Times:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="watering_times" class="form-control" id="watering_times" value="10:00, 20:00">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="growth_rate" class="col-form-label col-md-3">Growth Rate:</label>
                             <div class="col-md-9 d-flex">
-                                <input type="number" name="feed_per_day" class="form-control" id="average-feed" value="20" step="any">
+                                <input type="text" name="growth_rate" class="form-control" id="growth_rate" value="8.4">
+                                <span class="input-group-text ms-2">cm/week</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="expected_harvest_date" class="col-form-label col-md-3">Expected Harvest Date:</label>
+                            <div class="col-md-9">
+                                <input type="date" name="expected_harvest_date" class="form-control" id="expected_harvest_date" value="2024-09-14">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="actual_harvest_date" class="col-form-label col-md-3">Actual Harvest Date:</label>
+                            <div class="col-md-9">
+                                <input type="date" name="actual_harvest_date" class="form-control" id="actual_harvest_date" value="2024-09-17">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="expected_yield" class="col-form-label col-md-3">Expected Yield:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="expected_yield" class="form-control" id="expected_yield" value="4000">
                                 <span class="input-group-text ms-2">kg</span>
                             </div>
                         </div>
                         <div class="mb-3 row">
-                            <label for="milking-records" class="col-form-label col-md-3">Milking Records:</label>
+                            <label for="actual_yield" class="col-form-label col-md-3">Actual Yield:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="actual_yield" class="form-control" id="actual_yield" value="3458">
+                                <span class="input-group-text ms-2">kg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="h4 mb-0 mt-5">Finances</h4>
+                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <div class="ms-3" id="layout-body">
+                        <div class="mb-3 row">
+                            <label for="cost_investment" class="col-form-label col-md-3">Cost of Investment:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="cost_investment" class="form-control" id="cost_investment" value="2100">
+                                <span class="input-group-text ms-2">€</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="market_price" class="col-form-label col-md-3">Market Price at Harvest:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="market_price" class="form-control" id="market_price" value="1">
+                                <span class="input-group-text ms-2">€/kg</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="revenue" class="col-form-label col-md-3">Revenue:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="revenue" class="form-control" id="revenue" value="2700">
+                                <span class="input-group-text ms-2">€</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="profit_loss" class="col-form-label col-md-3">Profit/Loss:</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="text" name="profit_loss" class="form-control" id="profit_loss" value="600">
+                                <span class="input-group-text ms-2">€</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="h4 mb-0 mt-5">Harvesting</h4>
+                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <div class="ms-3" id="layout-body">
+                        <div class="mb-3 row">
+                            <label for="harvest_method" class="col-form-label col-md-3">Harvest Method:</label>
                             <div class="col-md-9">
-                                <textarea name="milking_records" class="form-control" id="milking-records" rows="3">Milked 15L on 12.9.2023. Milking regularity 5L/day on average.</textarea>
+                                <input type="text" name="harvest_method" class="form-control" id="harvest_method" value="Tractor">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="storage" class="col-form-label col-md-3">Storage:</label>
+                            <div class="col-md-9">
+                            <select class="form-select" id="soil_type" name="soil_type" required>
+                                    <option value="field1">Silo 1</option>
+                                    <option value="storage2">Storage 2</option>
+                                    <option value="storage3">Storage 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="storage_conditions" class="col-form-label col-md-3">Storage Conditions:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="storage_conditions" class="form-control" id="storage_conditions" value="32°C, 24% Humidity, Metal walls">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 mb-3 d-flex justify-content-end">
-                        <a href="editSingleAnimal.php" class=""><button class="btn btn-outline-secondary">Cancel</button></a>
-                        <a href="editSALogic.php" class="mx-3"><button class="btn btn-primary">Confirm</button></a>
+                        <a href="viewPlantings.php" class=""><button class="btn btn-outline-secondary">Cancel</button></a>
+                        <a href="updatePlanting.php" class="mx-3"><button class="btn btn-primary">Save Changes</button></a>
                     </div>
                 </div>
             </div>
@@ -419,11 +283,15 @@
 
 <script>
     $(function() {
-        $('#breeding-season').daterangepicker({
-            opens: 'right',
+        $('#planted_on').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
             locale: {
-                format: 'DD/MM/YYYY'
+                format: 'YYYY-MM-DD'
             }
         });
     });
 </script>
+
+
+          
