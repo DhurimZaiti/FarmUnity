@@ -98,12 +98,14 @@ if (isset($_SESSION['farm_unity_edit_field_error'])) {
             <button id="addField" class="btn btn-primary">Add Place</button>
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex mt-3">
-                        <input type="text" id="polygonName" class="col-sm-4 col-form-label col-form-label-sm" placeholder="Enter a name" style="display: none;">
+                    <div class="d-flex mt-3 col-6">
+                        <input class="form-control form-control-sm" id="polygonName" type="text" placeholder="Enter A Name For Your Place" style="display: none;">
                         <button id="savePolygon" class="btn ms-3 btn-info" style="display: none;">Save Place</button>
                     </div>
                 </div>
             </div>
+        </div>
+
 
             <!-- Container for dynamically added delete buttons -->
         </div>
@@ -138,13 +140,13 @@ if (isset($_SESSION['farm_unity_edit_field_error'])) {
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form action="updateField.php" method="post">
-                        <div class="modal-body">
-                            <label for="">Field Name</label> <br>
+                        <div class="modal-body col-md-9">
+                            <label for="editFieldInput" class="my-1">Field Name</label> <br>
                             <input name="fieldId" type="text" id="fieldId" class="d-none">
-                            <input name="fieldName" type="text" id="editFieldInput">
+                            <input name="fieldName" class="form-control" type="text" id="editFieldInput">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                             <button name="submit" type="submit" class="btn btn-primary" id="SaveChanges">Save Changes</button>
                         </div>
                     </form>
