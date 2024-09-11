@@ -23,11 +23,10 @@ if (!$plant) {
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect updated data
-    $username = trim($_POST["username"]);
     $name = trim($_POST["name"]);
     $season = trim($_POST["season"]);
     $watering_cycle = trim($_POST["watering_cycle"]);
-    $watering_times = trim($_POST["watering_times"]);
+    $watering_times = $_POST["watering_times"];
     $soil_type = trim($_POST["soil_type"]);
     $planted_at = trim($_POST["planted_at"]);
     $growth_rate = trim($_POST["growth_rate"]);
@@ -36,13 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sun_requirements = trim($_POST["sun_requirements"]);
 
     // Update the plant details
-    $update_query = "UPDATE seasonal_plants SET username = :username, name = :name, season = :season, watering_cycle = :watering_cycle, watering_times = :watering_times, soil_type = :soil_type, planted_at = :planted_at, growth_rate = :growth_rate, height = :height, spread = :spread, sun_requirements = :sun_requirements WHERE id = :id";
+    $update_query = "UPDATE seasonal_plants SET name = :name, season = :season, watering_cycle = :watering_cycle, watering_times = :watering_times, soil_type = :soil_type, planted_at = :planted_at, growth_rate = :growth_rate, height = :height, spread = :spread, sun_requirements = :sun_requirements WHERE id = :id";
     $stmt = $conn->prepare($update_query);
-    $stmt->bindParam(':username', $username);
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':season', $season);
     $stmt->bindParam(':watering_cycle', $watering_cycle);
-    $stmt->bindParam(':watering_times', $watering_times);
+    $stmt->bindParam(':watering_times', implode(', ', array_slice($watering_times, 0, 4))); // Limit to 4 watering times
     $stmt->bindParam(':soil_type', $soil_type);
     $stmt->bindParam(':planted_at', $planted_at);
     $stmt->bindParam(':growth_rate', $growth_rate);
@@ -52,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
     if ($stmt->execute()) {
-        // Redirect to x.php after successful update
+        // Redirect to seasonalPlants.php after successful update
         header('Location: seasonalPlants.php');
         exit;
     } else {
@@ -96,6 +94,25 @@ $conn = null; // Release the connection
             background-color: #0056b3;
             color: #fff;
         }
+
+        .watering-time-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        .watering-time-bar input[type="time"] {
+            flex-grow: 1;
+        }
+
+        .watering-time-bar button {
+            margin-left: 10px;
+        }
+
+        .readonly-input {
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -105,7 +122,7 @@ $conn = null; // Release the connection
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . $id; ?>" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username:</label>
-            <input type="text" id="username" name="username" class="form-control" value="<?php echo htmlspecialchars($plant['username']); ?>" required>
+            <input type="text" id="username" name="username" class="form-control readonly-input" value="<?php echo htmlspecialchars($plant['username']); ?>" readonly>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Name:</label>
@@ -126,7 +143,27 @@ $conn = null; // Release the connection
         </div>
         <div class="mb-3">
             <label for="watering_times" class="form-label">Watering Times:</label>
-            <input type="text" id="watering_times" name="watering_times" class="form-control" value="<?php echo htmlspecialchars($plant['watering_times']); ?>" required>
+            <div id="watering-times-container">
+                <?php
+                $watering_times = explode(', ', $plant['watering_times']);
+                $watering_times = array_slice($watering_times, 0, 4); // Limit to 4 watering times
+                foreach ($watering_times as $time) {
+                    echo '<div class="watering-time-bar">';
+                    echo '<input type="time" name="watering_times[]" class="form-control" value="' . htmlspecialchars($time) . '" required>';
+                    echo '<button type="button" class="btn btn-sm btn-secondary add-watering-time">+</button>';
+                    echo '<button type="button" class="btn btn-sm btn-danger remove-watering-time">-</button>';
+                    echo '</div>';
+                }
+                // Ensure exactly 4 inputs
+                for ($i = count($watering_times); $i < 4; $i++) {
+                    echo '<div class="watering-time-bar">';
+                    echo '<input type="time" name="watering_times[]" class="form-control" required>';
+                    echo '<button type="button" class="btn btn-sm btn-secondary add-watering-time">+</button>';
+                    echo '<button type="button" class="btn btn-sm btn-danger remove-watering-time">-</button>';
+                    echo '</div>';
+                }
+                ?>
+            </div>
         </div>
         <div class="mb-3">
             <label for="soil_type" class="form-label">Soil Type:</label>
@@ -140,32 +177,59 @@ $conn = null; // Release the connection
             <label for="growth_rate" class="form-label">Growth Rate:</label>
             <select id="growth_rate" name="growth_rate" class="form-select" required>
                 <option value="fast" <?php if ($plant['growth_rate'] == 'fast') echo 'selected'; ?>>Fast</option>
-                <option value="medium" <?php if ($plant['growth_rate'] == 'medium') echo 'selected'; ?>>Medium</option>
+                <option value="moderate" <?php if ($plant['growth_rate'] == 'moderate') echo 'selected'; ?>>Moderate</option>
                 <option value="slow" <?php if ($plant['growth_rate'] == 'slow') echo 'selected'; ?>>Slow</option>
             </select>
         </div>
         <div class="mb-3">
-            <label for="height" class="form-label">Height:</label>
-            <input type="text" id="height" name="height" class="form-control" value="<?php echo htmlspecialchars($plant['height']); ?>" required>
+            <label for="height" class="form-label">Height (cm):</label>
+            <input type="number" id="height" name="height" class="form-control" value="<?php echo htmlspecialchars($plant['height']); ?>" required>
         </div>
         <div class="mb-3">
-            <label for="spread" class="form-label">Spread:</label>
-            <input type="text" id="spread" name="spread" class="form-control" value="<?php echo htmlspecialchars($plant['spread']); ?>" required>
+            <label for="spread" class="form-label">Spread (cm):</label>
+            <input type="number" id="spread" name="spread" class="form-control" value="<?php echo htmlspecialchars($plant['spread']); ?>" required>
         </div>
         <div class="mb-3">
             <label for="sun_requirements" class="form-label">Sun Requirements:</label>
             <select id="sun_requirements" name="sun_requirements" class="form-select" required>
-                <option value="full" <?php if ($plant['sun_requirements'] == 'full') echo 'selected'; ?>>Full</option>
-                <option value="partial" <?php if ($plant['sun_requirements'] == 'partial') echo 'selected'; ?>>Partial</option>
-                <option value="none" <?php if ($plant['sun_requirements'] == 'none') echo 'selected'; ?>>None</option>
+                <option value="full_sun" <?php echo $plant['sun_requirements'] == 'full_sun' ? 'selected' : ''; ?>>Full Sun</option>
+                <option value="mostly_sun" <?php echo $plant['sun_requirements'] == 'mostly_sun' ? 'selected' : ''; ?>>Mostly Sun</option>
+                <option value="part_sun_part_shade" <?php echo $plant['sun_requirements'] == 'part_sun_part_shade' ? 'selected' : ''; ?>>Part Sun/Part Shade</option>
+                <option value="mostly_shade" <?php echo $plant['sun_requirements'] == 'mostly_shade' ? 'selected' : ''; ?>>Mostly Shade</option>
+                <option value="full_shade" <?php echo $plant['sun_requirements'] == 'full_shade' ? 'selected' : ''; ?>>Full Shade</option>
             </select>
         </div>
-        <div class="mb-3">
-            <button type="submit" class="btn btn-custom w-100">Update Plant</button>
-        </div>
+        <button type="submit" class="btn btn-custom">Update Plant</button>
     </form>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const maxWateringTimes = 4;
+        document.querySelector('#watering-times-container').addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('add-watering-time')) {
+                const container = document.querySelector('#watering-times-container');
+                const existingTimes = container.querySelectorAll('input[name="watering_times[]"]').length;
+                if (existingTimes < maxWateringTimes) {
+                    const newRow = document.createElement('div');
+                    newRow.classList.add('watering-time-bar');
+                    newRow.innerHTML = `
+                        <input type="time" name="watering_times[]" class="form-control" required>
+                        <button type="button" class="btn btn-sm btn-secondary add-watering-time">+</button>
+                        <button type="button" class="btn btn-sm btn-danger remove-watering-time">-</button>
+                    `;
+                    container.appendChild(newRow);
+                }
+            } else if (e.target && e.target.classList.contains('remove-watering-time')) {
+                const row = e.target.closest('.watering-time-bar');
+                if (row && row.parentElement.children.length > 1) {
+                    row.remove();
+                }
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
