@@ -117,7 +117,14 @@
                         <div class="mb-3 row">
                             <label for="sun_requirements" class="col-form-label col-md-3">Sun Requirements:</label>
                             <div class="col-md-9">
-                                <input type="text" name="sun_requirements" class="form-control" id="sun_requirements" value="Full Sun">
+                                <select class="form-select" id="sun_requirements" name="sun_requirements" required>
+                                    <option value="full_sun">Full Sun</option>
+                                    <option value="full_part_sun">Full to Partial Sun</option>
+                                    <option value="part_sun">Partial Sun</option>
+                                    <option value="part_shade">Partial Shade</option>
+                                    <option value="full_part_shade">Full to Partial Shade</option>
+                                    <option value="shade">Full Shade</option>
+                                </select>
                             </div>
                         </div>
                         <div class="mb-3 row">

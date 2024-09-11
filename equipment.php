@@ -7,23 +7,23 @@
         <div class="container">
             <div class="content ms-3">
                 <div class="row mb-4">
-                    <!-- Artina, kjo hin brenda contents, container ene content, se kto jan paddingat tamam per secollen faqe. -->
+                    <!-- Edi, kjo hin brenda contents, container ene content, se kto jan paddingat tamam per secollen faqe. -->
                     <div class="d-none">
-                        <h2 class="mb-4 h2">You havent added any plantings, add one now.</h2>
+                        <h2 class="mb-4 h2">You havent added any Equipments, add one now.</h2>
                         <div id="icon" class="nothing-added text-center">
                             <i class="fad fa-seedling fa-4x mb-4"></i>
-                            <h4 class="h4 mb-3">Haven't added a planting yet? Add one now!</h4>
-                            <p class="text-muted">Click the green button above to add your planting(s).</p>
-                            <a href="addPlanting.php">
-                                <button class="btn btn-primary mb-4">Add your plantings</button>
+                            <h4 class="h4 mb-3">Haven't added a Equipment yet? Add one now!</h4>
+                            <p class="text-muted">Click the green button above to add your Equipment(s).</p>
+                            <a href="addEquipment.php">
+                                <button class="btn btn-primary mb-4">Add your Equipments</button>
                             </a>
                         </div>
                     </div>
 
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="card mb-3">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Plantings</h5>
+                                <h5 class="card-title">Tractors</h5>
                                 <p class="card-text">100% of 17</p>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="col">
                         <div class="card mb-3">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Cereals </h5>
+                                <h5 class="card-title">Attachments</h5>
                                 <p class="card-text">100% of 17</p>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                     <div class="col">
                         <div class="card mb-3">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Vegetables</h5>
+                                <h5 class="card-title">Cards</h5>
                                 <p class="card-text">50% of 17</p>
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Add Plantings -->
+                <!-- Add Equipments -->
                 <div class="d-flex justify-content-end mb-4">
                     <div class="dropdown me-3">
                         <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,27 +74,33 @@
                             <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
                         </ul>
                     </div>
-                    <a href="addPlanting.php" class="btn btn-primary mx-3">Add Planting</a>
-                    <a href="#" class="btn btn-info">Add Group</a>
+                    <a href="addEquipment.php" class="btn btn-primary mx-3">Add Equipment</a>
                 </div>
 
-                <!-- Plantings Section -->
-                <h2>Plantings</h2>
+                <!-- Equipments Section -->
+                <h2>Equipment</h2>
                 <div class="list-group">
                     <table class="table table-striped border rounded">
                         <tbody>
                             <tr>
-                                <td><a href="singlePlanting.php">Planting 1</a></td>
+                                <td><a href="singleEquipment.php">Tractor</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td> 
                             </tr>
                             <tr>
-                                <td><a href="singlePlanting.php">Planting 2</a></td>
+                                <td><a href="singleEquipment.php">Tractor 2</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="singleEquipment.php">Tractor Plugger</a></td>
+                                <td class="text-end">
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td>
                             </tr>
                         </tbody>
