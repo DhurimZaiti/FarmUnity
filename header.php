@@ -97,6 +97,7 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Grazing</a>
             </li>
+            <li class="list-group-item py-1"></li>
  
           </ul>
         <!-- Collapse 3 END -->
@@ -107,7 +108,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="plantings" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="#" class="text-reset">My Crops</a>
+              <a href="plantings.php" class="text-reset">My Crops</a>
             </li>
             <li class="list-group-item py-1">
               <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
@@ -124,6 +125,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="#" class="text-reset">Yeild Comparison</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 4 END -->
@@ -134,14 +137,16 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="rescources" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Equipment</a>
+              <a href="equipment.php" class="text-reset">Equipment</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Warehouses</a>
+              <a href="warehouses.php" class="text-reset">Warehouses</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Inventory</a>
+              <a href="inventory.php" class="text-reset">Inventory</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 5 END -->
@@ -166,14 +171,11 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Budgeting</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 6 END -->
-        <!-- Collapse 7 -->
-          <a class="list-group-item py-2 ripple" aria-current="true" href="contact.php">
-            <i class="far fa-address-book fa-fw me-3"></i><span>Contacts</span>
-          </a>
-        <!-- Collapse 7 END -->
         <!-- Collapse 8 -->
         <a class="list-group-item py-2 ripple" aria-current="true" href="farmMap.php">
             <i class="far fa-map fa-fw me-3"></i><span>Farm Map</span>
@@ -197,6 +199,8 @@ if (isset($_SESSION['farm_unity_user'])) {
             <li class="list-group-item py-1">
               <a href="" class="text-reset">Weather Map</a>
             </li>
+            <li class="list-group-item py-1"></li>
+
  
           </ul>
         <!-- Collapse 9 END -->
@@ -323,7 +327,7 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="plantings" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="#" class="text-reset">My Crops</a>
+              <a href="plantings.php" class="text-reset">My Crops</a>
             </li>
             <li class="list-group-item py-1">
               <a href="seasonalPlants.php" class="text-reset">Seasonal Plants</a>
@@ -350,13 +354,13 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="rescources" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Equipment</a>
+              <a href="equipment.php" class="text-reset">Equipment</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Warehouses</a>
+              <a href="warehouses.php" class="text-reset">Warehouses</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Inventory</a>
+              <a href="inventory.php" class="text-reset">Inventory</a>
             </li>
  
           </ul>

@@ -50,102 +50,110 @@ if ($animalData) {
 ?>
 
 <body>
-    <?php
-    if (!$animalData) {
-        echo "<div class='text-center  ms-5' id='farmNotRegistered'>";
-    } else {
-        echo "<div class='d-none'>";
-    }
-    ?>
-    <h2 class="mb-4 h2">You havent added any animal(s), add one now.</h2>
-    <div id="icon" class="nothing-added text-center">
-        <i class="fad fa-cow fa-4x mb-4"></i>
-        <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
-        <p class="text-muted">Click the green button above to add your animal.</p>
-        <a href="addAnimalPage.php">
-            <button class="btn btn-primary mb-4">Add your animal.</button>
-        </a>
-    </div>
-    </div>
+    <div class='contents'>
+        <div class="container">
+            <div class="content ms-3">
 
-    <?php
-    if ($animalData) {
-        echo "<div class='contents'>";
-    } else {
-        echo "<div class='d-none'>";
-    }
-    ?>
-    <div class="container">
-        <div class="content ms-3">
-            <div class="row mb-4">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Animals</h5>
-                            <p class="card-text"><?php echo $numberOfAnimals; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Male</h5>
-                            <p class="card-text"><?php echo $numberOfMaleAnimals; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Female</h5>
-                            <p class="card-text"><?php echo $numberOfFemaleAnimals;  ?></p>
-                        </div>
+
+                <?php
+                if ($animalData) {
+                    echo "<div class='d-none'>";
+                } else {
+                    echo "<div class=''>";
+                }
+                ?>
+                <div class='text-center  ms-5' id='farmNotRegistered'>
+                    <h2 class="mb-4 h2">You havent added any animal(s), add one now.</h2>
+                    <div id="icon" class="nothing-added text-center">
+                        <i class="fad fa-cow fa-4x mb-4"></i>
+                        <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
+                        <p class="text-muted">Click the green button above to add your animal.</p>
+                        <a href="addAnimalPage.php">
+                            <button class="btn btn-primary mb-4">Add your animals</button>
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Add Animal / Add Group Buttons -->
-            <div class="d-flex justify-content-end mb-4">
-                <div class="dropdown me-3">
-                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Most Recent
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortingDropdown">
-                        <li><a class="dropdown-item" href="#" onclick="changeSorting('Most Recent')">Most Recent</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeSorting('By Location')">By Location</a></li>
-                        <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
-                    </ul>
+            <?php
+                if(!$animalData){
+                    echo "<div class='d-none'>";
+                } else {
+                    echo "<div>";
+                }
+            ?>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Animals</h5>
+                                <p class="card-text"><?php echo $numberOfAnimals; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Male</h5>
+                                <p class="card-text"><?php echo $numberOfMaleAnimals; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Female</h5>
+                                <p class="card-text"><?php echo $numberOfFemaleAnimals;  ?></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="addAnimalPage.php" class="btn btn-primary mx-3">Add Animal</a>
-                <button class="btn btn-info">Add Group</button>
+
+                <!-- Add Animal / Add Group Buttons -->
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="dropdown me-3">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Most Recent
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortingDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('Most Recent')">Most Recent</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Location')">By Location</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
+                        </ul>
+                    </div>
+                    <a href="addAnimalPage.php" class="btn btn-primary mx-3">Add Animal</a>
+                    <button class="btn btn-info">Add Group</button>
+                </div>
+
+                <!-- Animals Section -->
+                <h2>Animals</h2>
+                <div class="list-group">
+                    <table class="table table-striped border rounded">
+                        <tbody>
+                            <?php
+                            foreach ($animalData as $animal) {
+                                // Get the animal details from the array
+                                $animalId = $animal['animal_id']; // Assuming animal_id is a unique identifier
+                                $animalName = $animal['animal_name']; // Assuming animal_name is the name of the animal
+
+                                // Generate the table row for each animal
+                                echo '<tr>';
+                                    echo '<td><a href="singleAnimal.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
+                                    echo '<td class="text-end">';
+                                        
+                                            echo '<a href="addAnimalPage.php?animalId=' . $animalId . '" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
+                                            echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id=' . $animalId . '" class="btn btn-danger btn-sm ms-1">Delete Animal</a>';
+                                       
+                                    echo '</td>';
+                                echo '</tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
-            <!-- Animals Section -->
-            <h4>Animals</h4>
-            <div class="list-group">
-                <table class="table table-striped">
-                    <tbody>
-                        <?php
-                        foreach ($animalData as $animal) {
-                            // Get the animal details from the array
-                            $animalId = $animal['animal_id']; // Assuming animal_id is a unique identifier
-                            $animalName = $animal['animal_name']; // Assuming animal_name is the name of the animal
-
-                            // Generate the table row for each animal
-                            echo '<tr>';
-                            echo '<td><a href="animal-details.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
-                            echo '<td class="text-end">';
-                                echo '<div>';
-                                    echo '<a href="addAnimalPage.php?animalId='. $animalId .'" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
-                                    echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id='. $animalId .'" class="btn btn-danger btn-sm ms-3">Delete Animal</a>';
-                                echo '</div>';
-                            echo '</td>';
-                            echo '</tr>';
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
     </div>

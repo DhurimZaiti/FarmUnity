@@ -1,0 +1,64 @@
+Arenosol:
+
+    Simple Term: Sandy Soil
+    Description: Drains water quickly, not great for plants.
+
+Calcisol:
+
+    Simple Term: Chalky Soil
+    Description: Hard, dry soil, good for certain crops like olives.
+
+Chernozem:
+
+    Simple Term: Rich Black Soil
+    Description: Very fertile, great for farming.
+
+Fluvisol:
+
+    Simple Term: River Soil
+    Description: Found near rivers, good for growing crops.
+
+Gleysol:
+
+    Simple Term: Wetland Soil
+    Description: Often waterlogged, hard for most plants to grow.
+
+Leptosol:
+
+    Simple Term: Rocky Soil
+    Description: Thin soil on rocks, not very fertile.
+
+Luvisol:
+
+    Simple Term: Fertile Clay Soil
+    Description: Good for farming, holds nutrients well.
+
+Phaeozem:
+
+    Simple Term: Dark Rich Soil
+    Description: Excellent for growing crops, especially grains.
+
+Podzol:
+
+    Simple Term: Forest Soil
+    Description: Acidic and poor, usually needs help to grow plants.
+
+Regosol:
+
+    Simple Term: Young Soil
+    Description: New soil, often sandy, not very fertile.
+
+Solonchak:
+
+    Simple Term: Salty Soil
+    Description: Hard for plants to grow due to high salt content.
+
+Umbrisol:
+
+    Simple Term: Dark Forest Soil
+    Description: Rich in organic matter, but often acidic.
+
+Vertisol:
+
+    Simple Term: Cracking Clay Soil
+    Description: Fertile but cracks when dry, needs careful management.

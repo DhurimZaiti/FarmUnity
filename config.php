@@ -2,7 +2,7 @@
 $host = 'localhost';  
 $dbname = 'farm_unity';  
 $username = 'root';  
-$password = '';  
+$password = '';
 try {
     // Create a new PDO instance
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

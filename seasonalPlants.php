@@ -1,4 +1,6 @@
 <?php
+ob_start(); // Start output buffering
+
 include 'config.php';
 include_once('header.php');
 
@@ -25,7 +27,6 @@ $plants = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $conn = null; // Release the connection
 ?>
-
 
 <body>
 <div class="content">
@@ -82,3 +83,7 @@ $conn = null; // Release the connection
         </div>
     </div>
 </div>
+
+<?php
+ob_end_flush(); // End output buffering and flush the output
+?>
