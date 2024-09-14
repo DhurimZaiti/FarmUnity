@@ -46,8 +46,20 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 </head>
+
+<?php
+if (isset($_SESSION['farm_unity_edit_field_error'])) {
+    echo '
+            <script>
+                alert("' . $_SESSION['farm_unity_edit_field_error'] . '");
+            </script>
+        ';
+}
+?>
+
+
 <div class="container-fluid mb-5">
-<div class="contents mb-5">
+    <div class="contents mb-5">
         <div class="content">
             <h1 class="h1 text-center my-3">Farm Map</h1>
             <!-- If the user hasn't added the farm, he can add it here with a button -->
@@ -86,12 +98,14 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <button id="addField" class="btn btn-primary">Add Place</button>
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex mt-3">
-                        <input type="text" id="polygonName" class="col-sm-4 col-form-label col-form-label-sm" placeholder="Enter a name" style="display: none;">
+                    <div class="d-flex mt-3 col-6">
+                        <input class="form-control form-control-sm" id="polygonName" type="text" placeholder="Enter A Name For Your Place" style="display: none;">
                         <button id="savePolygon" class="btn ms-3 btn-info" style="display: none;">Save Place</button>
                     </div>
                 </div>
             </div>
+        </div>
+
 
             <!-- Container for dynamically added delete buttons -->
         </div>
@@ -99,21 +113,45 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <!-- Modal alert box for confirming delete on a field-->
         <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteConfirmationLabel">Delete Polygon</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Are you sure you want to delete <strong><?php echo $fields['field_name']; ?></strong>?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
-            </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmationLabel">Delete Field</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete <strong><?php echo $fields['field_name']; ?></strong>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+
+        <!-- modal alert box for editing the name of the field -->
+        <div class="modal fade" id="editFieldModal" tabindex="-1" aria-labelledby="editFieldModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteConfirmationLabel">Edit Field</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="updateField.php" method="post">
+                        <div class="modal-body col-md-9">
+                            <label for="editFieldInput" class="my-1">Field Name</label> <br>
+                            <input name="fieldId" type="text" id="fieldId" class="d-none">
+                            <input name="fieldName" class="form-control" type="text" id="editFieldInput">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                            <button name="submit" type="submit" class="btn btn-primary" id="SaveChanges">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
 
@@ -285,44 +323,53 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
         `;
 
-        controlDiv.querySelector('.delete-polygon').addEventListener('click', function(event) {
-            event.preventDefault();
+                    controlDiv.querySelector('.delete-polygon').addEventListener('click', function(event) {
+                        event.preventDefault();
 
-            // Dynamically set the polygon (field) name in the modal
-            document.querySelector('#deleteConfirmationModal strong').innerText = name;
+                        // Dynamically set the polygon (field) name in the modal
+                        document.querySelector('#deleteConfirmationModal strong').innerText = name;
 
-            // Show the modal
-            var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
-            deleteModal.show();
+                        // Show the modal
+                        var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+                        deleteModal.show();
 
-            // When user confirms deletion
-            document.getElementById('confirmDelete').addEventListener('click', function() {
-                // Close the modal
-                deleteModal.hide();
+                        // When user confirms deletion
+                        document.getElementById('confirmDelete').addEventListener('click', function() {
+                            // Close the modal
+                            deleteModal.hide();
 
-                // Remove polygon from the map and DOM
-                map.removeLayer(polygonLayer);
-                drawnItems.removeLayer(polygonLayer);
-                controlDiv.remove();
+                            // Remove polygon from the map and DOM
+                            map.removeLayer(polygonLayer);
+                            drawnItems.removeLayer(polygonLayer);
+                            controlDiv.remove();
 
-                // Proceed with the deletion request
-                fetch(`deleteField.php?fieldId=${fieldId}`, {
-                        method: 'GET',
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            console.log(`Field ${fieldId} deleted successfully.`);
-                        } else {
-                            console.error(`Failed to delete field ${fieldId}: ${data.message}`);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
+                            // Proceed with the deletion request
+                            fetch(`deleteField.php?fieldId=${fieldId}`, {
+                                    method: 'GET',
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        console.log(`Field ${fieldId} deleted successfully.`);
+                                    } else {
+                                        console.error(`Failed to delete field ${fieldId}: ${data.message}`);
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+                        });
                     });
-            });
-        });
 
+                    controlDiv.querySelector('.edit-polygon').addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        document.querySelector('#editFieldInput').value = name
+                        document.querySelector('#fieldId').value = fieldId
+
+                        let editModal = new bootstrap.Modal(document.querySelector('#editFieldModal'));
+                        editModal.show();
+                    })
 
 
                     controlsContainer.appendChild(controlDiv);
@@ -358,23 +405,8 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
 
                 loadPolygons();
-
-                // Define base maps for layer control
-                var baseMaps = {
-                    "Satellite": esriWorldImagery,
-                    "Streets with Names": esriImageryLabels
-                };
-
-                // Define overlay maps for layer control
-                var overlayMaps = {
-                    "Markers": drawnItems
-                };
-
-                // Add layer control to the map
-                L.control.layers(baseMaps, overlayMaps).addTo(map);
             };
         </script>
-        <!-- MapBox Satellite view END -->
     </div>
 </div>
 </div>
@@ -385,4 +417,3 @@ $fields = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
 <!-- Maplibre JS -->
 <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
-

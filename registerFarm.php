@@ -32,12 +32,14 @@
             background-position: center;
             height: 100vh;
         }
+
         #map {
             height: 500px;
             width: 100%;
         }
     </style>
 </head>
+
 <body>
     <div class="bg-image d-flex justify-content-center overflow-auto">
         <div class="container mt-5">
@@ -119,13 +121,24 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
         <script>
-            // Create the map and set its initial view
-            var map = L.map('map').setView([0, 0], 2);
-
             // Add the OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+            var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
+            });
+
+            // Add OpenStreetMap streets tile layer for place names
+            var esriImageryLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, HERE, Garmin, FAO, NOAA, USGS, EPA'
+            });
+            
+            var map = L.map('map', {
+                    center: [0, 0],
+                    zoom: 2,
+                    layers: [esriWorldImagery, esriImageryLabels] // Start with both satellite and place names
+                });
+
 
             // Declare the marker variable outside the click event
             var marker;

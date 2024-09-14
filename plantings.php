@@ -74,7 +74,7 @@
                             <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
                         </ul>
                     </div>
-                    <a href="#" class="btn btn-primary mx-3">Add Planting</a>
+                    <a href="addPlanting.php" class="btn btn-primary mx-3">Add Planting</a>
                     <a href="#" class="btn btn-info">Add Group</a>
                 </div>
 
