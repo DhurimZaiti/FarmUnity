@@ -400,7 +400,6 @@ ALTER TABLE `wharehouses`
 
 --
 -- Constraints for dumped tables
---
 
 --
 -- Constraints for table `animals`
