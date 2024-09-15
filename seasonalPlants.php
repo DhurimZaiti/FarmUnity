@@ -1,89 +1,112 @@
-<?php
-ob_start(); // Start output buffering
-
-include 'config.php';
-include_once('header.php');
-
-// Handle deletion of a plant
-if (isset($_GET['delete'])) {
-    $id = intval($_GET['delete']);
-    $delete_query = "DELETE FROM seasonal_plants WHERE id = :id";
-    $stmt = $conn->prepare($delete_query);
-    $stmt->bindParam(':id', $id);
-    if ($stmt->execute()) {
-        // Redirect to the same page to refresh data
-        header('Location: ' . $_SERVER['PHP_SELF']);
-        exit;
-    } else {
-        echo "<div class='alert alert-danger'>Error: " . $stmt->errorInfo()[2] . "</div>";
-    }
-}
-
-// Fetch all seasonal plants from the database
-$query = "SELECT * FROM seasonal_plants";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$plants = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$conn = null; // Release the connection
+<?php 
+    include_once 'header.php';
 ?>
 
 <body>
-<div class="content">
-    <div class="container">
-        <div class="contents">
-    
-            <h2 class="mb-4">Seasonal Plants</h2>
-            
-            <div class="mb-4">
-                <a href="addSeasonal_plants.php" class="btn btn-primary">Add New Seasonal Plant</a>
+    <div class="contents">
+        <div class="container">
+            <div class="content ms-3">
+                <div class="row mb-4">
+                    <!-- Artina, kjo hin brenda contents, container ene content, se kto jan paddingat tamam per secollen faqe. -->
+                    <div class="d-none">
+                        <h2 class="mb-4 h2">You havent added any seasonal plantings, add one now.</h2>
+                        <div id="icon" class="nothing-added text-center">
+                            <i class="fad fa-seedling fa-4x mb-4"></i>
+                            <h4 class="h4 mb-3">Haven't added a seasonal planting yet? Add one now!</h4>
+                            <p class="text-muted">Click the green button above to add your seasonal planting(s).</p>
+                            <a href="addSeasonalPlanting.php">
+                                <button class="btn btn-primary mb-4">Add your seasonal plantings</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Seasonal Plantings</h5>
+                                <p class="card-text">100% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Flowers</h5>
+                                <p class="card-text">100% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card mb-3">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Lilys</h5>
+                                <p class="card-text">50% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Text</h5>
+                                <p class="card-text">50% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Other</h5>
+                                <p class="card-text">50% of 17</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Plantings -->
+                <div class="d-flex justify-content-end mb-4">
+                    <div class="dropdown me-3">
+                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Most Recent
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortingDropdown">
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('Most Recent')">Most Recent</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Location')">By Location</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
+                        </ul>
+                    </div>
+                    <a href="addPlanting.php" class="btn btn-primary mx-3">Add Seasonal Planting</a>
+                    <a href="#" class="btn btn-info">Add Group</a>
+                </div>
+
+                <!-- Plantings Section -->
+                <h2>Plantings</h2>
+                <div class="list-group">
+                    <table class="table table-striped border rounded">
+                        <tbody>
+                            <tr>
+                                <td><a href="singleSeasonalPlanting.php">Seasonal Planting 1</a></td>
+                                <td class="text-end">
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
+                                </td> 
+                            </tr>
+                            <tr>
+                                <td><a href="singleSeasonalPlanting.php">Seasonal Planting 2</a></td>
+                                <td class="text-end">
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Season</th>
-                        <th>Watering Cycle</th>
-                        <th>Watering Times</th>
-                        <th>Soil Type</th>
-                        <th>Planted At</th>
-                        <th>Growth Rate</th>
-                        <th>Height</th>
-                        <th>Spread</th>
-                        <th>Sun Requirements</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($plants as $plant): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($plant['id']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['username']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['name']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['season']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['watering_cycle']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['watering_times']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['soil_type']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['planted_at']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['growth_rate']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['height']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['spread']); ?></td>
-                        <td><?php echo htmlspecialchars($plant['sun_requirements']); ?></td>
-                        <td>
-                            <a href="editSeasonal_plant.php?id=<?php echo $plant['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="?delete=<?php echo $plant['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this plant?');">Delete</a>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
         </div>
     </div>
-</div>
 
-<?php
-ob_end_flush(); // End output buffering and flush the output
-?>
+    <script>
+        function changeSorting(selectedOption) {
+            document.getElementById('sortingDropdown').innerText = selectedOption;
+        }
+    </script>
+</body>

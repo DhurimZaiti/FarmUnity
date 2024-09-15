@@ -43,6 +43,17 @@
                             </div>
                         </div>
                         <div class="mb-3 row">
+                            <label for="seaspm" class="col-form-label col-md-3">Season:</label>
+                            <div class="col-md-9">
+                                <select class="form-select" id="season" name="season" required>
+                                    <option value="spring">Spring</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="autumn">Autumn</option>
+                                    <option value="winter">Winter</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
                             <label for="country_origin" class="col-form-label col-md-3">Country Origin:</label>
                             <div class="col-md-9">
                                 <input type="text" name="country_origin" class="form-control" id="country_origin" value="U.S.A.">
