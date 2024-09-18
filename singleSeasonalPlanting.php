@@ -15,11 +15,13 @@ include_once "header.php";
                 <h4 class="h4 mb-0">General Info</h4>
                     <hr class="bg-dark my-2" style="margin-right: 420px;">
                     <div class="ms-3" id="layout-body">
-                        <p class="h6 mb-1 text-primary">Name:<span class="ms-2 text-dark">Corn</span></p>
-                        <p class="h6 mb-1 text-primary">Variety:<span class="ms-2 text-dark">Dent Corn</span></p>
-                        <p class="h6 mb-1 text-primary">Latin Name:<span class="ms-2 text-dark">Zea Mays</span></p>
-                        <p class="h6 mb-1 text-primary">Genus:<span class="ms-2 text-dark">Zea</span></p>
-                        <p class="h6 mb-1 text-primary">Country Origin:<span class="ms-2 text-dark">U.S.A.</span></p>
+                        <p class="h6 mb-1 text-primary">Name:<span class="ms-2 text-dark">Spinach</span></p>
+                        <p class="h6 mb-1 text-primary">Variety:<span class="ms-2 text-dark">Oleracea</span></p>
+                        <p class="h6 mb-1 text-primary">Latin Name:<span class="ms-2 text-dark">Spinacia Oleracea</span></p>
+                        <p class="h6 mb-1 text-primary">Genus:<span class="ms-2 text-dark">Spinacia</span></p>
+                        <!-- Only show if it is a seasonal plant -->
+                        <p class="h6 mb-1 text-primary">Season:<span class="ms-2 text-dark">Spring</span></p>
+                        <p class="h6 mb-1 text-primary">Country Origin:<span class="ms-2 text-dark">Persia</span></p>
                         <p class="h6 mb-1 text-primary">Planted On (Date)<!-- Calendar -->:<span class="ms-2 text-dark">12/04/2024</span></p>
                         <p class="h6 mb-1 text-primary">Planted In (Field)<!-- Dropdown -->:<span class="ms-2 text-dark">Field 1</span></p>
                         <p class="h6 mb-1 text-primary">Average Height:<span class="ms-2 text-dark">243 cm</span></p>

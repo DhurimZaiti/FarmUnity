@@ -137,13 +137,13 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="rescources" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Equipment</a>
+              <a href="equipment.php" class="text-reset">Equipment</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Warehouses</a>
+              <a href="warehouses.php" class="text-reset">Warehouses</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Inventory</a>
+              <a href="inventory.php" class="text-reset">Inventory</a>
             </li>
             <li class="list-group-item py-1"></li>
 
@@ -354,13 +354,13 @@ if (isset($_SESSION['farm_unity_user'])) {
           <!-- Collapsed content -->
           <ul id="rescources" class="collapse list-group list-group-flush">
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Equipment</a>
+              <a href="equipment.php" class="text-reset">Equipment</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Warehouses</a>
+              <a href="warehouses.php" class="text-reset">Warehouses</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="" class="text-reset">Inventory</a>
+              <a href="inventory.php" class="text-reset">Inventory</a>
             </li>
  
           </ul>
