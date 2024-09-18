@@ -101,7 +101,7 @@ CREATE TABLE `farm` (
   `province` varchar(255) NOT NULL,
   `postalCode` varchar(20) NOT NULL,
   `timezone` varchar(10) NOT NULL DEFAULT 'UTC +01:00',
-  `farm_coordinates` varchar(255) NOT NULL,
+  `farm_coordinates` varchar(255) NULL,
   `fields` varchar(255) DEFAULT NULL,
   `currency` varchar(10) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
