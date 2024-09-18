@@ -26,12 +26,13 @@ if (isset($_GET['animalId'])) {
     <div class="container-fluid px-5 mb-5 mt-3">
         <div class="contents px-5">
             <div class="row">
+                <a href="animalsPage.php">Back</a>
                 <div class="col-12 mb-3">
-                    <h1 class="h1 mb-0">Bessie's Information</h1>
+                    <h1 class="h1 mb-0"><?php echo $animalData['animal_name'] ?>'s Information</h1>
                 </div>
                 <div class="col-12 mb-3 d-flex justify-content-end">
                     <!-- <a href="editSingleAnimal.php" class="mx-3"><button class="btn btn-primary">Edit Information</button></a> -->
-                    <a href="addAnimalPage.php?animalId=<?php echo $animalData['animal_id'] ?>&page=singleAnimal.php?animalId=<?php echo $animalData['animal_id'] ?>" class="mx-5"><button class="btn btn-primary">Edit Information</button></a>
+                    <a href="addAnimalPage.php?animalId=<?php echo $animalData['animal_id'] ?>&page=singleAnimal.php?animalId=<?php echo $animalData['animal_id'] ?>&req=update" class="mx-5"><button class="btn btn-primary">Edit Information</button></a>
                 </div>
                 <div class="col-12">
                     <h4 class="h4 mb-0">General Info</h4>

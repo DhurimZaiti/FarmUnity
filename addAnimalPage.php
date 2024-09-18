@@ -44,7 +44,7 @@ if (isset($_GET['animalId'])) {
                         <div class="card-body">
                             <h1 class="card-title text-center mb-4">Animal Information</h1>
                             <?Php
-                            if (isset($_GET['reqQuery']) && $_GET['reqQuery'] == "update") {
+                            if (isset($_GET['animalId'])) {
                                 echo "<form action='addAnimalLogic.php?animalId=" . $_GET['animalId'] . "&req=update' method='POST'>";
                             } else {
                                 echo "<form action='addAnimalLogic.php' method='POST'>";
@@ -119,6 +119,8 @@ if (isset($_GET['animalId'])) {
                                 <?php
                                     if(isset($_GET['page'])){
                                         echo '<a class="btn btn-light border border-2" href="' .  $_GET['page'] . '">Cancel</a>';
+                                    } else {
+                                        echo '<a class="btn btn-light border border-2" href="animalsPage.php">Cancel</a>';
                                     }
                                 ?>
                             </div>
