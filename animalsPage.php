@@ -48,75 +48,104 @@ if ($animalData) {
     }
 }
 ?>
-
-                <div class="row mb-4">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Animals</h5>
-                                <p class="card-text"><?php echo $numberOfAnimals; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Male</h5>
-                                <p class="card-text"><?php echo $numberOfMaleAnimals; ?></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Female</h5>
-                                <p class="card-text"><?php echo $numberOfFemaleAnimals;  ?></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add Animal / Add Group Buttons -->
-                <div class="d-flex justify-content-end mb-4">
-                    <a href="addAnimalPage.php" class="btn btn-primary mx-3">Add Animal</a>
-                </div>
-
-                <!-- Animals Section -->
-                <h2>Animals</h2>
-                <div class="list-group">
-                    <table class="table table-striped border rounded">
-                        <tbody>
-                            <?php
-                            foreach ($animalData as $animal) {
-                                // Get the animal details from the array
-                                $animalId = $animal['animal_id']; // Assuming animal_id is a unique identifier
-                                $animalName = $animal['animal_name']; // Assuming animal_name is the name of the animal
-
-                                // Generate the table row for each animal
-                                echo '<tr>';
-                                    echo '<td><a href="singleAnimal.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
-                                    echo '<td class="text-end">';
-                                        
-                                            echo '<a href="addAnimalPage.php?animalId=' . $animalId . '" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
-                                            echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id=' . $animalId . '" class="btn btn-danger btn-sm ms-1">Delete Animal</a>';
-                                       
-                                    echo '</td>';
-                                echo '</tr>';
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-
+<div class="content">
+    <div class="container mt-3">
+        <?php
+        if (!$animalData) {
+            echo "<div class='contents' id='farmNotRegistered'>";
+        } else {
+            echo "<div class='d-none'>";
+        }
+        ?>
+        <h2 class="mb-4 h2">You havent added any animal's, add one now.</h2>
+        <div id="icon" class="nothing-added text-center">
+            <i class="fad fa-cow fa-4x mb-4"></i>
+            <h4 class="h4 mb-3">Haven't added an animal yet? Add one now!</h4>
+            <p class="text-muted">Click the green button above to add your animals.</p>
+            <a href="addAnimalPage.php">
+                <button class="btn btn-primary mb-4">Add your animal</button>
+            </a>
         </div>
     </div>
+
+
+
+    <?php
+    if ($animalData) {
+        echo "<div class='contents ms-1'>";
+    } else {
+        echo "<div class='d-none'>";
+    }
+    ?>
+
+    <div class='row mb-4'>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Animals</h5>
+                    <p class="card-text"><?php echo $numberOfAnimals; ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Male</h5>
+                    <p class="card-text"><?php echo $numberOfMaleAnimals; ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Female</h5>
+                    <p class="card-text"><?php echo $numberOfFemaleAnimals;  ?></p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
-        function changeSorting(selectedOption) {
-            document.getElementById('sortingDropdown').innerText = selectedOption;
-        }
-    </script>
+    <!-- Add Animal / Add Group Buttons -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="addAnimalPage.php" class="btn btn-primary mx-3">Add Animal</a>
+    </div>
+
+    <!-- Animals Section -->
+    <h2>Animals</h2>
+    <div class="list-group">
+        <table class="table table-striped border rounded">
+            <tbody>
+                <?php
+                foreach ($animalData as $animal) {
+                    // Get the animal details from the array
+                    $animalId = $animal['animal_id']; // Assuming animal_id is a unique identifier
+                    $animalName = $animal['animal_name']; // Assuming animal_name is the name of the animal
+
+                    // Generate the table row for each animal
+                    echo '<tr>';
+                    echo '<td><a href="singleAnimal.php?animalId=' . htmlspecialchars($animalId) . '">' . ucfirst(htmlspecialchars($animal['animal'])) . '</a></td>';
+                    echo '<td class="text-end">';
+
+                    echo '<a href="addAnimalPage.php?animalId=' . $animalId . '" class="btn btn-outline-secondary btn-sm">Edit Animal</a>';
+                    echo '<a href="deleteData.php?table=animals&idQuery=animal_id&id=' . $animalId . '" class="btn btn-danger btn-sm ms-1">Delete Animal</a>';
+
+                    echo '</td>';
+                    echo '</tr>';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<script>
+    function changeSorting(selectedOption) {
+        document.getElementById('sortingDropdown').innerText = selectedOption;
+    }
+</script>
 </body>
