@@ -78,18 +78,7 @@ if ($animalData) {
 
                 <!-- Add Animal / Add Group Buttons -->
                 <div class="d-flex justify-content-end mb-4">
-                    <div class="dropdown me-3">
-                        <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Most Recent
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="sortingDropdown">
-                            <li><a class="dropdown-item" href="#" onclick="changeSorting('Most Recent')">Most Recent</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Location')">By Location</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
-                        </ul>
-                    </div>
                     <a href="addAnimalPage.php" class="btn btn-primary mx-3">Add Animal</a>
-                    <button class="btn btn-info">Add Group</button>
                 </div>
 
                 <!-- Animals Section -->
