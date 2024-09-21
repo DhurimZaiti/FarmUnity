@@ -106,7 +106,7 @@
                             <label for="soil_type" class="col-form-label col-md-3">Soil Type:</label>
                             <div class="col-md-9">
                                 <select class="form-select" id="soil_type" name="soil_type" required>
-                                    <option value="calcisol">Calcisol</option>
+                                    <option value="calcisol">Selected</option>
                                     <option value="brown">Brown Soil</option>
                                     <option value="black">Black Soil</option>
                                     <option value="red">Red Soil</option>
