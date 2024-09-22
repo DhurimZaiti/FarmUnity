@@ -1,11 +1,17 @@
 <?php
 session_start(); // Start a new session or resume the existing one
 include_once 'config.php'; // Your database connection file
+include_once 'header.php';
 
-$username = $_SESSION['username']; // Assume user ID is stored in session after login
+// Check if username is set in the session
+if (!isset($_SESSION['username'])) {
+    die("User not logged in.");
+}
+
+$username = $_SESSION['username']; // Retrieve the username from the session
 
 // Create connection
-$conn = new mysqli(hostname: $host, username: $username, password: $password, database: $dbname);
+$conn = new mysqli($host, $dbuser, $dbpassword, $dbname); // Use your actual database variables
 
 // Check connection
 if ($conn->connect_error) {
@@ -13,9 +19,9 @@ if ($conn->connect_error) {
 }
 
 // Query to fetch the coordinates
-$sql = "SELECT coordinates FROM farm WHERE farmManager = $username";
+$sql = "SELECT coordinates FROM farm WHERE farmManager = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id); // 'i' specifies the variable type 'integer'
+$stmt->bind_param("s", $username); // 's' specifies the variable type 'string'
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
@@ -33,13 +39,6 @@ $stmt->close();
 $conn->close();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #forecast-container {
             display: flex;
@@ -69,41 +68,41 @@ $conn->close();
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchWeatherData();
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchWeatherData();
+    });
+
+    function fetchWeatherData() {
+        const apiKey = '1ae609043fd2454cafcad167fc191786'; // Replace with your actual API key
+        let lat = <?php echo json_encode(value: $lat); ?>;  // Example latitude
+        let lon = <?php echo json_encode(value: $lon); ?>;  // Example longitude
+        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`;
+
+        axios.get(url)
+            .then(response => {
+                const data = response.data;
+                updateWeatherDisplay(data);
+            })
+            .catch(error => console.error('Error fetching weather data:', error));
+    }
+
+    function updateWeatherDisplay(data) {
+        const forecastContainer = document.getElementById('forecast-container');
+        data.daily.slice(0, 8).forEach(day => {
+            const dayElem = document.createElement('div');
+            dayElem.className = 'forecast-day';
+            dayElem.innerHTML = `
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" class="forecast-icon" alt="Weather Icon">
+                <div>${new Date(day.dt * 1000).toLocaleDateString()}</div>
+                <div>High: ${day.temp.max}°C</div>
+                <div>Low: ${day.temp.min}°C</div>
+                <div>${day.weather[0].description}</div>
+                <div>Precip: ${Math.round(day.pop * 100)}%</div>
+            `;
+            forecastContainer.appendChild(dayElem);
         });
+    }
+</script>
 
-        function fetchWeatherData() {
-            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-            const lat = 42.0735;  // Example latitude
-            const lon = 21.1009;  // Example longitude
-            const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`;
 
-            axios.get(url)
-                .then(response => {
-                    const data = response.data;
-                    updateWeatherDisplay(data);
-                })
-                .catch(error => console.error('Error fetching weather data:', error));
-        }
-
-        function updateWeatherDisplay(data) {
-            const forecastContainer = document.getElementById('forecast-container');
-            data.daily.slice(0, 8).forEach(day => {
-                const dayElem = document.createElement('div');
-                dayElem.className = 'forecast-day';
-                dayElem.innerHTML = `
-                    <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}.png" class="forecast-icon" alt="Weather Icon">
-                    <div>${new Date(day.dt * 1000).toLocaleDateString()}</div>
-                    <div>High: ${day.temp.max}°C</div>
-                    <div>Low: ${day.temp.min}°C</div>
-                    <div>${day.weather[0].description}</div>
-                    <div>Precip: ${Math.round(day.pop * 100)}%</div>
-                `;
-                forecastContainer.appendChild(dayElem);
-            });
-        }
-    </script>
-</body>
-</html>
 
