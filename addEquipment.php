@@ -1,14 +1,10 @@
 <?php
 session_start();
+include_once "header.php";
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Equipment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -37,67 +33,105 @@ session_start();
             font-weight: bold;
         }
     </style>
-</head>
+
 <body>
 
-<div class="form-container">
-    <h2 class="mb-4">Add New Equipment</h2>
+<div class="content">
+    <div class="container mb-5 ">
+        <div class="contents">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h1 class="h1 mb-3">Add Equipment Information</h1>
 
-    <!-- Display error or success messages -->
-    <?php
-    if (isset($_SESSION['equipment_error_message'])) {
-        echo "<div class='alert alert-danger'>" . $_SESSION['equipment_error_message'] . "</div>";
-        unset($_SESSION['equipment_error_message']);
-    }
-    if (isset($_SESSION['equipment_success']) && $_SESSION['equipment_success'] === true) {
-        echo "<div class='alert alert-success'>Equipment added successfully!</div>";
-        unset($_SESSION['equipment_success']);
-    }
-    ?>
+                     <!-- Display error or success messages -->
+                    <?php
+                    if (isset($_SESSION['equipment_error_message'])) {
+                        echo "<div class='alert alert-danger'>" . $_SESSION['equipment_error_message'] . "</div>";
+                        unset($_SESSION['equipment_error_message']);
+                    }
+                    if (isset($_SESSION['equipment_success']) && $_SESSION['equipment_success'] === true) {
+                        echo "<div class='alert alert-success'>Equipment added successfully!</div>";
+                        unset($_SESSION['equipment_success']);
+                    }
+                    ?>
 
-    <form action="AddEquipmentLogic.php" method="post">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name:</label>
-            <input type="text" id="name" name="name" class="form-control" required>
+
+                </div>
+                <div class="col-12">
+                    <h4 class="h4 mb-0">Information</h4>
+                    <hr class="bg-dark" style="margin-right: 420px;">
+                    <div class="ms-3" id="layout-body">
+                        <div class="mb-3 row">
+                            <label for="name" class="col-form-label col-md-3">Name:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="name" class="form-control" id="name" value="Primary Tractor">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="type" class="col-form-label col-md-3">Type:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="type" class="form-control" id="type" value="Tractor">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="brand_model" class="col-form-label col-md-3">Brand Model:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="brand_model" class="form-control" id="brand_model" value="IMT 125">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="model_year" class="col-form-label col-md-3">Model Year:</label>
+                            <div class="col-md-9">
+                                <input type="number" name="model_year" class="form-control" id="model_year" value="1987">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="plate_number" class="col-form-label col-md-3">Plate Number:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="plate_number" class="form-control" id="plate_number" value="TE125IM">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="plate_number" class="col-form-label col-md-3">Serial Number:</label>
+                            <div class="col-md-9">
+                                <input type="text" name="plate_number" class="form-control" id="plate_number" value="123551232">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="distance" class="col-form-label col-md-3">Distance Traveled (km):</label>
+                            <div class="col-md-9 d-flex">
+                                <input type="number" name="distance" class="form-control" id="distance" value="40000" min="40000">
+                                <span class="input-group-text ms-2">km</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="registration_date" class="col-form-label col-md-3">Registration Date:</label>
+                            <div class="col-md-9">
+                                <input type="date" name="registration_date" class="form-control" id="registration_date" value="2024-04-12" min="2019-12-31">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="registration_expiration" class="col-form-label col-md-3">Registration Expiration:</label>
+                            <div class="col-md-9">
+                                <input type="date" name="registration_expiration" class="form-control" id="registration_expiration" value="2024-04-12" min="2019-12-31">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="description" class="col-form-label col-md-3">Description:</label>
+                            <div class="col-md-9">
+                                <textarea name="description" class="form-control" id="description" rows="3">The IMT 125 Tractor has this and that...</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 mb-3 d-flex justify-content-end">
+                        <a href="plantings.php" class=""><button class="btn btn-outline-secondary">Cancel</button></a>
+                        <a href="addEquipmentLogic.php" class="mx-3"><button class="btn btn-primary">Add Planting</button></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="type" class="form-label">Type:</label>
-            <input type="text" id="type" name="type" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="brand_model" class="form-label">Brand Model:</label>
-            <input type="text" id="brand_model" name="brand_model" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="model_year" class="form-label">Model Year:</label>
-            <input type="text" id="model_year" name="model_year" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="plate_number" class="form-label">Plate Number:</label>
-            <input type="text" id="plate_number" name="plate_number" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="serial_number" class="form-label">Serial Number:</label>
-            <input type="text" id="serial_number" name="serial_number" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="distance" class="form-label">Distance (km):</label>
-            <input type="text" id="distance" name="distance" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="registration_date" class="form-label">Registration Date:</label>
-            <input type="date" id="registration_date" name="registration_date" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="registration_expiration" class="form-label">Registration Expiration:</label>
-            <input type="date" id="registration_expiration" name="registration_expiration" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
-            <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
-        </div>
-        <button type="submit" name="submit" class="btn btn-custom">Add Equipment</button>
-    </form>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include_once "header.php";
 
 // Ensure 'id' parameter is present and valid
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -61,13 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn = null; // Release the connection
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Equipment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -92,7 +86,7 @@ $conn = null; // Release the connection
             color: #fff;
         }
     </style>
-</head>
+
 <body>
 
 <div class="form-container">
