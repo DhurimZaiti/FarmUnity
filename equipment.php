@@ -85,8 +85,8 @@
                             <tr>
                                 <td><a href="singleEquipment.php">Tractor</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
+                                    <a href="editEquipment.php" class="btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="deleteEquipment.php" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td> 
                             </tr>
                             <tr>
