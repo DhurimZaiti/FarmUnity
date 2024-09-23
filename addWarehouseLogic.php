@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
-ini_set('error_log', './AddWharehouse.php');
+ini_set('error_log', './AddWarehouse.php');
 session_start();
 include_once('config.php');
 
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     if ($error == '') {
         try {
             // Prepare the SQL statement
-            $sql = "INSERT INTO wharehouse (Name, max_capacity, description) 
+            $sql = "INSERT INTO warehouses (Name, max_capacity, description) 
                     VALUES (:Name, :max_capacity, :description)";
             $stmt = $conn->prepare($sql);
 
@@ -32,11 +32,11 @@ if (isset($_POST['submit'])) {
 
             // Execute the statement
             if ($stmt->execute()) {
-                unset($_SESSION['wharehouse_error_message']);
-                $_SESSION['wharehouse_success'] = true;
+                unset($_SESSION['warehouse_error_message']);
+                $_SESSION['warehouse_success'] = true;
                 echo "<script>
-                        alert('wharehouse added successfully!');
-                        window.location.href = 'AddWharehouse.php';
+                        alert('warehouse added successfully!');
+                        window.location.href = 'warehouse.php';
                       </script>";
                 exit();
             } else {
@@ -48,10 +48,10 @@ if (isset($_POST['submit'])) {
     }
 
     $_SESSION['wharehouse_error_message'] = $error;
-    header("Location: AddWharehouse.php");
+    header("Location: AddWarehouse.php");
     exit();
 } else {
-    echo "<script>alert('Invalid request.'); window.location.href = 'AddWharehouse.php';</script>";
+    echo "<script>alert('Invalid request.'); window.location.href = 'AddWarehouse.php';</script>";
     exit();
 } 
    

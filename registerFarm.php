@@ -80,7 +80,7 @@
                                     <input type="text" class="form-control " id="province" placeholder="Province/Municipality" name="province" required>
                                 </div>
                                 <div class="mb-2">
-                                    <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postal-code" required>
+                                    <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postalCode" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="timezone" class="form-label form-label-sm">Timezone</label>

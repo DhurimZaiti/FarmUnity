@@ -98,7 +98,7 @@ if (!empty($farms)) {
                             <div class="card bg-light mb-5">
                                 <div class="card-body">
                                     <h1 class="card-title text-center mb-4">Edit Your Farm and Preferences</h1>
-                                    <form action="RegisterFarmLogic.php" method="POST">
+                                    <form action="RegisterFarmLogic.php?req=update&farmId=<?php echo $farm['id'] ?>" method="POST">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Farm Name</label>
                                             <input type="text" class="form-control " id="farm-name" name="farmName" placeholder="--Users Farm Name" value="<?php echo $farm['farmName'] ?>" required>
@@ -131,7 +131,7 @@ if (!empty($farms)) {
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleFormControlInput1" class="form-label">Postal Code</label>
-                                            <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postal-code" value="<?php echo $farm['postalCode'] ?>" required>
+                                            <input type="text" class="form-control " id="postal-code" placeholder="Postal Code" name="postalCode" value="<?php echo $farm['postalCode'] ?>" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="timezone" class="form-label form-label-sm">Timezone</label>
@@ -199,11 +199,11 @@ if (!empty($farms)) {
 <script>
     // Define map variables
     let farmCoordinates = "<?php echo $farm['farm_coordinates']; ?>";
-    let mapZoom = 18
+    let mapZoom = 17
 
     var coordsArray = farmCoordinates.split(',').map(Number);
 
-    if(coordsArray == 0) {
+    if (coordsArray == 0) {
         coordsArray = [0, 0]
         mapZoom = 2
     }
@@ -212,21 +212,21 @@ if (!empty($farms)) {
 
     // Add Esri World Imagery satellite tile layer
     var esriWorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        maxZoom: 17,
+        maxZoom: 18,
         attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
     });
 
-    // Add OpenStreetMap streets tile layer
-    var openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    // Add OpenStreetMap streets tile layer for place names
+    var esriImageryLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, HERE, Garmin, FAO, NOAA, USGS, EPA'
     });
 
     // Initialize the Leaflet map with Esri World Imagery as the default layer
     var map = L.map('map', {
         center: coordsArray,
         zoom: mapZoom, // Set zoom level to 13 for a closer view
-        layers: [esriWorldImagery] // Start with the satellite view
+        layers: [esriWorldImagery, esriImageryLabels] // Start with the satellite view
     });
 
     // Add a marker at the farm's coordinates
