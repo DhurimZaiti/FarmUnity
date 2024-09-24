@@ -86,15 +86,15 @@
                             <tr>
                                 <td><a href="singlePlanting.php">Planting 1</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
+                                    <a href="editSinglePlanting.php" class="btn btn-outline-secondary btn-sm">Edit Planting Data</a>
+                                    <a href="deleteSinglePlanting.php" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
                                 </td> 
                             </tr>
                             <tr>
                                 <td><a href="singlePlanting.php">Planting 2</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
+                                    <a href="editSinglePlanting.php" class="btn btn-outline-secondary btn-sm">Edit Planting Data</a>
+                                    <a href="deleteSinglePlanting.php" class="btn btn-danger btn-sm ms-1">Delete Planting</a>
                                 </td>
                             </tr>
                         </tbody>

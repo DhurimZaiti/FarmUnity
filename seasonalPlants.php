@@ -14,7 +14,7 @@
                             <i class="fad fa-seedling fa-4x mb-4"></i>
                             <h4 class="h4 mb-3">Haven't added a seasonal planting yet? Add one now!</h4>
                             <p class="text-muted">Click the green button above to add your seasonal planting(s).</p>
-                            <a href="addSeasonalPlanting.php">
+                            <a href="addSeasonalPlant.php">
                                 <button class="btn btn-primary mb-4">Add your seasonal plantings</button>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                             <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
                         </ul>
                     </div>
-                    <a href="addPlanting.php" class="btn btn-primary mx-3">Add Seasonal Planting</a>
+                    <a href="addSeasonalPlant.php" class="btn btn-primary mx-3">Add Seasonal Planting</a>
                     <a href="#" class="btn btn-info">Add Group</a>
                 </div>
 
@@ -86,15 +86,15 @@
                             <tr>
                                 <td><a href="singleSeasonalPlanting.php">Seasonal Planting 1</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
+                                    <a href="editSeasonalPlant.php" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
+                                    <a href="deleteSeasonalPlanting.php" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
                                 </td> 
                             </tr>
                             <tr>
                                 <td><a href="singleSeasonalPlanting.php">Seasonal Planting 2</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
+                                    <a href="editSeasonalPlant.php" class="btn btn-outline-secondary btn-sm">Edit Seasonal Planting</a>
+                                    <a href="deleteSeasonalPlanting.php" class="btn btn-danger btn-sm ms-1">Delete Seasonal Planting</a>
                                 </td>
                             </tr>
                         </tbody>
