@@ -140,7 +140,7 @@ if (isset($_SESSION['farm_unity_user'])) {
               <a href="equipment.php" class="text-reset">Equipment</a>
             </li>
             <li class="list-group-item py-1">
-              <a href="warehouses.php" class="text-reset">Warehouses</a>
+              <a href="warehouse.php" class="text-reset">Warehouses</a>
             </li>
             <li class="list-group-item py-1">
               <a href="inventory.php" class="text-reset">Inventory</a>

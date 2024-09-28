@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['equipment_success'] = true;
                 echo "<script>
                         alert('equipment added successfully!');
-                        window.location.href = 'AddEquipment.php';
+                        window.location.href = 'equipment.php';
                       </script>";
                 exit();
             } else {

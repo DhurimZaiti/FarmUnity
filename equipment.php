@@ -85,22 +85,22 @@
                             <tr>
                                 <td><a href="singleEquipment.php">Tractor</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
+                                    <a href="editSingleEquipment.php" class="btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="deleteEquipment.php" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td> 
                             </tr>
                             <tr>
                                 <td><a href="singleEquipment.php">Tractor 2</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
+                                    <a href="editSingleEquipment.php" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="deleteEquipment.php" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td><a href="singleEquipment.php">Tractor Plugger</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
+                                    <a href="editSingleEquipment.php" class="btn btn-outline-secondary btn-sm">Edit Equipment Data</a>
+                                    <a href="deleteEquipment.php" class="btn btn-danger btn-sm ms-1">Delete Equipment</a>
                                 </td>
                             </tr>
                         </tbody>

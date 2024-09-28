@@ -53,4 +53,5 @@ if (isset($_POST['submit'])) {
 } else {
     echo "<script>alert('Invalid request.'); window.location.href = 'AddWarehouse.php';</script>";
     exit();
-}
+} 
+   
