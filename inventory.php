@@ -9,13 +9,13 @@
                 <div class="row mb-4">
                     <!-- Edi, kjo hin brenda contents, container ene content, se kto jan paddingat tamam per secollen faqe. -->
                     <div class="d-none">
-                        <h2 class="mb-4 h2">You havent added any warehouses, add one now.</h2>
+                        <h2 class="mb-4 h2">You havent added any inventorys, add one now.</h2>
                         <div id="icon" class="nothing-added text-center">
                             <i class="fad fa-seedling fa-4x mb-4"></i>
-                            <h4 class="h4 mb-3">Haven't added a warehouse yet? Add one now!</h4>
-                            <p class="text-muted">Click the green button above to add your warehouse(s).</p>
-                            <a href="addwarehouse.php">
-                                <button class="btn btn-primary mb-4">Add your warehouses</button>
+                            <h4 class="h4 mb-3">Haven't added a inventory yet? Add one now!</h4>
+                            <p class="text-muted">Click the green button above to add your inventory(s).</p>
+                            <a href="addInventory.php">
+                                <button class="btn btn-primary mb-4">Add your inventorys</button>
                             </a>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                 </div> -->
 
-                <!-- Add warehouses -->
+                <!-- Add inventorys -->
                 <div class="d-flex justify-content-end mb-4">
                     <div class="dropdown me-3">
                         <button class="btn btn-outline-dark dropdown-toggle" type="button" id="sortingDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,33 +74,33 @@
                             <li><a class="dropdown-item" href="#" onclick="changeSorting('By Type')">By Type</a></li>
                         </ul>
                     </div>
-                    <a href="addwarehouse.php" class="btn btn-primary mx-3">Add warehouse</a>
+                    <a href="addInventory.php" class="btn btn-primary mx-3">Add Inventory</a>
                 </div>
 
-                <!-- warehouses Section -->
-                <h2>warehouse</h2>
+                <!-- inventorys Section -->
+                <h2>Inventory</h2>
                 <div class="list-group">
                     <table class="table table-striped border rounded">
                         <tbody>
                             <tr>
-                                <td><a href="singlewarehouse.php">Tractor</a></td>
+                                <td><a href="singleinventory.php">Tractor</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit warehouse Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete warehouse</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Inventory Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Inventory</a>
                                 </td> 
                             </tr>
                             <tr>
-                                <td><a href="singlewarehouse.php">Tractor 2</a></td>
+                                <td><a href="singleinventory.php">Tractor 2</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit warehouse Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete warehouse</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Inventory Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete inventory</a>
                                 </td>
                             </tr>
                             <tr>
-                                <td><a href="singlewarehouse.php">Tractor Plugger</a></td>
+                                <td><a href="singleinventory.php">Tractor Plugger</a></td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit warehouse Data</a>
-                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete warehouse</a>
+                                    <a href="#" class="btn btn-outline-secondary btn-sm">Edit Inventory Data</a>
+                                    <a href="#" class="btn btn-danger btn-sm ms-1">Delete Inventory</a>
                                 </td>
                             </tr>
                         </tbody>

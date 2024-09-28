@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ini_set('log_errors', 1);
-ini_set('error_log', './AddInvetory.php');
+ini_set('error_log', './addInventory.php');
 session_start();
 include_once('config.php');
 
@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['inventory_success'] = true;
                 echo "<script>
                         alert('inventory added successfully!');
-                        window.location.href = 'AddInventory.php';
+                        window.location.href = 'addInventory.php';
                       </script>";
                 exit();
             } else {
@@ -58,9 +58,9 @@ if (isset($_POST['submit'])) {
     }
 
     $_SESSION['inventory_error_message'] = $error;
-    header("Location: AddInventory.php");
+    header("Location: addInventory.php");
     exit();
 } else {
-    echo "<script>alert('Invalid request.'); window.location.href = 'AddInventory.php';</script>";
+    echo "<script>alert('Invalid request.'); window.location.href = 'addInventory.php';</script>";
     exit();
 }
